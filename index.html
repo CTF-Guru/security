@@ -5,54 +5,175 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Security — Visual Explainer Library</title>
 <style>
-  :root{ --bg:#0b0b0b; --panel:#141414; --line:#2b2b2b; --ink:#fff; --muted:#bdbdbd; --dim:#8c8c8c;
-         --red:#DF2E28; --gold:#E9BF35; --green:#81BB42; --blue:#5AA9EC; --teal:#3AD0B0; --orange:#FE9A3A;
+  :root{ --bg:#0b0b0b; --panel:#141414; --panel2:#0e0e0e; --line:#2b2b2b; --ink:#fff; --muted:#bdbdbd; --dim:#8c8c8c;
+         --red:#FF5A4D; --gold:#E9BF35; --green:#81BB42; --blue:#5AA9EC; --teal:#3AD0B0; --orange:#FE9A3A; --purple:#9B5DE5;
          --font:'Century Gothic','Futura','Avenir Next',sans-serif; }
   *{ box-sizing:border-box; margin:0; padding:0 }
-  body{ background:var(--bg); color:var(--ink); font-family:var(--font); padding:44px 28px 70px }
-  .wrap{ max-width:1180px; margin:0 auto }
-  header{ border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:26px }
-  .kick{ font-size:.72rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); font-weight:700 }
-  h1{ font-size:clamp(1.9rem,4vw,2.7rem); margin:.25rem 0 }
-  .sub{ color:var(--muted); font-size:.98rem }
-  .sub code{ color:var(--gold); font-family:inherit }
-  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:20px }
-  .card{ background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--c,var(--gold));
-         border-radius:14px; overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column }
-  .card:hover{ border-color:var(--c,var(--gold)) }
-  .card img{ width:100%; height:188px; object-fit:cover; object-position:top center; display:block;
-             border-bottom:1px solid var(--line); background:#000 }
-  .card .b{ padding:13px 15px 15px }
-  .ct{ font-weight:800; font-size:1.02rem }
-  .cd{ color:var(--muted); font-size:.85rem; margin-top:3px; line-height:1.4 }
-  .open{ color:var(--gold); font-size:.8rem; font-weight:700; margin-top:9px; display:inline-block }
-  footer{ margin-top:42px; color:var(--dim); font-size:.8rem; border-top:1px solid var(--line); padding-top:16px;
-          display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px }
+  body{ background:var(--bg); color:var(--ink); font-family:var(--font); padding:40px 26px 90px }
+  .wrap{ max-width:1200px; margin:0 auto }
+  header{ border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:16px }
+  .kick{ font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); font-weight:700 }
+  h1{ font-size:2rem; margin:.3rem 0 .25rem }
+  .sub{ color:var(--muted); font-size:.95rem }
+  .sub b{ color:var(--gold); font-weight:700 }
 
-  .card{ overflow:hidden }
-  .card .b{ padding-bottom:6px }
+  .tabs{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 22px }
+  .tab{ font-size:.82rem; font-weight:700; color:var(--muted); background:var(--panel); border:1px solid var(--line);
+        border-radius:999px; padding:7px 14px; cursor:pointer; display:flex; align-items:center; gap:8px }
+  .tab:hover{ color:var(--ink); border-color:var(--ac) }
+  .tab .dot{ width:9px; height:9px; border-radius:50%; background:var(--ac) }
+  .tab.on{ color:#000; background:var(--ac); border-color:var(--ac) }
+  .tab .n{ opacity:.7; font-weight:700 }
+
+  .grp{ border:1px solid var(--line); border-left:3px solid var(--ac); border-radius:12px; background:var(--panel2);
+        margin-bottom:12px; overflow:hidden }
+  .ghead{ width:100%; text-align:left; background:transparent; border:0; cursor:pointer; color:var(--ink);
+          padding:14px 18px; display:flex; align-items:center; gap:14px; font-family:inherit }
+  .ghead .gt{ font-size:1.12rem; font-weight:800; letter-spacing:.01em }
+  .ghead .gd{ color:var(--dim); font-size:.85rem; font-weight:500 }
+  .ghead .cnt{ margin-left:auto; font-size:.72rem; font-weight:700; color:var(--ac); border:1px solid var(--ac);
+               border-radius:999px; padding:3px 11px; white-space:nowrap }
+  .ghead .chev{ color:var(--ac); font-size:1rem; transition:transform .2s; width:14px; text-align:center }
+  .grp.on .chev{ transform:rotate(90deg) }
+  .grp.on{ background:var(--panel) }
+
+  .gbody{ padding:2px 18px 18px; display:flex; gap:12px; overflow-x:auto; scrollbar-width:thin }
+  .grp.on .gbody{ display:grid; grid-template-columns:repeat(auto-fill,minmax(212px,1fr)); overflow:visible }
+
+  .card{ flex:0 0 212px; background:var(--panel); border:1px solid var(--line); border-radius:11px; overflow:hidden;
+         display:flex; flex-direction:column }
+  .grp.on .card{ flex:auto }
+  .card:hover{ border-color:var(--ac) }
   .cardlink{ text-decoration:none; color:inherit; display:flex; flex-direction:column; flex:1 }
-  .cdl{ display:flex; justify-content:space-between; align-items:center; gap:10px;
-        padding:0 15px 13px; font-size:.82rem }
-  .cdl .o{ color:var(--gold); text-decoration:none; font-weight:700 }
-  .cdl span{ color:var(--dim); font-size:.78rem }
-  .cdl span a{ color:var(--muted); text-decoration:none; font-weight:700 }
-  .cdl span a:hover{ color:var(--gold) }
+  .thumb{ height:150px; background:#000; border-bottom:1px solid var(--line); overflow:hidden; position:relative }
+  .thumb img{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block }
+  .thumb.ph{ display:flex; align-items:center; justify-content:center; padding:14px;
+             background:radial-gradient(120px 80px at 50% 20%, color-mix(in srgb, var(--ac) 16%, #000), #0a0a0a) }
+  .thumb.ph span{ color:var(--muted); font-weight:800; font-size:.92rem; text-align:center; line-height:1.25;
+                  text-transform:uppercase; letter-spacing:.03em }
+  .thumb .flag{ position:absolute; top:8px; left:8px; font-size:.62rem; font-weight:800; letter-spacing:.06em;
+                text-transform:uppercase; padding:3px 7px; border-radius:6px; background:rgba(0,0,0,.7); border:1px solid var(--line) }
+  .flag.live{ color:var(--green); border-color:#2c3b1c }
+  .flag.soon{ color:var(--dim) }
+  .cb{ padding:10px 12px 11px; display:flex; flex-direction:column; gap:5px; flex:1 }
+  .ct{ font-weight:800; font-size:.9rem; line-height:1.28 }
+  .cx{ color:var(--dim); font-size:.74rem; margin-top:auto }
+  .also{ color:var(--dim); font-size:.68rem; font-weight:700; margin-top:auto }
+  .crow{ display:flex; justify-content:space-between; align-items:center; padding:0 12px 11px; font-size:.76rem }
+  .crow .open{ color:var(--ac); font-weight:700; text-decoration:none }
+  .crow .dl{ color:var(--dim); font-size:.72rem }
+  .crow .dl a{ color:var(--muted); text-decoration:none; font-weight:700 }
+  .crow .dl a:hover{ color:var(--ac) }
+
+  footer{ margin-top:36px; color:var(--dim); font-size:.8rem; border-top:1px solid var(--line); padding-top:16px;
+          display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="kick">Farooq Ali · ctf.guru</div>
-    <h1>Security — Visual Explainer Library</h1>
-    <div class="sub">Full-page infographics on cybersecurity &amp; AI security — open any poster, then download its <code>.gif</code> or <code>.png</code> from the page.</div>
+    <div class="kick">Security · Visual Explainer Library</div>
+    <h1>Cybersecurity &amp; AI Security</h1>
+    <div class="sub">Browse by group — click a group to bring it to the top and open all its explainers. <b>OAuth 2.0</b> is live; the rest are queued.</div>
   </header>
-
-  <div class="grid">
-    <div class="card" style="--c:var(--blue)"><a class="cardlink" href="oauth2-poster.html"><img src="oauth2-poster.png" alt="OAuth 2.0 — Delegated Authorization poster"><div class="b"><div class="ct">OAuth 2.0 — Delegated Authorization</div><div class="cd">How apps get scoped access without your password.</div></div></a><div class="cdl"><a class="o" href="oauth2-poster.html">Open ↗</a><span><a href="oauth2-poster.gif" download>GIF</a> · <a href="oauth2-poster.png" download>PNG</a></span></div></div>
-  </div>
-
-  <footer><span>© 2026 Farooq Ali — explainer series</span><span>ctf.guru</span></footer>
+  <div class="tabs" id="tabs"></div>
+  <div id="groups"></div>
+  <footer><span>CTF · Farooq Ali — security explainer series</span><span>ctf.guru</span></footer>
 </div>
+
+<script>
+const GROUPS = [
+  { id:'identity', name:'Identity &amp; Zero Trust', ac:'var(--blue)', desc:'Identity is the control plane; Zero Trust is the model.', items:[
+    { title:'OAuth 2.0 — Delegated Authorization', slug:'oauth2', live:true },
+    { title:'OIDC — Login on top of OAuth' },
+    { title:'ID vs Access vs Refresh Token' },
+    { title:'MFA vs Passkeys' },
+    { title:'PAM + JIT + Zero Standing Privileges' },
+    { title:'Zero Trust — Never trust, always verify' },
+    { title:'ZTNA — App-level access' },
+  ]},
+  { id:'posture', name:'Posture &amp; Exposure', ac:'var(--teal)', desc:'See what you own and what is exposed — cloud, SaaS, identity, data, AI.', items:[
+    { title:'CNAPP — Cloud-Native App Protection' },
+    { title:'CSPM vs CWPP vs CIEM vs CDR' },
+    { title:'SSPM — SaaS Posture' },
+    { title:'DSPM vs DLP' },
+    { title:'ASPM — App Security Posture' },
+    { title:'CTEM — Continuous Threat Exposure' },
+  ]},
+  { id:'owasp', name:'OWASP — Web to AI', ac:'var(--purple)', desc:'What goes wrong in apps, APIs, LLMs, and agents.', items:[
+    { title:'OWASP Top 10:2025' },
+    { title:'OWASP API Top 10' },
+    { title:'OWASP LLM Top 10:2025' },
+    { title:'Prompt Injection', also:'AI Security' },
+    { title:'Agentic AI Security' },
+  ]},
+  { id:'mitre', name:'MITRE — ATT&CK to ATLAS', ac:'var(--red)', desc:'How attackers behave, and how defenders map coverage.', items:[
+    { title:'MITRE ATT&CK Overview' },
+    { title:'MITRE ATLAS — Attacks on AI' },
+    { title:'D3FEND — Defensive Mapping' },
+    { title:'CVE → CWE → CAPEC → ATT&CK' },
+  ]},
+  { id:'aigov', name:'AI Security &amp; Governance', ac:'var(--gold)', desc:'Technical + governance controls for GenAI and agents.', items:[
+    { title:'NIST AI RMF' },
+    { title:'EU AI Act — Risk Tiers' },
+    { title:'ISO/IEC 42001' },
+    { title:'AI Red Teaming' },
+    { title:'AI-SPM — AI Posture', also:'Posture' },
+    { title:'Prompt Injection', also:'OWASP' },
+  ]},
+  { id:'secops', name:'SecOps &amp; Resilience', ac:'var(--orange)', desc:'Detect, respond, recover — because controls fail.', items:[
+    { title:'SIEM vs SOAR vs XDR' },
+    { title:'Incident Response Lifecycle' },
+    { title:'Ransomware Kill Chain' },
+    { title:'SOC — Security Operations Center' },
+    { title:'Threat Intelligence' },
+  ]},
+];
+
+function cardHTML(it){
+  if(it.live){
+    return '<div class="card">'
+      + '<a class="cardlink" href="'+it.slug+'-poster.html">'
+      + '<div class="thumb"><img src="'+it.slug+'-poster.png" alt=""><span class="flag live">Live</span></div>'
+      + '<div class="cb"><div class="ct">'+it.title+'</div></div></a>'
+      + '<div class="crow"><a class="open" href="'+it.slug+'-poster.html">Open ↗</a>'
+      + '<span class="dl"><a href="'+it.slug+'-poster.gif" download>GIF</a> · <a href="'+it.slug+'-poster.png" download>PNG</a></span></div>'
+      + '</div>';
+  }
+  return '<div class="card soon">'
+    + '<div class="thumb ph"><span>'+it.title.split(' — ')[0]+'</span><span class="flag soon">Soon</span></div>'
+    + '<div class="cb"><div class="ct">'+it.title+'</div>'
+    + (it.also?'<div class="also">↔ also in '+it.also+'</div>':'<div class="cx">queued</div>')+'</div></div>';
+}
+function groupHTML(g){
+  return '<section class="grp" id="g-'+g.id+'" style="--ac:'+g.ac+'">'
+    + '<button class="ghead" data-id="'+g.id+'"><span class="chev">▸</span>'
+    + '<span><span class="gt">'+g.name+'</span> &nbsp;<span class="gd">'+g.desc+'</span></span>'
+    + '<span class="cnt">'+g.items.length+' explainers</span></button>'
+    + '<div class="gbody">'+g.items.map(cardHTML).join('')+'</div></section>';
+}
+function tabHTML(g){
+  return '<button class="tab" data-id="'+g.id+'" style="--ac:'+g.ac+'"><span class="dot"></span>'+g.name+' <span class="n">'+g.items.length+'</span></button>';
+}
+
+const tabsEl = document.getElementById('tabs');
+const groupsEl = document.getElementById('groups');
+tabsEl.innerHTML = GROUPS.map(tabHTML).join('');
+groupsEl.innerHTML = GROUPS.map(groupHTML).join('');
+
+function setActive(id){
+  const sec = document.getElementById('g-'+id);
+  if(!sec) return;
+  groupsEl.querySelectorAll('.grp').forEach(s=>s.classList.remove('on'));
+  tabsEl.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on', t.dataset.id===id));
+  sec.classList.add('on');
+  groupsEl.prepend(sec);
+  if(location.hash!=='#'+id) history.replaceState(null,'','#'+id);
+}
+tabsEl.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setActive(t.dataset.id)));
+groupsEl.querySelectorAll('.ghead').forEach(h=>h.addEventListener('click',()=>setActive(h.dataset.id)));
+
+setActive((location.hash||'#identity').slice(1));
+</script>
 </body>
 </html>
