@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OAuth 2.0 — Delegated Authorization</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="oauth2-poster.gif" download>GIF</a> · <a href="oauth2-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>OAUTH <span class="b">2.0</span></h1>
+  <div class="sub">Delegated authorization — how an app gets <b>scoped, revocable</b> access to your data <span class="dim">without ever seeing your password</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 PROBLEM -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">01</div><div class="ctitle">The problem OAuth solves <span class="t2">— stop giving apps your password</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <!-- BEFORE -->
+        <text x="20" y="16" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">BEFORE — hand over your password</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="130" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="85" y="53" text-anchor="middle" fill="#fff">You + password</text>
+          <rect x="270" y="34" width="150" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="345" y="53" text-anchor="middle" fill="#fff">3rd-party app</text>
+          <g class="mess" stroke="#FF5A4D" stroke-width="1.4"><line x1="150" y1="49" x2="270" y2="49"/></g>
+          <text x="210" y="43" text-anchor="middle" fill="#FF5A4D" font-size="10">password</text>
+          <text x="345" y="86" text-anchor="middle" fill="#FF5A4D" font-size="11">→ full account access</text>
+          <text x="345" y="102" text-anchor="middle" fill="#FF5A4D" font-size="11">forever · can't scope · can't revoke 🔥</text>
+        </g>
+        <!-- divider arrow -->
+        <text x="500" y="70" text-anchor="middle" fill="#E9BF35" font-size="30" font-weight="800">→</text>
+        <!-- AFTER -->
+        <text x="560" y="16" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">WITH OAUTH — a scoped, expiring token</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="560" y="34" width="84" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="602" y="53" text-anchor="middle" fill="#fff">You</text>
+          <rect x="678" y="34" width="118" height="30" rx="7" fill="#1a1305" stroke="#E9BF35"/><text x="737" y="53" text-anchor="middle" fill="#E9BF35">Provider</text>
+          <rect x="830" y="34" width="140" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="900" y="53" text-anchor="middle" fill="#fff">3rd-party app</text>
+          <g fill="none" stroke="none"><path id="oaA" d="M796,49 L830,49"/></g>
+          <line x1="644" y1="49" x2="678" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <circle r="3.1" fill="#81BB42"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#oaA"/></animateMotion></circle>
+          <text x="737" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9.5">password stays here</text>
+          <text x="900" y="86" text-anchor="middle" fill="#81BB42" font-size="11">→ only what you allow</text>
+          <text x="900" y="102" text-anchor="middle" fill="#81BB42" font-size="11">expires · revocable · no password ✓</text>
+        </g>
+      </svg>
+      <p style="margin-top:8px" class="lead">OAuth lets you <b>delegate</b> limited access — the app acts for you without ever seeing your password.</p>
+    </div>
+
+    <!-- 02 FOUR ROLES -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The four roles <span class="t2">— who's who in every OAuth flow</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:7px; margin-top:1px">
+        <div class="mini"><h4 style="color:#5AA9EC">👤 Resource Owner</h4><p>You — the user who owns the data and grants access.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">📱 Client</h4><p>The app that wants access — web, mobile, SPA, or service.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">🔐 Authorization Server</h4><p>Verifies you &amp; issues tokens. <b>/authorize</b> + <b>/token</b>.</p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">🗄️ Resource Server</h4><p>The API holding your data. Accepts the access token.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Client asks · Authorization Server approves · Resource Server serves.</span></p>
+    </div>
+
+    <!-- 03 THE FLOW -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The Authorization Code flow <span class="t2">— the modern default, with PKCE</span></div></div>
+      <svg viewBox="0 0 1000 176" width="100%" style="display:block">
+        <text x="50" y="14" fill="#5AA9EC" font-size="10.5" font-weight="700" font-family="Century Gothic, sans-serif">FRONT CHANNEL · browser redirects</text>
+        <text x="648" y="14" fill="#3AD0B0" font-size="10.5" font-weight="700" font-family="Century Gothic, sans-serif">BACK CHANNEL · server-to-server</text>
+        <line x1="606" y1="26" x2="606" y2="150" stroke="#2b2b2b" stroke-dasharray="3 4"/>
+        <!-- spine -->
+        <line x1="50" y1="92" x2="950" y2="92" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="oaflow" d="M50,92 L950,92" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#oaflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#oaflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="90" cy="92" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="90" y="44" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · /authorize</text>
+            <text x="90" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">client → auth server</text>
+            <text x="90" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">+ PKCE challenge</text></g>
+          <g><circle class="tlDot" cx="262" cy="92" r="6" fill="#3AD0B0" style="animation-delay:.4s"/>
+            <text x="262" y="44" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">2 · log in + consent</text>
+            <text x="262" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">you ↔ auth server</text>
+            <text x="262" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">approve the scopes</text></g>
+          <g><circle class="tlDot" cx="434" cy="92" r="6" fill="#E9BF35" style="animation-delay:.8s"/>
+            <text x="434" y="44" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">3 · auth code</text>
+            <text x="434" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">auth server → client</text>
+            <text x="434" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">one-time, short-lived</text></g>
+          <g><circle class="tlDot" cx="606" cy="92" r="6" fill="#FE9A3A" style="animation-delay:1.2s"/>
+            <text x="606" y="44" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">4 · /token</text>
+            <text x="606" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">client → auth server</text>
+            <text x="606" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">code + PKCE verifier</text></g>
+          <g><circle class="tlDot" cx="778" cy="92" r="6" fill="#9B5DE5" style="animation-delay:1.6s"/>
+            <text x="778" y="44" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">5 · access token</text>
+            <text x="778" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">auth server → client</text>
+            <text x="778" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">+ refresh token</text></g>
+          <g><circle class="tlDot" cx="928" cy="92" r="6" fill="#81BB42" style="animation-delay:2s"/>
+            <text x="928" y="44" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">6 · call API</text>
+            <text x="928" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">client → resource server</text>
+            <text x="928" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">Authorization: Bearer</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:7px"><span class="em">The app only ever holds a code, then a token — your password never leaves the Authorization Server.</span></p>
+    </div>
+
+    <!-- 04 AUTHZ vs AUTHN -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Authorization ≠ Authentication</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎟️</span><div><b>OAuth 2.0 = authorization</b> <span>— “what may this app do?” It grants scoped access to an API.</span></div></div>
+        <div class="gx"><span class="ic">🪪</span><div><b>OIDC = authentication</b> <span>— “who is this user?” A thin layer on OAuth that adds an <b>ID token</b>.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Using an access token to “log in” is the classic mistake — that's OIDC's job.</span></p>
+    </div>
+
+    <!-- 05 TOKENS -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">05</div><div class="ctitle">The tokens</div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#FE9A3A">Access</h4><p>Short-lived. Sent as <b>Bearer</b> to call APIs.<span class="ex">expires in minutes</span></p></div>
+        <div class="mini"><h4 style="color:#5AA9EC">Refresh</h4><p>Long-lived. Silently mints new access tokens.<span class="ex">store securely</span></p></div>
+        <div class="mini"><h4 style="color:#9B5DE5">ID <span style="color:#8c8c8c">(OIDC)</span></h4><p>Proves <b>who</b> logged in. Not for calling APIs.<span class="ex">a JWT</span></p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Bearer = whoever holds it, uses it. Guard access tokens.</span></p>
+    </div>
+
+    <!-- 06 SCOPES -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Scopes &amp; consent</div></div>
+      <p style="margin-bottom:7px">Scopes are the <b>permissions</b> an app requests — the list on the consent screen you approve.</p>
+      <div class="chips">
+        <span class="chip">read:contacts</span><span class="chip">repo</span><span class="chip">email</span><span class="chip">offline_access</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Least privilege — ask for the narrowest scopes you need.</span></p>
+    </div>
+
+    <!-- 07 GRANT TYPES -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Which flow <span class="t2">— pick by client</span></div></div>
+      <table>
+        <tr><th>Grant type</th><th>Use it for</th></tr>
+        <tr><td class="k">Auth Code + PKCE</td><td class="win">Web · mobile · SPA</td></tr>
+        <tr><td class="k">Client Credentials</td><td>Machine-to-machine</td></tr>
+        <tr><td class="k">Device Code</td><td>TVs · CLIs · no browser</td></tr>
+        <tr><td class="k">Implicit · Password</td><td class="no">Deprecated in 2.1</td></tr>
+      </table>
+    </div>
+
+    <!-- 08 ON THE WIRE -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">08</div><div class="ctitle">On the wire <span class="t2">— exchange the code, then call the API</span></div></div>
+      <div class="wire">
+<span class="cm">// 1 · client exchanges the code (+ PKCE verifier) for a token</span><br>
+<b>POST</b> /token &nbsp; <span class="key">grant_type</span>=<span class="str">authorization_code</span> &amp; <span class="key">code</span>=<span class="str">SplxlOB…</span> &amp; <span class="key">code_verifier</span>=<span class="str">dBjftJ…</span><br>
+<span class="cm">// ← response</span><br>
+{ <span class="key">"access_token"</span>: <span class="str">"eyJhbGciOi…"</span>, <span class="key">"token_type"</span>: <span class="str">"Bearer"</span>, <span class="key">"expires_in"</span>: <span class="num2">3600</span> }<br>
+<span class="cm">// 2 · call the resource server with the token</span><br>
+<b>GET</b> /v1/contacts &nbsp; <span class="key">Authorization</span>: <span class="str">Bearer eyJhbGciOi…</span>
+      </div>
+    </div>
+
+    <!-- 09 PKCE -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">09</div><div class="ctitle">PKCE <span class="t2">— say “pixie”</span></div></div>
+      <p style="margin-bottom:7px">Stops a <b>stolen authorization code</b> from being redeemed by an attacker.</p>
+      <div class="steps">
+        <span class="step">hash a secret → <b>challenge</b></span><span class="arrow">→</span>
+        <span class="step">send on /authorize</span>
+      </div>
+      <div class="steps" style="margin-top:6px">
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">reveal <b>verifier</b> on /token</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">server checks the match</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">OAuth 2.1 makes PKCE mandatory for every client.</span></p>
+    </div>
+
+    <!-- 10 GOTCHAS -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎭</span><div><b>state param</b> <span>— ties the response to your request. Skipping it invites CSRF.</span></div></div>
+        <div class="gx"><span class="ic">↩️</span><div><b>Exact redirect_uri</b> <span>— loose matching = open redirect &amp; stolen codes.</span></div></div>
+        <div class="gx"><span class="ic">🥷</span><div><b>Token theft</b> <span>— bearer tokens are cash. Short expiry, HTTPS-only, never log them.</span></div></div>
+        <div class="gx"><span class="ic">🚫</span><div><b>No implicit flow</b> <span>— tokens in the URL leak. Use Auth Code + PKCE.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">OAuth 2.0 is <span class="em">delegated access</span> — scoped, expiring, revocable — so an app can act for you <span class="em">without ever holding your password</span>.</div>
+      <div class="flow2">
+        <span class="step">Redirect</span><span class="arrow">→</span>
+        <span class="step">Consent</span><span class="arrow">→</span>
+        <span class="step">Code</span><span class="arrow">→</span>
+        <span class="step">Token</span><span class="arrow">→</span>
+        <span class="step">Call API</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://farooqali.com" style="color:var(--gold);text-decoration:none;font-weight:700">farooqali.com</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
