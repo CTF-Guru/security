@@ -66,7 +66,12 @@
   .crow .dl a:hover{ color:var(--ac) }
 
   footer{ margin-top:36px; color:var(--dim); font-size:.8rem; border-top:1px solid var(--line); padding-top:16px;
-          display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px }
+          display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; align-items:center }
+  footer .fbrand{ display:inline-flex; align-items:center; gap:8px; color:var(--ink); font-weight:700; font-size:.9rem }
+  footer .fbrand .shield{ width:22px; height:22px; flex:0 0 22px; background:transparent no-repeat center/contain
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 52'><defs><linearGradient id='s' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%233b5168'/><stop offset='1' stop-color='%231a2530'/></linearGradient></defs><path d='M7 5 H41 Q43 5 43 7 V27 Q43 40 24 48 Q5 40 5 27 V7 Q5 5 7 5 Z' fill='url(%23s)' stroke='%235AA9EC' stroke-width='2'/><text x='24' y='32' text-anchor='middle' font-family='Century Gothic, Futura, sans-serif' font-size='16' font-weight='800' letter-spacing='0.5' fill='%23ffffff'>CTF</text></svg>") }
+  footer .fbrand .tag{ color:var(--dim); font-weight:600; font-size:.75rem }
+  footer .fmeta a{ color:var(--gold); text-decoration:none; font-weight:700 }
 </style>
 </head>
 <body>
@@ -74,11 +79,14 @@
   <header>
     <div class="kick">Security · Visual Explainer Library</div>
     <h1>Cybersecurity &amp; AI Security</h1>
-    <div class="sub">Browse by group — click a group to bring it to the top and open all its explainers. <b>OAuth 2.0</b> is live; the rest are queued.</div>
+    <div class="sub">Browse by group — click a group to bring it to the top and open all its explainers. <b>All 7 groups are live.</b></div>
   </header>
   <div class="tabs" id="tabs"></div>
   <div id="groups"></div>
-  <footer><span>CTF · Farooq Ali — security explainer series</span><span>ctf.guru</span></footer>
+  <footer>
+    <span class="fbrand"><span class="shield"></span> Farooq Ali <span class="tag">— Chief Troublemaker &amp; Fixer (CTF)</span></span>
+    <span class="fmeta"><a href="https://ctf.guru">ctf.guru</a> · security explainer series · 2026</span>
+  </footer>
 </div>
 
 <script>
