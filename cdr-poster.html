@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CDR — Cloud Detection &amp; Response</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="cdr-poster.gif" download>GIF</a> · <a href="cdr-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>CLOUD DETECTION <span class="b">&amp; RESPONSE</span></h1>
+  <div class="sub">CDR — real-time <b>threat detection &amp; response</b> for the cloud, the cloud-native analog of <b>EDR / XDR</b>. When prevention fails, it catches the attack <b>in progress</b> <span class="dim">(posture asks “is it safe?”; CDR asks “is it under attack right now?”)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What CDR is <span class="t2">— EDR / XDR, but for the cloud</span></div></div>
+      <svg viewBox="0 0 1000 110" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <rect x="24" y="20" width="288" height="66" rx="10" fill="#0c1622" stroke="#5AA9EC"/>
+          <text x="168" y="42" text-anchor="middle" fill="#5AA9EC" font-size="15" font-weight="800">EDR</text>
+          <text x="168" y="61" text-anchor="middle" fill="#e9e9e9" font-size="10.5">detect + respond on the</text>
+          <text x="168" y="76" text-anchor="middle" fill="#8c8c8c" font-size="10">endpoint (laptops, servers)</text>
+
+          <rect x="356" y="20" width="288" height="66" rx="10" fill="#17102a" stroke="#9B5DE5"/>
+          <text x="500" y="42" text-anchor="middle" fill="#9B5DE5" font-size="15" font-weight="800">XDR</text>
+          <text x="500" y="61" text-anchor="middle" fill="#e9e9e9" font-size="10.5">detect + respond across</text>
+          <text x="500" y="76" text-anchor="middle" fill="#8c8c8c" font-size="10">many layers, one vendor</text>
+
+          <rect x="688" y="20" width="288" height="66" rx="10" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="832" y="42" text-anchor="middle" fill="#E9BF35" font-size="15" font-weight="800">CDR</text>
+          <text x="832" y="61" text-anchor="middle" fill="#e9e9e9" font-size="10.5">detect + respond in the</text>
+          <text x="832" y="76" text-anchor="middle" fill="#8c8c8c" font-size="10">cloud (control plane + workloads)</text>
+
+          <path id="w1" d="M24,11 L976,11" fill="none" stroke="none"/>
+          <line x1="24" y1="11" x2="976" y2="11" stroke="#2b2b2b" stroke-width="1.3"/>
+          <circle r="3.4" fill="#E9BF35"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+          <text x="168" y="104" text-anchor="middle" fill="#5AA9EC" font-size="10">on the box</text>
+          <text x="500" y="104" text-anchor="middle" fill="#9B5DE5" font-size="10">across the estate</text>
+          <text x="832" y="104" text-anchor="middle" fill="#E9BF35" font-size="10">inside the cloud</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead"><b>Cloud Detection &amp; Response</b> watches cloud <span class="em">telemetry</span> — control plane &amp; workloads — for <b>active attacks</b>, then investigates and responds. The detect-and-respond job of EDR/XDR, aimed at the cloud.</p>
+    </div>
+
+    <!-- 02 WHAT IT WATCHES -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">What it watches <span class="t2">— cloud telemetry</span></div></div>
+      <p style="margin-bottom:6px">It ingests the signals that reveal what's happening in the cloud, right now:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📜</span><div><b>Control-plane logs</b> <span>— AWS CloudTrail, Azure &amp; GCP audit logs: every API call.</span></div></div>
+        <div class="gx"><span class="ic">🌐</span><div><b>Network flow</b> <span>— VPC flow logs, DNS &amp; egress traffic.</span></div></div>
+        <div class="gx"><span class="ic">☸️</span><div><b>Kubernetes audit</b> <span>— API-server events, orchestration activity.</span></div></div>
+        <div class="gx"><span class="ic">⚙️</span><div><b>Workload / runtime</b> <span>— process, file &amp; syscall signals on hosts &amp; containers.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 03 THREATS IT CATCHES -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Threats it catches <span class="t2">— active, not hypothetical</span></div></div>
+      <p style="margin-bottom:6px">Behaviour that means an attack is <b>underway</b>, not just a weak config:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔑</span><div><b>Credential abuse</b> <span>— stolen keys, anomalous API calls from new geos.</span></div></div>
+        <div class="gx"><span class="ic">👑</span><div><b>Privilege escalation</b> <span>— rights being granted &amp; assumed mid-attack.</span></div></div>
+        <div class="gx"><span class="ic">📤</span><div><b>Data exfiltration</b> <span>— mass reads, snapshots copied out, egress spikes.</span></div></div>
+        <div class="gx"><span class="ic">⛏️</span><div><b>Crypto-mining · lateral movement</b> <span>— hijacked compute, host-to-host spread.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 04 THE LOOP -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">The loop <span class="t2">— detect → investigate → respond, on live cloud telemetry</span></div></div>
+      <svg viewBox="0 0 1000 108" width="100%" style="display:block">
+        <line x1="60" y1="62" x2="940" y2="62" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="cdrloop" d="M60,62 L940,62" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cdrloop"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cdrloop"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="110" cy="62" r="7" fill="#3AD0B0" style="animation-delay:0s"/>
+            <text x="110" y="28" text-anchor="middle" fill="#3AD0B0" font-size="12.5" font-weight="800">1 · INGEST</text>
+            <text x="110" y="88" text-anchor="middle" fill="#bdbdbd" font-size="10">cloud telemetry</text>
+            <text x="110" y="102" text-anchor="middle" fill="#8c8c8c" font-size="9.5">logs · flow · runtime</text></g>
+          <g><circle class="tlDot" cx="360" cy="62" r="7" fill="#DF2E28" style="animation-delay:.55s"/>
+            <text x="360" y="28" text-anchor="middle" fill="#FF5A4D" font-size="12.5" font-weight="800">2 · DETECT</text>
+            <text x="360" y="88" text-anchor="middle" fill="#bdbdbd" font-size="10">spot the attack</text>
+            <text x="360" y="102" text-anchor="middle" fill="#8c8c8c" font-size="9.5">anomaly · rule · threat intel</text></g>
+          <g><circle class="tlDot" cx="620" cy="62" r="7" fill="#FE9A3A" style="animation-delay:1.1s"/>
+            <text x="620" y="28" text-anchor="middle" fill="#FE9A3A" font-size="12.5" font-weight="800">3 · INVESTIGATE</text>
+            <text x="620" y="88" text-anchor="middle" fill="#bdbdbd" font-size="10">reconstruct the path</text>
+            <text x="620" y="102" text-anchor="middle" fill="#8c8c8c" font-size="9.5">attack-path · timeline</text></g>
+          <g><circle class="tlDot" cx="900" cy="62" r="7" fill="#81BB42" style="animation-delay:1.65s"/>
+            <text x="900" y="28" text-anchor="middle" fill="#81BB42" font-size="12.5" font-weight="800">4 · RESPOND</text>
+            <text x="900" y="88" text-anchor="middle" fill="#bdbdbd" font-size="10">stop it</text>
+            <text x="900" y="102" text-anchor="middle" fill="#8c8c8c" font-size="9.5">isolate · revoke · playbook</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">Ingest → detect → investigate → respond — a continuous runtime loop that shrinks how long an attacker goes unnoticed.</span></p>
+    </div>
+
+    <!-- 05 POSTURE vs DETECTION -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Posture vs detection <span class="t2">— why CDR completes a CNAPP</span></div></div>
+      <table>
+        <tr><th></th><th style="color:#5AA9EC">CSPM · CWPP · CIEM</th><th style="color:#E9BF35">CDR</th></tr>
+        <tr><td class="k">Job</td><td>Posture — hygiene &amp; config</td><td>Detection &amp; response</td></tr>
+        <tr><td class="k">Stance</td><td>Proactive — prevent</td><td class="win">Reactive — catch it live</td></tr>
+        <tr><td class="k">When</td><td>Build &amp; config time</td><td class="win">Runtime, as it happens</td></tr>
+        <tr><td class="k">Answers</td><td>“Is it configured safely?”</td><td>“Is something attacking now?”</td></tr>
+      </table>
+      <p style="margin-top:7px"><span class="em">Posture reduces the chance of a breach; CDR is what you have for when prevention fails.</span> Together they make a complete <b>CNAPP</b>.</p>
+    </div>
+
+    <!-- 06 ATTACK TIMELINE -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">06</div><div class="ctitle">A cloud attack, in minutes <span class="t2">— where CDR earns its keep</span></div></div>
+      <svg viewBox="0 0 1000 122" width="100%" style="display:block">
+        <line x1="60" y1="54" x2="940" y2="54" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="atk" d="M60,54 L940,54" fill="none" stroke="none"/>
+        <circle r="4" fill="#FF5A4D"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#atk"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <circle cx="150" cy="54" r="6" fill="#FF5A4D"/>
+          <text x="150" y="32" text-anchor="middle" fill="#FF5A4D" font-size="11.5">initial access</text>
+          <text x="150" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">leaked key used</text>
+
+          <circle cx="400" cy="54" r="6" fill="#FE9A3A"/>
+          <text x="400" y="32" text-anchor="middle" fill="#FE9A3A" font-size="11.5">escalation</text>
+          <text x="400" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">assume admin role</text>
+
+          <circle cx="650" cy="54" r="6" fill="#E9BF35"/>
+          <text x="650" y="32" text-anchor="middle" fill="#E9BF35" font-size="11.5">exfiltration</text>
+          <text x="650" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">copy data out</text>
+
+          <!-- detect & respond marker -->
+          <g>
+            <line x1="500" y1="16" x2="500" y2="92" stroke="#81BB42" stroke-width="1.6" stroke-dasharray="4 3"/>
+            <rect x="404" y="94" width="192" height="30" rx="8" fill="#0f1a06" stroke="#81BB42"/>
+            <text x="500" y="109" text-anchor="middle" fill="#81BB42" font-size="11" font-weight="800">DETECT &amp; RESPOND HERE</text>
+            <text x="500" y="120" text-anchor="middle" fill="#bdbdbd" font-size="9">isolate · revoke — before exfil</text>
+            <circle cx="500" cy="54" r="8" fill="none" stroke="#81BB42" stroke-width="2"><animate attributeName="r" values="8;13;8" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
+          </g>
+        </g>
+      </svg>
+      <p style="margin-top:5px"><span class="em">Cloud attacks unfold in minutes, not days.</span> CDR detects &amp; responds mid-chain — cutting <b>dwell time</b> before the data leaves.</p>
+    </div>
+
+    <!-- 07 CDR vs SIBLINGS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">07</div><div class="ctitle">CDR vs its siblings <span class="t2">— say it clearly</span></div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎯</span><div><b>CDR</b> <span>— active <b>threats now</b>. Runtime detect + respond.</span></div></div>
+        <div class="gx"><span class="ic">📐</span><div><b>CSPM</b> <span>— is the <b>config</b> safe? Posture.</span></div></div>
+        <div class="gx"><span class="ic">🛡️</span><div><b>CWPP</b> <span>— are the <b>workloads</b> hardened? Posture.</span></div></div>
+        <div class="gx"><span class="ic">🪪</span><div><b>CIEM</b> <span>— who <b>can do</b> what? Posture.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">CSPM / CWPP / CIEM harden the cloud; CDR watches it while it runs.</span></p>
+    </div>
+
+    <!-- 08 TIES TO THE SOC -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Ties to the SOC <span class="t2">— SIEM · SOAR · XDR</span></div></div>
+      <p style="margin-bottom:6px">CDR is the cloud-focused member of the detect-&amp;-respond family:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🗄️</span><div><b>SIEM</b> <span>— CDR can feed cloud detections into the central SOC pipeline.</span></div></div>
+        <div class="gx"><span class="ic">🤖</span><div><b>SOAR</b> <span>— its response playbooks drive automated containment.</span></div></div>
+        <div class="gx"><span class="ic">🧩</span><div><b>XDR</b> <span>— CDR is the <b>cloud layer</b>; XDR correlates it with endpoint &amp; network.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="em">CDR complements the SOC stack with a cloud focus — it doesn't replace it.</span></p>
+    </div>
+
+    <!-- 09 WHY IT SHRINKS DWELL TIME -->
+    <div class="card span2 c-green">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Why it exists <span class="t2">— shrink cloud dwell time (MTTD → MTTR)</span></div></div>
+      <div class="steps">
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">prevention fails</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#123a34;color:#3AD0B0">CDR detects fast (MTTD↓)</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2a10;color:#FE9A3A">investigate the path</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#1e3a0e;color:#81BB42">respond fast (MTTR↓)</span>
+      </div>
+      <p style="margin-top:8px"><span class="em">Posture lowers the odds; CDR lowers the damage.</span> The two metrics that matter — <b>MTTD</b> (detect) &amp; <b>MTTR</b> (respond) — CDR pulls both down.</p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🕳️</span><div><b>Log coverage &amp; cost</b> <span>— blind spots miss attacks; full telemetry can get expensive.</span></div></div>
+        <div class="gx"><span class="ic">⏱️</span><div><b>Cloud-speed attacks</b> <span>— minutes, not days. Detection must be near real-time.</span></div></div>
+        <div class="gx"><span class="ic">🔔</span><div><b>Noisy telemetry</b> <span>— raw logs are loud; good detections beat more alerts.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 RESPONSE GUARDRAILS -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">11</div><div class="ctitle">Auto-response, carefully</div></div>
+      <p style="margin-bottom:6px">Automated response is powerful — and dangerous without guardrails:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">✂️</span><div><b>Auto-revoke can break prod</b> <span>— killing a “rogue” key may kill a real service.</span></div></div>
+        <div class="gx"><span class="ic">🚦</span><div><b>Scope the playbooks</b> <span>— gate risky actions; alert-only in sensitive paths.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">Fast response is the point — but a wrong auto-action is its own outage.</span></p>
+    </div>
+
+    <!-- 12 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">12</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">CDR is <span class="em">EDR/XDR for the cloud</span> — it watches cloud telemetry to catch an attack <span class="em">in progress</span>. Posture prevents; <span class="em">CDR is for when prevention fails</span>.</div>
+      <div class="flow2">
+        <span class="step">Ingest telemetry</span><span class="arrow">→</span>
+        <span class="step">Detect the attack</span><span class="arrow">→</span>
+        <span class="step">Investigate the path</span><span class="arrow">→</span>
+        <span class="step">Respond — shrink dwell time</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

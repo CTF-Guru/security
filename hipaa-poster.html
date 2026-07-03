@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIPAA — US Health Privacy &amp; Security Law</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="hipaa-poster.gif" download>GIF</a> · <a href="hipaa-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>HIPAA <span class="b">EXPLAINED</span></h1>
+  <div class="sub">The US law that protects health information — three rules, three families of safeguards, and one linchpin: the <b>risk analysis</b> <span class="dim">(a 2025 update is <b>proposed, not yet in force</b> — see §09)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p>The <b>Health Insurance Portability and Accountability Act</b> — the US federal law that protects health information. It sets rules for how <b>Protected Health Information (PHI)</b> may be used, disclosed, and safeguarded. Enforced by the HHS <b>Office for Civil Rights (OCR)</b>.</p>
+      <p style="margin-top:7px"><span class="em">Not just a privacy promise — a security programme you must build and prove.</span></p>
+    </div>
+
+    <!-- 02 WHO IT COVERS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">Who it covers</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🏥</span><div><b>Covered entities</b> <span>— healthcare <b>providers</b>, health <b>plans</b>, and <b>clearinghouses</b>.</span></div></div>
+        <div class="gx"><span class="ic">🔗</span><div><b>Business associates</b> <span>— vendors that handle PHI on their behalf (cloud, billing, IT) — <b>directly liable</b> too.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">A signed Business Associate Agreement (BAA) is required before a vendor touches PHI.</span></p>
+    </div>
+
+    <!-- 03 THE THREE RULES -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The three rules <span class="t2">— privacy, security, and what to do after a breach</span></div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">📋 Privacy Rule</h4><p>Governs <b>permitted uses &amp; disclosures</b> of PHI — in any form (paper, oral, electronic). Gives patients rights over their records.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">🛡️ Security Rule</h4><p>Safeguards for <b>electronic PHI (ePHI)</b> only. Administrative, physical &amp; technical controls — <b>45 CFR Part 164</b>.</p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">📣 Breach Notification</h4><p>Notify affected individuals + HHS <b>within 60 days</b> of discovery. 500+ in a state → notify prominent <b>media</b> too.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Privacy governs the “may I?”; Security protects the bytes; Breach Notification handles the aftermath.</span></p>
+    </div>
+
+    <!-- 04 SECURITY RULE — THREE SAFEGUARD FAMILIES (SVG HERO) -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Security Rule safeguards <span class="t2">— three families guarding ePHI at the centre</span></div></div>
+      <svg viewBox="0 0 1000 198" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif">
+          <!-- connecting spokes from families to core -->
+          <line class="spoke" x1="180" y1="62" x2="468" y2="100" stroke="#5AA9EC" stroke-width="1.6" style="animation-delay:.1s"/>
+          <line class="spoke" x1="820" y1="62" x2="532" y2="100" stroke="#9B5DE5" stroke-width="1.6" style="animation-delay:.35s"/>
+          <line class="spoke" x1="500" y1="144" x2="500" y2="158" stroke="#81BB42" stroke-width="1.6" style="animation-delay:.6s"/>
+          <!-- core: ePHI -->
+          <circle cx="500" cy="106" r="38" fill="#1a1305" stroke="#E9BF35" stroke-width="1.8"/>
+          <text x="500" y="103" text-anchor="middle" fill="#E9BF35" font-size="16" font-weight="800">ePHI</text>
+          <text x="500" y="119" text-anchor="middle" fill="#bdbdbd" font-size="9.5">electronic PHI</text>
+          <!-- travelling dot orbiting the core -->
+          <path id="hipCore" d="M500,68 A38,38 0 1 1 499,68" fill="none" stroke="none"/>
+          <circle r="3.2" fill="#fff"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#hipCore"/></animateMotion></circle>
+
+          <!-- ADMINISTRATIVE -->
+          <rect x="40" y="18" width="290" height="86" rx="10" fill="#101725" stroke="#5AA9EC" stroke-width="1.4"/>
+          <text x="58" y="40" fill="#5AA9EC" font-size="13" font-weight="800">ADMINISTRATIVE</text>
+          <text x="58" y="59" fill="#bdbdbd" font-size="10.3">risk analysis · workforce training</text>
+          <text x="58" y="74" fill="#bdbdbd" font-size="10.3">access management</text>
+          <text x="58" y="89" fill="#bdbdbd" font-size="10.3">contingency planning</text>
+
+          <!-- PHYSICAL -->
+          <rect x="360" y="158" width="280" height="34" rx="10" fill="#0d1305" stroke="#81BB42" stroke-width="1.4"/>
+          <text x="378" y="179" fill="#81BB42" font-size="12.5" font-weight="800">PHYSICAL</text>
+          <text x="462" y="179" fill="#bdbdbd" font-size="10.3">facility access · workstation &amp; media controls</text>
+
+          <!-- TECHNICAL -->
+          <rect x="670" y="18" width="290" height="86" rx="10" fill="#1c1330" stroke="#9B5DE5" stroke-width="1.4"/>
+          <text x="688" y="40" fill="#9B5DE5" font-size="13" font-weight="800">TECHNICAL</text>
+          <text x="688" y="59" fill="#bdbdbd" font-size="10.3">access &amp; audit controls · integrity</text>
+          <text x="688" y="74" fill="#bdbdbd" font-size="10.3">person / entity authentication</text>
+          <text x="688" y="89" fill="#bdbdbd" font-size="10.3">transmission security</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">Every safeguard is an <b>implementation specification</b> that is either <b>Required</b> or <b>Addressable</b> — and “addressable” does <b>not</b> mean optional (see §05).</p>
+    </div>
+
+    <!-- 05 REQUIRED vs ADDRESSABLE -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Required vs addressable</div></div>
+      <p style="margin-bottom:7px">Each spec carries one of two labels — and both create duties:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔒</span><div><b>Required</b> <span>— implement it. No discretion.</span></div></div>
+        <div class="gx"><span class="ic">⚖️</span><div><b>Addressable</b> <span>— implement it, <b>or</b> document why an equivalent alternative is reasonable.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">“Addressable” ≠ optional — skipping it without justification is a violation.</span></p>
+    </div>
+
+    <!-- 06 RISK ANALYSIS = THE LINCHPIN -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Risk analysis · the linchpin</div></div>
+      <p>An accurate, thorough <b>risk analysis</b> of every place ePHI lives is the foundation the whole Security Rule stands on — you can't safeguard what you haven't mapped.</p>
+      <div class="steps" style="margin-top:8px">
+        <span class="step" style="border-color:#243b18;color:#81BB42">find the ePHI</span><span class="arrow" style="color:#8c8c8c">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">assess risk</span><span class="arrow" style="color:#8c8c8c">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">mitigate</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">The single most-cited failure in OCR enforcement actions.</span></p>
+    </div>
+
+    <!-- 07 BREACH NOTIFICATION TIMELINE (SVG, ANIMATED) -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Breach notification <span class="t2">— the clock starts at <b>discovery</b>, not at the breach</span></div></div>
+      <svg viewBox="0 0 1000 176" width="100%" style="display:block">
+        <line x1="90" y1="92" x2="910" y2="92" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="hipTl" d="M90,92 L910,92" fill="none" stroke="none"/>
+        <circle r="6" fill="#FE9A3A" opacity=".28"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#hipTl"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#hipTl"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="140" cy="92" r="6" fill="#FF5A4D" style="animation-delay:0s"/>
+            <text x="140" y="44" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">Discovery</text>
+            <text x="140" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">breach found</text>
+            <text x="140" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">the 60-day clock starts</text></g>
+          <g><circle class="tlDot" cx="420" cy="92" r="6" fill="#E9BF35" style="animation-delay:.6s"/>
+            <text x="420" y="44" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">Within 60 days</text>
+            <text x="420" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">notify individuals</text>
+            <text x="420" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">+ notify HHS (OCR)</text></g>
+          <g><circle class="tlDot" cx="700" cy="92" r="6" fill="#FE9A3A" style="animation-delay:1.2s"/>
+            <text x="700" y="44" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">500+ affected</text>
+            <text x="700" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">notify prominent MEDIA</text>
+            <text x="700" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">in that state / jurisdiction</text></g>
+          <g><circle class="tlDot" cx="880" cy="92" r="6" fill="#9B5DE5" style="animation-delay:1.8s"/>
+            <text x="880" y="44" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">HHS logs it</text>
+            <text x="880" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">public breach portal</text>
+            <text x="880" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">the “wall of shame”</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">60 days is the outer limit — “without unreasonable delay” means sooner where you can.</span></p>
+    </div>
+
+    <!-- 08 ENFORCEMENT -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Enforcement · OCR</div></div>
+      <p style="margin-bottom:7px">OCR sets <b>tiered civil monetary penalties</b> by culpability — the more you knew, the higher the band:</p>
+      <table>
+        <tr><th>Culpability</th><th>Penalty</th></tr>
+        <tr><td class="k">Didn't know</td><td>lowest tier</td></tr>
+        <tr><td class="k">Willful neglect</td><td class="no">highest civil tier</td></tr>
+        <tr><td class="k">Willful misuse</td><td class="no">criminal penalties</td></tr>
+      </table>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Willful misuse of PHI can bring fines and imprisonment.</span></p>
+    </div>
+
+    <!-- 09 PROPOSED 2025 UPDATE — clearly labelled -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Proposed 2025 update <span class="t2">— <b>NOT yet in force</b></span></div></div>
+      <p style="margin-bottom:6px"><span class="em">Proposed only.</span> OCR published an NPRM on <b>6 Jan 2025</b> (comments closed Mar 2025). As of <b>mid-2026 it is not finalized</b>. If adopted it would:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔐</span><div><b>Make specs mandatory</b> <span>— remove the “addressable” distinction; require <b>encryption</b> of ePHI at rest &amp; in transit + <b>MFA</b>.</span></div></div>
+        <div class="gx"><span class="ic">🧭</span><div><b>New controls</b> <span>— network segmentation · asset inventories · vuln scans (≥ every 6 mo) · pen testing (≥ annually).</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Treat as an incoming change — verify status against the current Federal Register before relying on it.</span></p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🗺️</span><div><b>Skipped risk analysis</b> <span>— the number-one OCR finding; a checklist is not a risk analysis of where <b>your</b> ePHI actually lives.</span></div></div>
+        <div class="gx"><span class="ic">❌</span><div><b>“Addressable = optional” myth</b> <span>— addressable still requires you to implement it or document a reasonable equivalent.</span></div></div>
+        <div class="gx"><span class="ic">🔗</span><div><b>Forgotten business associates</b> <span>— vendors are directly liable; PHI needs a signed BAA before it changes hands.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">HIPAA is <span class="em">three rules over PHI</span> — and the Security Rule stands or falls on an honest <span class="em">risk analysis</span> that maps every place your ePHI lives.</div>
+      <div class="flow2">
+        <span class="step">Map the ePHI</span><span class="arrow">→</span>
+        <span class="step">Apply safeguards</span><span class="arrow">→</span>
+        <span class="step">Sign BAAs</span><span class="arrow">→</span>
+        <span class="step">Notify in 60 days</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

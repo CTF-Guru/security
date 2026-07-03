@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOC 2 — System and Organization Controls (attestation)</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="soc2-poster.gif" download>GIF</a> · <a href="soc2-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · GRC field guide</div>
+  <h1>SOC <span class="b">2</span></h1>
+  <div class="sub">An independent CPA firm <b>attests</b> to your controls against the Trust Services Criteria — a <b>report</b>, not a certification <span class="dim">(the report US SaaS buyers ask for in vendor due diligence)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What SOC 2 is <span class="t2">— an attestation report, not a certificate</span></div></div>
+      <svg viewBox="0 0 1000 82" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <rect x="20" y="20" width="180" height="44" rx="9" fill="#0d1116" stroke="#5AA9EC"/>
+          <text x="110" y="40" text-anchor="middle" fill="#5AA9EC" font-size="12">Service org</text>
+          <text x="110" y="55" text-anchor="middle" fill="#bdbdbd" font-size="10">your SaaS + its controls</text>
+          <rect x="410" y="20" width="180" height="44" rx="9" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="500" y="40" text-anchor="middle" fill="#E9BF35" font-size="12">Licensed CPA firm</text>
+          <text x="500" y="55" text-anchor="middle" fill="#bdbdbd" font-size="10">independent auditor</text>
+          <rect x="800" y="20" width="180" height="44" rx="9" fill="#0e150c" stroke="#81BB42"/>
+          <text x="890" y="40" text-anchor="middle" fill="#81BB42" font-size="12">SOC 2 report</text>
+          <text x="890" y="55" text-anchor="middle" fill="#bdbdbd" font-size="10">shared under NDA</text>
+          <path id="soc1flow" d="M200,42 L410,42" fill="none" stroke="none"/>
+          <line x1="200" y1="42" x2="410" y2="42" stroke="#2b2b2b" stroke-width="1.4"/>
+          <path id="soc2flow" d="M590,42 L800,42" fill="none" stroke="none"/>
+          <line x1="590" y1="42" x2="800" y2="42" stroke="#2b2b2b" stroke-width="1.4"/>
+          <circle r="3.4" fill="#E9BF35"><animateMotion dur="1.9s" repeatCount="indefinite"><mpath href="#soc1flow"/></animateMotion></circle>
+          <circle r="3.4" fill="#81BB42"><animateMotion dur="1.9s" begin="-.95s" repeatCount="indefinite"><mpath href="#soc2flow"/></animateMotion></circle>
+          <text x="305" y="32" text-anchor="middle" fill="#8c8c8c" font-size="9.5">audits →</text>
+          <text x="695" y="32" text-anchor="middle" fill="#8c8c8c" font-size="9.5">attests →</text>
+        </g>
+      </svg>
+      <p style="margin-top:5px" class="lead"><b>SOC 2</b> = System and Organization Controls 2, an <b>AICPA</b> framework. A CPA firm <span class="em">attests</span> to how well your controls meet the criteria — you get a <b>report</b> you can hand to customers, not a badge you display.</p>
+    </div>
+
+    <!-- 02 THE 5 TSC -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The 5 Trust Services Criteria</div></div>
+      <svg viewBox="0 0 340 142" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-weight="700" text-anchor="middle">
+          <circle cx="170" cy="74" r="66" fill="none" stroke="#2b2b2b" stroke-width="1.4"/>
+          <circle cx="170" cy="74" r="42" fill="#1a1305" stroke="#E9BF35" stroke-width="1.6"/>
+          <text x="170" y="70" fill="#E9BF35" font-size="14">SECURITY</text>
+          <text x="170" y="84" fill="#bdbdbd" font-size="8.5">Common Criteria</text>
+          <text x="170" y="95" fill="#FF5A4D" font-size="8">always required</text>
+          <text x="170" y="14" fill="#5AA9EC" font-size="11">Availability</text>
+          <text x="296" y="74" fill="#3AD0B0" font-size="11">Processing</text>
+          <text x="296" y="86" fill="#3AD0B0" font-size="11">Integrity</text>
+          <text x="206" y="138" fill="#FE9A3A" font-size="11">Confidentiality</text>
+          <text x="58" y="134" fill="#9B5DE5" font-size="11">Privacy</text>
+          <circle cx="170" cy="18" r="3.4" fill="#5AA9EC"/>
+          <circle cx="236" cy="58" r="3.4" fill="#3AD0B0"/>
+          <circle cx="214" cy="126" r="3.4" fill="#FE9A3A"/>
+          <circle cx="96" cy="118" r="3.4" fill="#9B5DE5"/>
+        </g>
+      </svg>
+      <p style="margin-top:4px"><span class="em">Security is mandatory</span> — the other four are optional, scoped in only if they fit your service.</p>
+    </div>
+
+    <!-- 03 SCOPE IN -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Scope in what fits</div></div>
+      <p style="margin-bottom:7px">You choose which criteria the report covers — Security anchors every SOC 2, add the rest by relevance:</p>
+      <div class="chips">
+        <span class="chip">Security ★</span><span class="chip">Availability</span><span class="chip">Processing Integrity</span><span class="chip">Confidentiality</span><span class="chip">Privacy</span>
+      </div>
+      <p style="margin-top:9px"><span class="dim" style="color:#8c8c8c">A data pipeline may add Processing Integrity; a health app, Privacy. Scope to your promises.</span></p>
+    </div>
+
+    <!-- 04 TYPE I vs TYPE II -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Type I vs Type II <span class="t2">— point in time vs over a period</span></div></div>
+      <table style="margin-top:2px">
+        <tr><th></th><th>Type I</th><th>Type II</th></tr>
+        <tr><td class="k">Question</td><td>Are controls <b>designed</b> suitably?</td><td>Are they designed <b>and operating effectively</b>?</td></tr>
+        <tr><td class="k">When</td><td>a single <b>point in time</b></td><td>across a <b>review period</b> (usually 3–12 months)</td></tr>
+        <tr><td class="k">Evidence</td><td>design of controls on that date</td><td>auditor <b>samples</b> evidence across the window</td></tr>
+        <tr><td class="k">Buyers</td><td>a fast first step</td><td class="win">what customers usually demand</td></tr>
+      </table>
+      <p style="margin-top:6px"><span class="em">Type I proves the controls exist; Type II proves they actually ran, day after day.</span></p>
+    </div>
+
+    <!-- 05 THE OBSERVATION PERIOD (timeline SVG) -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">05</div><div class="ctitle">The Type II observation period <span class="t2">— sampled across the window</span></div></div>
+      <svg viewBox="0 0 1000 126" width="100%" style="display:block">
+        <line x1="60" y1="80" x2="940" y2="80" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="soc2period" d="M60,80 L940,80" fill="none" stroke="none"/>
+        <circle r="6" fill="#FE9A3A" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#soc2period"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#soc2period"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <text x="60" y="36" text-anchor="middle" fill="#5AA9EC" font-size="12">Type I</text>
+          <text x="60" y="52" text-anchor="middle" fill="#bdbdbd" font-size="9.5" font-weight="400">design · one date</text>
+          <circle cx="60" cy="80" r="7" fill="#5AA9EC"/>
+          <text x="500" y="22" text-anchor="middle" fill="#FE9A3A" font-size="12">Type II review period — controls sampled throughout</text>
+          <g>
+            <circle class="tlDot" cx="200" cy="80" r="6" fill="#3AD0B0" style="animation-delay:0s"/>
+            <circle class="tlDot" cx="340" cy="80" r="6" fill="#3AD0B0" style="animation-delay:.4s"/>
+            <circle class="tlDot" cx="480" cy="80" r="6" fill="#3AD0B0" style="animation-delay:.8s"/>
+            <circle class="tlDot" cx="620" cy="80" r="6" fill="#3AD0B0" style="animation-delay:1.2s"/>
+            <circle class="tlDot" cx="760" cy="80" r="6" fill="#3AD0B0" style="animation-delay:1.6s"/>
+          </g>
+          <text x="480" y="110" text-anchor="middle" fill="#8c8c8c" font-size="10" font-weight="400">evidence sampled month after month (typically 3–12 months)</text>
+          <circle cx="940" cy="80" r="7" fill="#E9BF35"/>
+          <text x="940" y="36" text-anchor="middle" fill="#E9BF35" font-size="12">Report</text>
+          <text x="940" y="52" text-anchor="middle" fill="#bdbdbd" font-size="9.5" font-weight="400">issued</text>
+        </g>
+      </svg>
+      <p style="margin-top:4px"><span class="em">Type I is a snapshot; Type II is the whole movie</span> — the auditor watches the controls run and tests samples along the way.</p>
+    </div>
+
+    <!-- 06 SOC 1 / 2 / 3 -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">06</div><div class="ctitle">SOC 1 · 2 · 3</div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">SOC 1</h4><p>Controls over <b>financial reporting</b> (ICFR) — for your customers' auditors.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">SOC 2</h4><p>Security &amp; the other Trust criteria — <b>restricted</b>, shared under NDA.</p></div>
+        <div class="mini"><h4 style="color:#81BB42">SOC 3</h4><p>A <b>public</b>, general-use summary of a SOC 2 — no confidential detail.</p></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Same auditor engagement family; different audience and depth.</span></p>
+    </div>
+
+    <!-- 07 WHO NEEDS IT -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Who needs it &amp; why</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🏢</span><div><b>US SaaS &amp; vendors</b> <span>— the assurance buyers ask for in due diligence.</span></div></div>
+        <div class="gx"><span class="ic">🤝</span><div><b>Unblocks deals</b> <span>— procurement &amp; security review clear faster with a report on file.</span></div></div>
+        <div class="gx"><span class="ic">🔒</span><div><b>Shared under NDA</b> <span>— given to customers &amp; prospects, not published.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 08 THE ROAD -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">The road to a report <span class="t2">— define once, then keep it living</span></div></div>
+      <div class="steps">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">scope + pick TSC</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">readiness / gap assessment</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">implement controls</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">audit: Type I</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2410;color:#FE9A3A">Type II over a period</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">annual renewal</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">A report is a point in a cycle — the observation window resets and you re-attest every year.</span></p>
+    </div>
+
+    <!-- 09 SOC 2 vs ISO 27001 -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">09</div><div class="ctitle">SOC 2 vs ISO 27001</div></div>
+      <table>
+        <tr><th>SOC 2</th><th>ISO 27001</th></tr>
+        <tr><td>US <b>attestation report</b></td><td>global <b>certification</b></td></tr>
+        <tr><td>criteria-based (TSC)</td><td>a management <b>system</b> (ISMS)</td></tr>
+        <tr><td>CPA firm attests</td><td>accredited body certifies</td></tr>
+      </table>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Not rivals — many vendors hold both; they satisfy different buyers.</span></p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🚫</span><div><b>SOC 2 ≠ secure</b> <span>— it attests to <b>your</b> controls as scoped, not that you can't be breached.</span></div></div>
+        <div class="gx"><span class="ic">🎯</span><div><b>Scope gaming</b> <span>— a narrow boundary or Security-only scope proves little. Read what's covered.</span></div></div>
+        <div class="gx"><span class="ic">📅</span><div><b>Type I ≠ Type II</b> <span>— a point-in-time report says nothing about how controls held up over time.</span></div></div>
+        <div class="gx"><span class="ic">📖</span><div><b>Read the exceptions</b> <span>— check the auditor's opinion &amp; noted deviations, not just the cover.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">SOC 2 is an <span class="em">independent CPA attestation</span> to your controls against the Trust Services Criteria — a <span class="em">report you share, not a certificate you post</span>.</div>
+      <div class="flow2">
+        <span class="step">Scope + TSC</span><span class="arrow">→</span>
+        <span class="step">Operate controls</span><span class="arrow">→</span>
+        <span class="step">Type II over a period</span><span class="arrow">→</span>
+        <span class="step">Report under NDA</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

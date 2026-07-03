@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCI DSS 4.0.1 — Payment Card Industry Data Security Standard</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="pci-dss-poster.gif" download>GIF</a> · <a href="pci-dss-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>PCI DSS <span class="b">4.0.1</span></h1>
+  <div class="sub">The card-data security standard every business that <b>stores, processes, or transmits</b> cardholder data must meet <span class="dim">(a contract from the card brands — not a law)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p>The <b>Payment Card Industry Data Security Standard</b> — one baseline for protecting cardholder data, run by the <b>PCI Security Standards Council</b> (founded by the major card brands).</p>
+      <p style="margin-top:7px"><span class="em">Contractual, not statutory</span> — you accept it by accepting cards. It applies to <b>anyone</b> who stores, processes, or transmits that data.</p>
+    </div>
+
+    <!-- 02 WHO IT HITS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">Who must comply</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🗄️</span><div><b>Store</b> <span>— you keep card numbers anywhere, in any form.</span></div></div>
+        <div class="gx"><span class="ic">⚙️</span><div><b>Process</b> <span>— your systems handle the data during a payment.</span></div></div>
+        <div class="gx"><span class="ic">📡</span><div><b>Transmit</b> <span>— card data crosses your network or app.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Touch cardholder data any of these ways → you're in scope.</span></p>
+    </div>
+
+    <!-- 03 SIX GOALS → TWELVE REQUIREMENTS -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">6 goals → 12 requirements <span class="t2">— the whole standard, grouped</span></div></div>
+      <svg viewBox="0 0 1000 208" width="100%" style="display:block" font-family="Century Gothic, sans-serif">
+        <g font-size="10.5" font-weight="700">
+          <!-- G1 -->
+          <rect x="6" y="6" width="316" height="58" rx="8" fill="#101820" stroke="#5AA9EC"/>
+          <text x="16" y="22" fill="#5AA9EC" font-size="10.5" font-weight="800">BUILD &amp; MAINTAIN A SECURE NETWORK</text>
+          <text x="16" y="40" fill="#e7e7e7"><tspan fill="#5AA9EC" font-weight="800">1</tspan>  Network security controls</text>
+          <text x="16" y="56" fill="#e7e7e7"><tspan fill="#5AA9EC" font-weight="800">2</tspan>  Secure configs · no defaults</text>
+          <!-- G2 -->
+          <rect x="342" y="6" width="316" height="58" rx="8" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="352" y="22" fill="#E9BF35" font-size="10.5" font-weight="800">PROTECT ACCOUNT DATA</text>
+          <text x="352" y="40" fill="#e7e7e7"><tspan fill="#E9BF35" font-weight="800">3</tspan>  Protect stored account data</text>
+          <text x="352" y="56" fill="#e7e7e7"><tspan fill="#E9BF35" font-weight="800">4</tspan>  Strong crypto in transit</text>
+          <!-- G3 -->
+          <rect x="678" y="6" width="316" height="58" rx="8" fill="#0f1608" stroke="#81BB42"/>
+          <text x="688" y="22" fill="#81BB42" font-size="10.5" font-weight="800">MAINTAIN A VULN MANAGEMENT PROGRAM</text>
+          <text x="688" y="40" fill="#e7e7e7"><tspan fill="#81BB42" font-weight="800">5</tspan>  Protect against malware</text>
+          <text x="688" y="56" fill="#e7e7e7"><tspan fill="#81BB42" font-weight="800">6</tspan>  Secure systems &amp; software</text>
+          <!-- G4 -->
+          <rect x="6" y="76" width="316" height="58" rx="8" fill="#170f22" stroke="#9B5DE5"/>
+          <text x="16" y="92" fill="#9B5DE5" font-size="10.5" font-weight="800">IMPLEMENT STRONG ACCESS CONTROL</text>
+          <text x="16" y="110" fill="#e7e7e7"><tspan fill="#9B5DE5" font-weight="800">7</tspan>  Restrict access by need-to-know</text>
+          <text x="16" y="126" fill="#e7e7e7"><tspan fill="#9B5DE5" font-weight="800">8</tspan>  Identify &amp; authenticate (MFA)</text>
+          <!-- G5 -->
+          <rect x="342" y="76" width="316" height="58" rx="8" fill="#1c1108" stroke="#FE9A3A"/>
+          <text x="352" y="92" fill="#FE9A3A" font-size="10.5" font-weight="800">(continued)</text>
+          <text x="352" y="110" fill="#e7e7e7"><tspan fill="#FE9A3A" font-weight="800">9</tspan>  Restrict physical access</text>
+          <text x="352" y="126" fill="#8c8c8c" font-size="9.5">access control spans reqs 7–9</text>
+          <!-- G6 -->
+          <rect x="678" y="76" width="316" height="58" rx="8" fill="#160d0d" stroke="#FF5A4D"/>
+          <text x="688" y="92" fill="#FF5A4D" font-size="10.5" font-weight="800">MONITOR &amp; TEST NETWORKS</text>
+          <text x="688" y="110" fill="#e7e7e7"><tspan fill="#FF5A4D" font-weight="800">10</tspan>  Log &amp; monitor all access</text>
+          <text x="688" y="126" fill="#e7e7e7"><tspan fill="#FF5A4D" font-weight="800">11</tspan>  Test security regularly</text>
+          <!-- G7 full-width -->
+          <rect x="6" y="146" width="988" height="52" rx="8" fill="#0f1414" stroke="#3AD0B0"/>
+          <text x="16" y="162" fill="#3AD0B0" font-size="10.5" font-weight="800">MAINTAIN AN INFORMATION SECURITY POLICY</text>
+          <text x="16" y="182" fill="#e7e7e7"><tspan fill="#3AD0B0" font-weight="800">12</tspan>  Support security with organisational policies &amp; programs — the human &amp; governance layer that ties reqs 1–11 together.</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">Six goals organise the twelve requirements — a layered defence from the network edge (1–2) to the people and policies that run it (12).</p>
+    </div>
+
+    <!-- 04 THE CDE + SCOPE REDUCTION -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">The Cardholder Data Environment <span class="t2">— shrink the CDE, shrink your audit</span></div></div>
+      <svg viewBox="0 0 1000 128" width="100%" style="display:block" font-family="Century Gothic, sans-serif">
+        <!-- segmentation boundary -->
+        <rect x="330" y="12" width="380" height="104" rx="12" fill="none" stroke="#9B5DE5" stroke-width="1.6" stroke-dasharray="6 5"/>
+        <text x="520" y="28" text-anchor="middle" fill="#9B5DE5" font-size="10.5" font-weight="800">SEGMENTATION BOUNDARY · the CDE (in scope)</text>
+        <g font-size="11" font-weight="700">
+          <!-- customer -->
+          <rect x="24" y="52" width="130" height="44" rx="8" fill="#0c0c0c" stroke="#2b2b2b"/><text x="89" y="72" text-anchor="middle" fill="#fff">Customer</text><text x="89" y="87" text-anchor="middle" fill="#8c8c8c" font-size="9.5">enters card</text>
+          <!-- inside CDE: payment app -->
+          <rect x="360" y="52" width="140" height="44" rx="8" fill="#170f22" stroke="#9B5DE5"/><text x="430" y="72" text-anchor="middle" fill="#e7c9ff">Payment app</text><text x="430" y="87" text-anchor="middle" fill="#8c8c8c" font-size="9.5">handles PAN</text>
+          <!-- inside CDE: card vault -->
+          <rect x="536" y="52" width="150" height="44" rx="8" fill="#170f22" stroke="#9B5DE5"/><text x="611" y="72" text-anchor="middle" fill="#e7c9ff">Token vault</text><text x="611" y="87" text-anchor="middle" fill="#8c8c8c" font-size="9.5">stored data</text>
+          <!-- outside CDE (out of scope) -->
+          <rect x="820" y="52" width="150" height="44" rx="8" fill="#0c0c0c" stroke="#2b2b2b"/><text x="895" y="70" text-anchor="middle" fill="#81BB42">Rest of biz</text><text x="895" y="86" text-anchor="middle" fill="#81BB42" font-size="9">out of scope ✓</text>
+          <!-- flow line + animated dot -->
+          <line x1="154" y1="74" x2="360" y2="74" stroke="#2b2b2b" stroke-width="1.4"/>
+          <line x1="500" y1="74" x2="536" y2="74" stroke="#2b2b2b" stroke-width="1.4"/>
+          <path id="pciFlow" d="M154,74 L360,74" fill="none" stroke="none"/>
+          <circle r="4" fill="#9B5DE5"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#pciFlow"/></animateMotion></circle>
+          <!-- tokenized handoff to out-of-scope -->
+          <line x1="686" y1="74" x2="820" y2="74" stroke="#243b18" stroke-width="1.4" stroke-dasharray="4 4"/>
+          <text x="753" y="66" text-anchor="middle" fill="#81BB42" font-size="9">token only →</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">Scope = the <b>CDE</b>: every system that touches card data. Cut it with <span class="em">tokenization</span>, <span class="em">network segmentation</span>, and outsourcing to compliant processors — a token isn't card data, so systems that hold only tokens fall out of scope.</p>
+    </div>
+
+    <!-- 05 WHAT v4.x CHANGED -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">05</div><div class="ctitle">What v4.x changed</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔁</span><div><b>Continuous, not annual</b> <span>— security as an ongoing process, not a once-a-year snapshot.</span></div></div>
+        <div class="gx"><span class="ic">🧩</span><div><b>Customized approach</b> <span>— meet the outcome your own way, beside the defined controls.</span></div></div>
+        <div class="gx"><span class="ic">🔐</span><div><b>Stronger auth</b> <span>— MFA required for all access into the CDE.</span></div></div>
+        <div class="gx"><span class="ic">🛒</span><div><b>Anti-skimming</b> <span>— new client-side script &amp; e-commerce protections.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 06 CUSTOMIZED VS DEFINED -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Two ways to comply</div></div>
+      <table>
+        <tr><th>Approach</th><th>How you meet it</th></tr>
+        <tr><td class="k">Defined</td><td>Follow the stated control, literally.</td></tr>
+        <tr><td class="k">Customized</td><td class="win">Meet the objective your own way</td></tr>
+      </table>
+      <p style="margin-top:8px">Customized suits mature teams — but demands a <b>targeted risk analysis</b> to prove the outcome is met.</p>
+    </div>
+
+    <!-- 07 MERCHANT LEVELS -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Merchant levels 1–4</div></div>
+      <p style="margin-bottom:6px">Validation scales by yearly transaction volume:</p>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#FF5A4D">Level 1</h4><p>Largest volume → full <b>ROC</b> by a QSA + on-site audit.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">Level 2–3</h4><p>Mid volume → an <b>SAQ</b>, sometimes with a QSA.</p></div>
+        <div class="mini"><h4 style="color:#81BB42">Level 4</h4><p>Smallest → self-assessment <b>SAQ</b>.</p></div>
+      </div>
+    </div>
+
+    <!-- 08 HOW YOU VALIDATE -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">How you validate</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📝</span><div><b>SAQ</b> <span>— a Self-Assessment Questionnaire you attest to.</span></div></div>
+        <div class="gx"><span class="ic">🔍</span><div><b>QSA · ROC</b> <span>— a Qualified Security Assessor issues a Report on Compliance.</span></div></div>
+        <div class="gx"><span class="ic">📡</span><div><b>ASV scan</b> <span>— quarterly external vuln scans by an Approved Scanning Vendor.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 09 THE 4.0.1 TIMELINE -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">09</div><div class="ctitle">The v4 timeline <span class="t2">— the phase-in is <b>complete</b></span></div></div>
+      <svg viewBox="0 0 1000 104" width="100%" style="display:block">
+        <line x1="70" y1="56" x2="930" y2="56" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="pciTime" d="M70,56 L930,56" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pciTime"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pciTime"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="120" cy="56" r="6" fill="#8c8c8c" style="animation-delay:0s"/>
+            <text x="120" y="38" text-anchor="middle" fill="#bdbdbd" font-size="12" font-weight="800">v3.2.1</text>
+            <text x="120" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9.5">retired</text></g>
+          <g><circle class="tlDot" cx="390" cy="56" r="6" fill="#5AA9EC" style="animation-delay:.6s"/>
+            <text x="390" y="38" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">v4.0</text>
+            <text x="390" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9.5">2022 · 64 new reqs</text></g>
+          <g><circle class="tlDot" cx="620" cy="56" r="6" fill="#3AD0B0" style="animation-delay:1.2s"/>
+            <text x="620" y="38" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">v4.0.1</text>
+            <text x="620" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9.5">Jun 2024 · clarifying only</text></g>
+          <g><circle class="tlDot" cx="890" cy="56" r="6" fill="#E9BF35" style="animation-delay:1.8s"/>
+            <text x="890" y="38" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">31 Mar 2025</text>
+            <text x="890" y="80" text-anchor="middle" fill="#81BB42" font-size="9.5">future-dated reqs MANDATORY ✓</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">v4.0.1 added &amp; removed no requirements — it clarified v4.0.</span> As of <b>31 Mar 2025</b>, the 51 future-dated new requirements are in full force.</p>
+    </div>
+
+    <!-- 10 WATCH-OUTS -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out <span class="t2">— where compliant orgs still get breached</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 18px">
+        <div class="gx"><span class="ic">📐</span><div><b>Scope sprawl</b> <span>— flat networks pull everything into the CDE. Segment hard.</span></div></div>
+        <div class="gx"><span class="ic">📅</span><div><b>"Compliant once a year"</b> <span>— controls drift the day after the audit. v4 wants continuous.</span></div></div>
+        <div class="gx"><span class="ic">🛒</span><div><b>E-commerce skimming</b> <span>— injected client-side scripts (Magecart) steal cards in the browser.</span></div></div>
+        <div class="gx"><span class="ic">⚖️</span><div><b>Compliant ≠ secure</b> <span>— it's a floor, not a ceiling. Attackers don't read the SAQ.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">PCI DSS is a <span class="em">contractual baseline</span> for card data — 12 requirements over the CDE, best met by <span class="em">shrinking scope and staying continuously secure</span>, not passing one yearly audit.</div>
+      <div class="flow2">
+        <span class="step">Scope the CDE</span><span class="arrow">→</span>
+        <span class="step">Tokenize · segment</span><span class="arrow">→</span>
+        <span class="step">Meet the 12</span><span class="arrow">→</span>
+        <span class="step">Validate &amp; sustain</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

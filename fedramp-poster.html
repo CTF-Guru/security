@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FedRAMP — Standardized Cloud Authorization for US Federal Agencies</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="fedramp-poster.gif" download>GIF</a> · <a href="fedramp-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>FED<span class="b">RAMP</span></h1>
+  <div class="sub">The government's standard for authorizing <b>cloud services</b> — assess once, reuse across agencies <span class="dim">(Federal Risk and Authorization Management Program · codified by the FedRAMP Authorization Act, 2022)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p><b>FedRAMP</b> — the Federal Risk and Authorization Management Program — <b>standardizes</b> how cloud services (CSPs) are security-assessed, authorized, and continuously monitored for use by US federal agencies.</p>
+      <p style="margin-top:7px"><span class="em">"Do once, use many times" — one authorization can be reused by any agency, instead of every agency re-assessing the same cloud.</span></p>
+    </div>
+
+    <!-- 02 WHY IT EXISTS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">Why it exists</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">♻️</span><div><b>Kill duplicate work</b> <span>— without it, each agency separately vetted the same cloud. One assessment now serves many.</span></div></div>
+        <div class="gx"><span class="ic">📏</span><div><b>One consistent bar</b> <span>— a shared baseline of controls, not a patchwork of per-agency rules.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Codified by the FedRAMP Authorization Act (2022) — no longer just policy.</span></p>
+    </div>
+
+    <!-- 03 THE AUTHORIZATION PATH — HERO -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The authorization path <span class="t2">— build to a baseline, get assessed, get authorized, then never stop monitoring</span></div></div>
+      <svg viewBox="0 0 1000 152" width="100%" style="display:block">
+        <line x1="70" y1="78" x2="930" y2="78" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="frPath" d="M70,78 L930,78" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#frPath"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#frPath"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="110" cy="78" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="110" y="34" text-anchor="middle" fill="#5AA9EC" font-size="12.5" font-weight="800">1 · CSP</text>
+            <text x="110" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">build to a baseline</text>
+            <text x="110" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">implement 800-53 controls</text></g>
+          <g><circle class="tlDot" cx="315" cy="78" r="6" fill="#3AD0B0" style="animation-delay:.5s"/>
+            <text x="315" y="34" text-anchor="middle" fill="#3AD0B0" font-size="12.5" font-weight="800">2 · 3PAO</text>
+            <text x="315" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">independent assessment</text>
+            <text x="315" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">accredited third party tests</text></g>
+          <g><circle class="tlDot" cx="520" cy="78" r="6" fill="#FE9A3A" style="animation-delay:1s"/>
+            <text x="520" y="34" text-anchor="middle" fill="#FE9A3A" font-size="12.5" font-weight="800">3 · ATO</text>
+            <text x="520" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">agency authorizes</text>
+            <text x="520" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">Authorization to Operate</text></g>
+          <g><circle class="tlDot" cx="725" cy="78" r="6" fill="#9B5DE5" style="animation-delay:1.5s"/>
+            <text x="725" y="34" text-anchor="middle" fill="#9B5DE5" font-size="12.5" font-weight="800">4 · Marketplace</text>
+            <text x="725" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">listed &amp; reusable</text>
+            <text x="725" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">other agencies can adopt</text></g>
+          <g><circle class="tlDot" cx="915" cy="78" r="6" fill="#81BB42" style="animation-delay:2s"/>
+            <text x="915" y="34" text-anchor="middle" fill="#81BB42" font-size="12.5" font-weight="800">5 · ConMon</text>
+            <text x="915" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">continuous monitoring</text>
+            <text x="915" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">monthly · POA&amp;Ms</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">A CSP builds to a baseline, a <b>3PAO</b> independently tests it, an <b>agency</b> grants the <b>ATO</b>, it lands in the <b>Marketplace</b> for reuse — and then <b>continuous monitoring</b> never stops.</p>
+    </div>
+
+    <!-- 04 THE IMPACT BASELINES — SVG LADDER -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">The impact baselines <span class="t2">— from FIPS 199 impact on Confidentiality · Integrity · Availability</span></div></div>
+      <svg viewBox="0 0 1000 166" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif">
+          <!-- axis note -->
+          <text x="20" y="14" fill="#8c8c8c" font-size="10">more sensitive data → more NIST 800-53 controls →</text>
+          <!-- LOW -->
+          <rect x="20" y="106" width="215" height="42" rx="8" fill="#0a1512" stroke="#3AD0B0" stroke-width="1.4"/>
+          <text x="127" y="126" text-anchor="middle" fill="#3AD0B0" font-size="14" font-weight="800">LOW</text>
+          <text x="127" y="142" text-anchor="middle" fill="#bdbdbd" font-size="10">limited impact if breached</text>
+          <!-- MODERATE -->
+          <rect x="255" y="68" width="215" height="80" rx="8" fill="#1a0f04" stroke="#FE9A3A" stroke-width="1.4"/>
+          <text x="362" y="94" text-anchor="middle" fill="#FE9A3A" font-size="14" font-weight="800">MODERATE</text>
+          <text x="362" y="112" text-anchor="middle" fill="#bdbdbd" font-size="10">serious impact</text>
+          <text x="362" y="128" text-anchor="middle" fill="#8c8c8c" font-size="9.5">most federal SaaS lives here</text>
+          <!-- HIGH -->
+          <rect x="490" y="26" width="215" height="122" rx="8" fill="#2a0d0c" stroke="#FF5A4D" stroke-width="1.4"/>
+          <text x="597" y="52" text-anchor="middle" fill="#FF5A4D" font-size="14" font-weight="800">HIGH</text>
+          <text x="597" y="70" text-anchor="middle" fill="#bdbdbd" font-size="10">severe / catastrophic impact</text>
+          <text x="597" y="86" text-anchor="middle" fill="#8c8c8c" font-size="9.5">law enforcement · health · finance</text>
+          <!-- rising arrow across the tops -->
+          <path id="frLadder" d="M127,106 L362,68 L597,26" fill="none" stroke="none"/>
+          <line x1="127" y1="106" x2="362" y2="68" stroke="#E9BF35" stroke-width="1.3" stroke-dasharray="4 4" opacity=".55"/>
+          <line x1="362" y1="68" x2="597" y2="26" stroke="#E9BF35" stroke-width="1.3" stroke-dasharray="4 4" opacity=".55"/>
+          <circle r="4" fill="#E9BF35"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#frLadder"/></animateMotion></circle>
+          <!-- Li-SaaS callout -->
+          <rect x="740" y="56" width="240" height="64" rx="8" fill="#0c0c0c" stroke="#E9BF35" stroke-width="1.2"/>
+          <text x="860" y="78" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">+ Li-SaaS</text>
+          <text x="860" y="95" text-anchor="middle" fill="#bdbdbd" font-size="10">low-impact SaaS — tailored</text>
+          <text x="860" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9.5">a lighter, trimmed control set</text>
+        </g>
+      </svg>
+      <p style="margin-top:4px" class="lead">Higher impact = a bigger set of <b>NIST 800-53</b> controls to implement and prove. <b>Low · Moderate · High</b> are the core tiers; <b>Li-SaaS</b> is a tailored path for lightweight low-impact SaaS.</p>
+    </div>
+
+    <!-- 05 BUILT ON NIST -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Built on NIST</div></div>
+      <p style="margin-bottom:7px">FedRAMP doesn't invent its own security — it applies the federal standard:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">SP 800-53 controls</span><span class="arrow">+</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">RMF process</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Same controls, same Risk Management Framework — FedRAMP is the cloud-specific way to apply them.</span></p>
+    </div>
+
+    <!-- 06 WHO AUTHORIZES -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Who authorizes</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🏛️</span><div><b>Agency ATO</b> <span>— a sponsoring agency reviews the package and grants the Authorization to Operate.</span></div></div>
+        <div class="gx"><span class="ic">🔄</span><div><b>FedRAMP Board</b> <span>— replaced the old JAB provisional path; governs the program itself.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">The old JAB (Joint Authorization Board) provisional route is retired.</span></p>
+    </div>
+
+    <!-- 07 CONTINUOUS MONITORING -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Authorization isn't the finish line</div></div>
+      <p style="margin-bottom:7px">An ATO must be <b>maintained</b> — continuous monitoring (ConMon) proves the cloud stays secure:</p>
+      <div class="chips">
+        <span class="chip">monthly ConMon</span><span class="chip">vuln scans</span><span class="chip">POA&amp;Ms for open items</span><span class="chip">annual assessment</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">A POA&amp;M — Plan of Action &amp; Milestones — is the tracked, deadlined plan to close each open finding.</span></p>
+    </div>
+
+    <!-- 08 FEDRAMP 20x — DATED MID-2026 -->
+    <div class="card span2 c-green">
+      <div class="chead"><div class="num">08</div><div class="ctitle">FedRAMP 20x <span class="t2">— the modernization push · <b>in progress, status as of mid-2026</b></span></div></div>
+      <svg viewBox="0 0 1000 104" width="100%" style="display:block">
+        <text x="20" y="12" fill="#FF5A4D" font-size="11" font-weight="700" font-family="Century Gothic, sans-serif">OLD — heavy static docs</text>
+        <text x="980" y="12" text-anchor="end" fill="#81BB42" font-size="11" font-weight="700" font-family="Century Gothic, sans-serif">NEW — automated, machine-readable</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="24" width="300" height="66" rx="9" fill="#0c0c0c" stroke="#FF5A4D"/>
+          <text x="170" y="49" text-anchor="middle" fill="#FF5A4D" font-size="12">hundreds of PDF pages</text>
+          <text x="170" y="68" text-anchor="middle" fill="#bdbdbd" font-size="10">narrative controls · manual review</text>
+          <text x="170" y="83" text-anchor="middle" fill="#8c8c8c" font-size="9.5">slow, point-in-time evidence</text>
+
+          <line x1="320" y1="57" x2="640" y2="57" stroke="#2b2b2b" stroke-width="1.3"/>
+          <path id="fr20x" d="M320,57 L640,57" fill="none" stroke="none"/>
+          <circle r="3.6" fill="#81BB42"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#fr20x"/></animateMotion></circle>
+          <text x="480" y="49" text-anchor="middle" fill="#8c8c8c" font-size="9.5">automate + standardize →</text>
+
+          <rect x="640" y="24" width="340" height="20" rx="5" fill="#0a1512" stroke="#3AD0B0"/><text x="810" y="38" text-anchor="middle" fill="#3AD0B0" font-size="10">KSIs — Key Security Indicators</text>
+          <rect x="640" y="46" width="340" height="20" rx="5" fill="#0b1220" stroke="#5AA9EC"/><text x="810" y="60" text-anchor="middle" fill="#5AA9EC" font-size="10">OSCAL — machine-readable evidence</text>
+          <rect x="640" y="68" width="340" height="20" rx="5" fill="#1a1305" stroke="#E9BF35"/><text x="810" y="82" text-anchor="middle" fill="#E9BF35" font-size="10">Certification Classes A · B · C · D</text>
+        </g>
+      </svg>
+      <p style="margin-top:4px" class="lead"><b>20x</b> trades static documentation for <b>KSIs</b> and automated <b>OSCAL</b> evidence, and moves toward <b>certification classes</b> (Class A pilot · B ≈ Low · C ≈ Moderate · D ≈ High, later). <span class="dim" style="color:#8c8c8c">Mid-2026: the Phase 2 pilot completed (first pilot authorizations March 2026); Phase 3 wide adoption for Low/Moderate is rolling out through Q3–Q4 2026 — still stabilizing.</span></p>
+    </div>
+
+    <!-- 09 THE KEY PLAYERS -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">09</div><div class="ctitle">The key players</div></div>
+      <table>
+        <tr><th>Actor</th><th>Role</th></tr>
+        <tr><td class="k">CSP</td><td>Cloud provider seeking authorization</td></tr>
+        <tr><td class="k">3PAO</td><td>Accredited independent assessor</td></tr>
+        <tr><td class="k">Agency</td><td class="win">Grants &amp; owns the ATO</td></tr>
+        <tr><td class="k">Board</td><td>Governs the program</td></tr>
+      </table>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">The 3PAO is independent — it tests, it doesn't authorize.</span></p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🏋️</span><div><b>ConMon burden</b> <span>— monthly monitoring &amp; POA&amp;M upkeep is ongoing cost, not a one-time project.</span></div></div>
+        <div class="gx"><span class="ic">🔗</span><div><b>Reuse ≠ auto-inheritance</b> <span>— an existing ATO speeds adoption, but the new agency still reviews &amp; accepts the risk.</span></div></div>
+        <div class="gx"><span class="ic">🚧</span><div><b>20x is still moving</b> <span>— treat mid-2026 KSI/class details as evolving; verify against current FedRAMP guidance.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">FedRAMP is <span class="em">assess once, reuse everywhere</span> — NIST controls, an independent 3PAO test, an agency ATO, and <span class="em">continuous monitoring that never stops</span> — now modernizing toward automated evidence.</div>
+      <div class="flow2">
+        <span class="step">Baseline</span><span class="arrow">→</span>
+        <span class="step">3PAO</span><span class="arrow">→</span>
+        <span class="step">ATO</span><span class="arrow">→</span>
+        <span class="step">Marketplace</span><span class="arrow">→</span>
+        <span class="step">ConMon</span><span class="arrow">↺</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWPP — Cloud Workload Protection Platform</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="cwpp-poster.gif" download>GIF</a> · <a href="cwpp-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>CLOUD WORKLOAD <span class="b">PROTECTION</span></h1>
+  <div class="sub">CWPP guards the things that actually <b>run</b> — VMs, containers, Kubernetes &amp; serverless — from <b>build to runtime</b>, in any cloud or on-prem <span class="dim">(the workload pillar inside a CNAPP)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What CWPP is <span class="t2">— it protects the workload itself, not the cloud around it</span></div></div>
+      <p><b>Cloud Workload Protection Platform</b> — security that lives <span class="em">with the running workload</span>: it scans it, hardens it, and watches its behaviour as it executes. CSPM checks the cloud <i>config</i>; CWPP defends the <i>code that runs</i>. It follows the workload across <b>any cloud, on-prem, and hybrid</b> — wherever it runs.</p>
+      <p style="margin-top:6px"><span class="dim" style="color:#8c8c8c">Think of it as a bodyguard that travels with each VM, container &amp; function — from the image on the shelf to the process in production.</span></p>
+    </div>
+
+    <!-- 02 WORKLOADS IT COVERS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The workloads it covers <span class="t2">— one platform, four runtime shapes</span></div></div>
+      <div class="trio" style="grid-template-columns:1fr 1fr 1fr 1fr">
+        <div class="mini"><h4 style="color:#5AA9EC">🖥️ Virtual machines</h4><p>Long-lived hosts &amp; their OS — patch &amp; harden the classic estate.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">📦 Containers</h4><p>Images &amp; running containers — scanned before deploy, watched after.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">☸️ Kubernetes</h4><p>Pods, nodes &amp; the cluster — protection with orchestration context.</p></div>
+        <div class="mini"><h4 style="color:#9B5DE5">λ Serverless</h4><p>Ephemeral functions — short-lived, hard to see, still in scope.</p></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">Same defence, wherever the code runs — no matter how long it lives.</span></p>
+    </div>
+
+    <!-- 03 BUILD -> RUNTIME (ANIMATED TIMELINE) -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Build → runtime <span class="t2">— shift-left in CI, then keep guarding it in production</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <line x1="70" y1="80" x2="930" y2="80" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="cwFlow" d="M70,80 L930,80" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cwFlow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cwFlow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <text x="230" y="14" text-anchor="middle" fill="#3AD0B0" font-size="11" font-weight="800" letter-spacing=".08em">SHIFT-LEFT · BUILD</text>
+          <text x="740" y="14" text-anchor="middle" fill="#FE9A3A" font-size="11" font-weight="800" letter-spacing=".08em">RUNTIME · PRODUCTION</text>
+          <line x1="490" y1="24" x2="490" y2="136" stroke="#2b2b2b" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <g><circle class="tlDot" cx="120" cy="80" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="120" y="44" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · Build image</text>
+            <text x="120" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">in CI/CD</text>
+            <text x="120" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">code + base + deps</text></g>
+          <g><circle class="tlDot" cx="340" cy="80" r="6" fill="#3AD0B0" style="animation-delay:.5s"/>
+            <text x="340" y="44" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">2 · Scan &amp; gate</text>
+            <text x="340" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">CVEs · secrets · config</text>
+            <text x="340" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">fail the build if unsafe</text></g>
+          <g><circle class="tlDot" cx="560" cy="80" r="6" fill="#9B5DE5" style="animation-delay:1s"/>
+            <text x="560" y="44" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">3 · Deploy</text>
+            <text x="560" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">to any cloud / host</text>
+            <text x="560" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">agent or agentless</text></g>
+          <g><circle class="tlDot" cx="740" cy="80" r="6" fill="#FE9A3A" style="animation-delay:1.5s"/>
+            <text x="740" y="44" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">4 · Runtime guard</text>
+            <text x="740" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">watch live behaviour</text>
+            <text x="740" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">baseline · drift · exploit</text></g>
+          <g><circle class="tlDot" cx="900" cy="80" r="6" fill="#E9BF35" style="animation-delay:2s"/>
+            <text x="900" y="44" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">5 · Detect</text>
+            <text x="900" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">block &amp; alert</text>
+            <text x="900" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">on anomalous action</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">Scanning before deploy catches known bugs; runtime protection catches what the scan couldn't — the live attack.</span></p>
+    </div>
+
+    <!-- 04 CORE CAPABILITIES -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Core capabilities</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🐞</span><div><b>Vulnerability scanning</b> <span>— known CVEs in container images, packages &amp; the host OS.</span></div></div>
+        <div class="gx"><span class="ic">📐</span><div><b>Config hardening</b> <span>— checks the host &amp; container against CIS benchmarks.</span></div></div>
+        <div class="gx"><span class="ic">🛡️</span><div><b>Runtime threat detection</b> <span>— anomalous processes &amp; drift from a known-good baseline.</span></div></div>
+        <div class="gx"><span class="ic">🧬</span><div><b>File-integrity monitoring</b> <span>— alerts when critical files change unexpectedly.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 05 MORE CAPABILITIES -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">05</div><div class="ctitle">…and at the runtime edge</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧠</span><div><b>Memory / exploit protection</b> <span>— stops in-memory attacks the disk scan never sees.</span></div></div>
+        <div class="gx"><span class="ic">🧱</span><div><b>Host &amp; micro-segmentation</b> <span>— host firewalling; limit east-west blast radius.</span></div></div>
+        <div class="gx"><span class="ic">🦠</span><div><b>Anti-malware</b> <span>— catches known malicious files on the workload.</span></div></div>
+        <div class="gx"><span class="ic">⏪</span><div><b>Shift-left scanning</b> <span>— the same image scan, moved into CI before deploy.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 06 AGENT vs AGENTLESS (MINI) -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Agent vs agentless <span class="t2">— most platforms run both, so nothing is left uncovered</span></div></div>
+      <div class="trio" style="grid-template-columns:1fr 1fr">
+        <div class="mini"><h4 style="color:#FF5A4D">🔌 Agent-based</h4><p>A sensor inside the workload → <b>deep runtime visibility</b>: live process, memory &amp; syscall activity, and the power to <b>block</b>. Cost: an agent to deploy &amp; run.</p></div>
+        <div class="mini"><h4 style="color:#5AA9EC">📸 Agentless</h4><p>Snapshot-based scanning → <b>broad, fast coverage</b> with nothing to install. Great for vulns &amp; config, but <b>no live runtime</b> view.</p></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">Agentless finds it everywhere; agents watch it as it runs. You want both.</span></p>
+    </div>
+
+    <!-- 07 WORKLOAD WRAPPED IN PROTECTIONS (SVG) -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">07</div><div class="ctitle">A guarded workload <span class="t2">— defences wrapped around the running thing, alerting on drift</span></div></div>
+      <svg viewBox="0 0 1000 166" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <!-- protection ring labels (left) -->
+          <rect x="24" y="18" width="150" height="25" rx="7" fill="#0c0c0c" stroke="#5AA9EC"/><text x="99" y="34" text-anchor="middle" fill="#5AA9EC" font-size="10.5">Vuln scan</text>
+          <rect x="24" y="51" width="150" height="25" rx="7" fill="#0c0c0c" stroke="#81BB42"/><text x="99" y="67" text-anchor="middle" fill="#81BB42" font-size="10.5">CIS hardening</text>
+          <rect x="24" y="84" width="150" height="25" rx="7" fill="#0c0c0c" stroke="#9B5DE5"/><text x="99" y="100" text-anchor="middle" fill="#9B5DE5" font-size="10.5">FIM</text>
+          <rect x="24" y="117" width="150" height="25" rx="7" fill="#0c0c0c" stroke="#3AD0B0"/><text x="99" y="133" text-anchor="middle" fill="#3AD0B0" font-size="10.5">Segmentation</text>
+          <!-- feed lines into workload -->
+          <g stroke="#2b2b2b" stroke-width="1.3" fill="none">
+            <path id="w1" d="M174,30 L360,62"/><path id="w2" d="M174,63 L360,76"/>
+            <path id="w3" d="M174,96 L360,90"/><path id="w4" d="M174,129 L360,104"/>
+          </g>
+          <use href="#w1"/><use href="#w2"/><use href="#w3"/><use href="#w4"/>
+          <circle r="3" fill="#5AA9EC"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+          <circle r="3" fill="#81BB42"><animateMotion dur="2.4s" begin="-.6s" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle>
+          <circle r="3" fill="#9B5DE5"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+          <circle r="3" fill="#3AD0B0"><animateMotion dur="2.4s" begin="-1.8s" repeatCount="indefinite"><mpath href="#w4"/></animateMotion></circle>
+          <!-- the workload stack (center) -->
+          <rect x="360" y="26" width="230" height="114" rx="11" fill="#0e1512" stroke="#3AD0B0" stroke-width="2"/>
+          <text x="475" y="20" text-anchor="middle" fill="#3AD0B0" font-size="11" font-weight="800">THE WORKLOAD</text>
+          <rect x="378" y="38" width="194" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="475" y="55" text-anchor="middle" fill="#fff" font-size="10.5">app / process</text>
+          <rect x="378" y="70" width="194" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="475" y="87" text-anchor="middle" fill="#bdbdbd" font-size="10.5">container / runtime</text>
+          <rect x="378" y="102" width="194" height="30" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="475" y="121" text-anchor="middle" fill="#8c8c8c" font-size="10.5">host OS / kernel</text>
+          <!-- runtime detection alert (right) -->
+          <path id="wAlert" d="M590,84 L742,84" fill="none" stroke="none"/>
+          <line x1="590" y1="84" x2="742" y2="84" stroke="#2b2b2b" stroke-width="1.6"/>
+          <circle r="4" fill="#FF5A4D"><animateMotion dur="1.9s" repeatCount="indefinite"><mpath href="#wAlert"/></animateMotion></circle>
+          <rect x="742" y="50" width="234" height="68" rx="10" fill="#1a0808" stroke="#FF5A4D"/>
+          <text x="859" y="72" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">⚠ RUNTIME ALERT</text>
+          <text x="859" y="90" text-anchor="middle" fill="#fff" font-size="10">unexpected process spawned</text>
+          <text x="859" y="105" text-anchor="middle" fill="#bdbdbd" font-size="9.5">drift from known-good baseline</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">Scans harden it before it runs; a live baseline flags the moment it does something it never did before.</span></p>
+    </div>
+
+    <!-- 08 CWPP vs SIBLINGS (CLARIFIER TABLE) -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">CWPP vs its siblings <span class="t2">— four questions, four pillars, one CNAPP</span></div></div>
+      <table>
+        <tr><th>Pillar</th><th>Asks</th><th>Guards</th><th>Example find</th></tr>
+        <tr><td class="k" style="color:#3AD0B0">CWPP</td><td class="win">Is the workload protected?</td><td>The running VM / container / λ</td><td>Log4Shell in a live container</td></tr>
+        <tr><td class="k" style="color:#5AA9EC">CSPM</td><td>Is the cloud configured right?</td><td>The cloud config around it</td><td>Public S3 bucket</td></tr>
+        <tr><td class="k" style="color:#FE9A3A">CIEM</td><td>Who can touch it?</td><td>Identities &amp; entitlements</td><td>Unused admin role</td></tr>
+        <tr><td class="k" style="color:#E9BF35">CDR</td><td>Is something attacking now?</td><td>The live attack in progress</td><td>Stolen key used at 3am</td></tr>
+      </table>
+      <p style="margin-top:7px"><span class="em">CWPP = the running workload. CSPM = the config. CIEM = the entitlements. CDR = the active attack. All four fold into a CNAPP.</span></p>
+    </div>
+
+    <!-- 09 WHERE IT FITS -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Where it fits</div></div>
+      <p style="margin-bottom:7px">CWPP is the <b>workload pillar</b> of a <b>CNAPP</b> — bundled with its siblings into one platform that follows the attack path:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#123a34;color:#3AD0B0">CWPP</span><span class="arrow">+</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">CSPM</span><span class="arrow">+</span>
+        <span class="step" style="border-color:#3a2a10;color:#FE9A3A">CIEM</span><span class="arrow">+</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">CDR</span>
+      </div>
+      <p style="margin-top:9px"><span class="dim" style="color:#8c8c8c">One vendor, one console — CWPP is the piece that actually lives with the code.</span></p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🪫</span><div><b>Agent overhead &amp; gaps</b> <span>— agents cost resources and may miss hosts you never instrumented.</span></div></div>
+        <div class="gx"><span class="ic">💨</span><div><b>Ephemeral blind spots</b> <span>— serverless &amp; short-lived pods vanish before an agent can see them.</span></div></div>
+        <div class="gx"><span class="ic">🔀</span><div><b>Scan ≠ reality</b> <span>— the image you scanned may not be what actually runs. Tie results to running workloads.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">CWPP is security that <span class="em">travels with the workload</span> — it scans the image before deploy and guards the process at runtime, on <span class="em">any cloud, container, cluster or function</span>.</div>
+      <div class="flow2">
+        <span class="step">Scan the image</span><span class="arrow">→</span>
+        <span class="step">Gate the build</span><span class="arrow">→</span>
+        <span class="step">Guard at runtime</span><span class="arrow">→</span>
+        <span class="step">Detect the drift</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

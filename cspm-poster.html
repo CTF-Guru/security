@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSPM — Cloud Security Posture Management</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="cspm-poster.gif" download>GIF</a> · <a href="cspm-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · Posture field guide</div>
+  <h1>CLOUD <span class="b">POSTURE</span></h1>
+  <div class="sub">Agentless, continuous checking of your cloud <b>control planes</b> for misconfigurations &amp; compliance drift — the entry point to cloud security, and the compliance backbone <span class="dim">(AWS · Azure · GCP — IaaS/PaaS)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What CSPM is <span class="t2">— posture for the cloud you configure</span></div></div>
+      <p class="lead"><b>Cloud Security Posture Management</b> continuously finds <span class="em">misconfigurations</span> and <span class="em">compliance drift</span> across your cloud <b>control planes</b>. It's <b>agentless</b> — it connects through the cloud provider's own <b>read-only APIs</b>, so there's nothing to install on a single VM or container.</p>
+      <div class="steps" style="margin-top:9px">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">no agents</span><span class="arrow">·</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">read-only role</span><span class="arrow">·</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">control-plane config</span><span class="arrow">·</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">multi-cloud</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">It asks one question, always: is the cloud <b>set up right</b>?</span></p>
+    </div>
+
+    <!-- 02 WHAT IT INSPECTS -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">02</div><div class="ctitle">What it inspects <span class="t2">— the recurring classes of cloud misconfiguration</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; margin-top:2px">
+        <div class="gx"><span class="ic">🪣</span><div><b>Public storage</b> <span>— world-readable buckets, open snapshots &amp; images.</span></div></div>
+        <div class="gx"><span class="ic">🔓</span><div><b>Over-permissive network</b> <span>— security groups / ACLs open to 0.0.0.0/0.</span></div></div>
+        <div class="gx"><span class="ic">🔐</span><div><b>Unencrypted data</b> <span>— volumes &amp; databases with encryption at rest off.</span></div></div>
+        <div class="gx"><span class="ic">📴</span><div><b>Logging disabled</b> <span>— CloudTrail / audit logs turned off, no trail.</span></div></div>
+        <div class="gx"><span class="ic">👑</span><div><b>Risky IAM</b> <span>— root-account use, wildcard policies, no MFA on admins.</span></div></div>
+        <div class="gx"><span class="ic">🗄️</span><div><b>Exposed databases</b> <span>— data stores reachable straight from the internet.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">Config, not code — everything above lives in the account's settings, not the running workload.</span></p>
+    </div>
+
+    <!-- 03 HOW IT WORKS (flow SVG) -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">03</div><div class="ctitle">How it works <span class="t2">— connect → scan → evaluate → prioritize → remediate</span></div></div>
+      <svg viewBox="0 0 1000 162" width="100%" style="display:block">
+        <text x="500" y="14" text-anchor="middle" fill="#8c8c8c" font-size="10.5" font-weight="700" font-family="Century Gothic, sans-serif">read-only cloud APIs in · prioritized findings out — a continuous loop</text>
+        <!-- cloud accounts -->
+        <g font-family="Century Gothic, sans-serif" font-size="10.5" font-weight="700">
+          <rect x="14" y="40" width="120" height="96" rx="9" fill="#0c0c0c" stroke="#5AA9EC"/>
+          <text x="74" y="62" text-anchor="middle" fill="#5AA9EC" font-size="11" font-weight="800">Cloud</text>
+          <text x="74" y="80" text-anchor="middle" fill="#bdbdbd" font-size="9.5">AWS</text>
+          <text x="74" y="96" text-anchor="middle" fill="#bdbdbd" font-size="9.5">Azure</text>
+          <text x="74" y="112" text-anchor="middle" fill="#bdbdbd" font-size="9.5">GCP</text>
+          <text x="74" y="130" text-anchor="middle" fill="#8c8c8c" font-size="9">read-only role</text>
+        </g>
+        <!-- pipeline track -->
+        <line x1="134" y1="88" x2="720" y2="88" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="cspmflow" d="M134,88 L720,88" fill="none" stroke="none"/>
+        <circle r="6" fill="#3AD0B0" opacity=".28"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cspmflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cspmflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="200" cy="88" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="200" y="66" text-anchor="middle" fill="#5AA9EC" font-size="11" font-weight="800">Connect</text>
+            <text x="200" y="112" text-anchor="middle" fill="#8c8c8c" font-size="9">read-only API</text></g>
+          <g><circle class="tlDot" cx="330" cy="88" r="6" fill="#3AD0B0" style="animation-delay:.5s"/>
+            <text x="330" y="66" text-anchor="middle" fill="#3AD0B0" font-size="11" font-weight="800">Scan</text>
+            <text x="330" y="112" text-anchor="middle" fill="#8c8c8c" font-size="9">config state</text></g>
+          <g><circle class="tlDot" cx="460" cy="88" r="6" fill="#E9BF35" style="animation-delay:1s"/>
+            <text x="460" y="66" text-anchor="middle" fill="#E9BF35" font-size="11" font-weight="800">Evaluate</text>
+            <text x="460" y="112" text-anchor="middle" fill="#8c8c8c" font-size="9">policy + benchmarks</text></g>
+          <g><circle class="tlDot" cx="590" cy="88" r="6" fill="#FE9A3A" style="animation-delay:1.5s"/>
+            <text x="590" y="66" text-anchor="middle" fill="#FE9A3A" font-size="11" font-weight="800">Prioritize</text>
+            <text x="590" y="112" text-anchor="middle" fill="#8c8c8c" font-size="9">risk &amp; exposure</text></g>
+          <g><circle class="tlDot" cx="700" cy="88" r="6" fill="#81BB42" style="animation-delay:2s"/>
+            <text x="700" y="66" text-anchor="middle" fill="#81BB42" font-size="11" font-weight="800">Remediate</text>
+            <text x="700" y="112" text-anchor="middle" fill="#8c8c8c" font-size="9">guided / auto</text></g>
+        </g>
+        <!-- findings out -->
+        <line x1="720" y1="88" x2="812" y2="88" stroke="#2b2b2b" stroke-width="1.3"/>
+        <g font-family="Century Gothic, sans-serif" font-size="10.5" font-weight="700">
+          <rect x="812" y="52" width="174" height="72" rx="9" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="899" y="76" text-anchor="middle" fill="#E9BF35" font-size="11" font-weight="800">Prioritized</text>
+          <text x="899" y="93" text-anchor="middle" fill="#E9BF35" font-size="11" font-weight="800">findings</text>
+          <text x="899" y="112" text-anchor="middle" fill="#8c8c8c" font-size="9">+ dashboards</text>
+        </g>
+        <!-- feedback loop -->
+        <path d="M899,124 C899,150 200,150 200,102" fill="none" stroke="#3AD0B0" stroke-width="1.2" stroke-dasharray="4 5" opacity=".6"/>
+        <text x="500" y="159" text-anchor="middle" fill="#3AD0B0" font-size="9.5" font-family="Century Gothic, sans-serif">continuous — re-scans as config changes</text>
+      </svg>
+    </div>
+
+    <!-- 04 CONTINUOUS COMPLIANCE -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Continuous compliance</div></div>
+      <p style="margin-bottom:7px">CSPM measures config against published <b>benchmarks &amp; frameworks</b> — and keeps measuring, so it catches drift the day it happens.</p>
+      <div class="chips">
+        <span class="chip">CIS</span><span class="chip">PCI DSS</span><span class="chip">NIST</span><span class="chip">HIPAA</span><span class="chip">SOC 2</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">The compliance backbone — audit-ready dashboards instead of a once-a-year scramble.</span></p>
+    </div>
+
+    <!-- 05 REMEDIATION -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Remediation <span class="t2">— guided vs auto</span></div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧭</span><div><b>Guided</b> <span>— a ticket + exact fix steps; a human approves &amp; applies.</span></div></div>
+        <div class="gx"><span class="ic">⚡</span><div><b>Automated</b> <span>— the tool corrects the config itself, on well-scoped rules.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Auto-remediation needs <b>guardrails</b> — an unbounded fix can break a live workload.</span></p>
+    </div>
+
+    <!-- 06 A CONCRETE MISCONFIG (second SVG) -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">06</div><div class="ctitle">A concrete finding <span class="t2">— a public storage bucket, caught &amp; closed</span></div></div>
+      <svg viewBox="0 0 1000 120" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-size="10.5" font-weight="700">
+          <!-- the misconfig -->
+          <rect x="20" y="40" width="180" height="52" rx="9" fill="#1a0a0a" stroke="#FF5A4D"/>
+          <text x="110" y="62" text-anchor="middle" fill="#FF5A4D" font-size="11" font-weight="800">🪣 Bucket</text>
+          <text x="110" y="80" text-anchor="middle" fill="#bdbdbd" font-size="9.5">ACL: public-read</text>
+          <text x="110" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9">open to the internet</text>
+
+          <line x1="200" y1="66" x2="330" y2="66" stroke="#2b2b2b" stroke-width="1.3"/>
+          <path id="fixflow" d="M200,66 L330,66" fill="none" stroke="none"/>
+          <circle r="3.4" fill="#E9BF35"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#fixflow"/></animateMotion></circle>
+
+          <!-- CSPM detects -->
+          <rect x="330" y="40" width="180" height="52" rx="9" fill="#0c0c0c" stroke="#5AA9EC"/>
+          <text x="420" y="62" text-anchor="middle" fill="#5AA9EC" font-size="11" font-weight="800">CSPM detects</text>
+          <text x="420" y="80" text-anchor="middle" fill="#bdbdbd" font-size="9.5">breaks CIS rule</text>
+
+          <line x1="510" y1="66" x2="640" y2="66" stroke="#2b2b2b" stroke-width="1.3"/>
+          <text x="575" y="58" text-anchor="middle" fill="#FE9A3A" font-size="9.5">high · exposed</text>
+
+          <!-- prioritize -->
+          <rect x="640" y="40" width="150" height="52" rx="9" fill="#0c0c0c" stroke="#FE9A3A"/>
+          <text x="715" y="62" text-anchor="middle" fill="#FE9A3A" font-size="11" font-weight="800">Prioritize</text>
+          <text x="715" y="80" text-anchor="middle" fill="#bdbdbd" font-size="9.5">risk-ranked</text>
+
+          <line x1="790" y1="66" x2="820" y2="66" stroke="#2b2b2b" stroke-width="1.3"/>
+
+          <!-- fixed -->
+          <rect x="820" y="40" width="160" height="52" rx="9" fill="#0e1508" stroke="#81BB42"/>
+          <text x="900" y="62" text-anchor="middle" fill="#81BB42" font-size="11" font-weight="800">✓ Private</text>
+          <text x="900" y="80" text-anchor="middle" fill="#bdbdbd" font-size="9.5">block-public-access</text>
+        </g>
+      </svg>
+      <p style="margin-top:4px"><span class="em">Same pattern for an open <b>0.0.0.0/0</b> security group or an <b>unencrypted</b> volume</span> — detect → rank by real exposure → fix.</p>
+    </div>
+
+    <!-- 07 CSPM vs its siblings -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">07</div><div class="ctitle">CSPM vs its siblings <span class="t2">— four different questions, don't conflate them</span></div></div>
+      <table>
+        <tr><th>Pillar</th><th>Asks</th><th>Looks at</th></tr>
+        <tr><td class="k" style="color:#5AA9EC">CSPM</td><td class="win">Is it set up right?</td><td>Config / control plane</td></tr>
+        <tr><td class="k" style="color:#3AD0B0">CWPP</td><td>Is the code safe?</td><td>The workload (VM · container · λ)</td></tr>
+        <tr><td class="k" style="color:#FE9A3A">CIEM</td><td>Who can do what?</td><td>Identities &amp; entitlements</td></tr>
+        <tr><td class="k" style="color:#E9BF35">CDR</td><td>Attacking right now?</td><td>Active runtime threats</td></tr>
+      </table>
+      <p style="margin-top:7px"><span class="em">CSPM is usually the <b>entry point</b> — the first pillar teams adopt, and the compliance backbone the others build on.</span></p>
+    </div>
+
+    <!-- 08 WHERE IT FITS (CNAPP) -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Where it fits</div></div>
+      <p>All four pillars fold into one <b>CNAPP</b> — a Cloud-Native Application Protection Platform. CSPM is the posture foundation the others plug into.</p>
+      <div class="steps" style="margin-top:8px">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">CSPM</span><span class="arrow">+</span>
+        <span class="step">CWPP</span><span class="arrow">+</span>
+        <span class="step">CIEM</span><span class="arrow">+</span>
+        <span class="step">CDR</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">CNAPP</span>
+      </div>
+    </div>
+
+    <!-- 09 STARTING POINT -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Why it's the entry point</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🚀</span><div><b>Fast to stand up</b> <span>— agentless; one read-only role per account and you're scanning.</span></div></div>
+        <div class="gx"><span class="ic">📊</span><div><b>Broad, cheap coverage</b> <span>— sees the whole estate's config from day one.</span></div></div>
+        <div class="gx"><span class="ic">📋</span><div><b>Compliance value</b> <span>— maps straight to the frameworks auditors ask for.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔔</span><div><b>Alert fatigue</b> <span>— without prioritization &amp; context, findings drown the team.</span></div></div>
+        <div class="gx"><span class="ic">🙈</span><div><b>Config-only</b> <span>— blind to runtime behaviour and to identity blast radius.</span></div></div>
+        <div class="gx"><span class="ic">🚧</span><div><b>Remediation risk</b> <span>— auto-fixes need guardrails or they break live systems.</span></div></div>
+        <div class="gx"><span class="ic">🧵</span><div><b>Multi-cloud is hard</b> <span>— normalizing one policy across AWS · Azure · GCP is real work.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">CSPM is the <span class="em">agentless posture check</span> for your cloud control planes — it finds <span class="em">misconfigurations &amp; compliance drift</span> before an attacker does, and it's the <span class="em">entry point</span> into a CNAPP.</div>
+      <div class="flow2">
+        <span class="step">Connect read-only</span><span class="arrow">→</span>
+        <span class="step">Scan config</span><span class="arrow">→</span>
+        <span class="step">Evaluate vs benchmarks</span><span class="arrow">→</span>
+        <span class="step">Prioritize &amp; remediate</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

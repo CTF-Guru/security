@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIS Critical Security Controls v8.1 — Prioritized Cyber Defense</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="cis-controls-poster.gif" download>GIF</a> · <a href="cis-controls-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>CIS <span class="b">CONTROLS</span> v8.1</h1>
+  <div class="sub">A <b>prioritized, prescriptive</b> set of defensive actions — the pragmatic "do these first" list distilled from real attack data <span class="dim">(from the Center for Internet Security)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p>The <b>CIS Critical Security Controls</b> (v8.1, 2024) — a short, <b>ranked</b> list of defensive actions, ordered by how much they cut real-world risk. Not "everything you could do" but <b>what to do first</b>.</p>
+      <p style="margin-top:7px"><span class="em">Distilled from attack data — the highest-payoff defenses, in priority order.</span></p>
+    </div>
+
+    <!-- 02 THE SHAPE -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The shape</div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">18 Controls</h4><p>Broad activities — inventory, config, access, logging…</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">153 Safeguards</h4><p>The concrete sub-actions inside the controls.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">3 Groups</h4><p>Implementation Groups scale the set to your risk.</p></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">Controls = categories · Safeguards = the actual to-dos.</span></p>
+    </div>
+
+    <!-- 03 THE 18 CONTROLS -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The 18 Controls <span class="t2">— organized by activity · <b style="color:#FF5A4D">1–2 asset inventory come first for a reason</b></span></div></div>
+      <svg viewBox="0 0 1000 172" width="100%" style="display:block" font-family="Century Gothic, sans-serif">
+        <defs>
+          <g id="cisctl">
+            <rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/>
+          </g>
+        </defs>
+        <g font-size="10" font-weight="700">
+          <!-- Row 1 -->
+          <g transform="translate(8,6)"><rect width="152" height="26" rx="6" fill="#1a0a0a" stroke="#FF5A4D"/><text x="10" y="17" fill="#FF5A4D">1 · Asset Inventory</text></g>
+          <g transform="translate(168,6)"><rect width="152" height="26" rx="6" fill="#1a0a0a" stroke="#FF5A4D"/><text x="10" y="17" fill="#FF5A4D">2 · Software Inventory</text></g>
+          <g transform="translate(328,6)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#5AA9EC">3 · Data Protection</text></g>
+          <g transform="translate(488,6)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#3AD0B0">4 · Secure Config</text></g>
+          <g transform="translate(648,6)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#E9BF35">5 · Account Mgmt</text></g>
+          <g transform="translate(808,6)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#9B5DE5">6 · Access Control</text></g>
+          <!-- Row 2 -->
+          <g transform="translate(8,40)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#FE9A3A">7 · Vuln Mgmt</text></g>
+          <g transform="translate(168,40)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#81BB42">8 · Audit Logs</text></g>
+          <g transform="translate(328,40)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#5AA9EC">9 · Email &amp; Browser</text></g>
+          <g transform="translate(488,40)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#3AD0B0">10 · Malware Defense</text></g>
+          <g transform="translate(648,40)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#E9BF35">11 · Data Recovery</text></g>
+          <g transform="translate(808,40)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#9B5DE5">12 · Network Mgmt</text></g>
+          <!-- Row 3 -->
+          <g transform="translate(8,74)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#FE9A3A">13 · Net Monitoring</text></g>
+          <g transform="translate(168,74)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#81BB42">14 · Awareness Train</text></g>
+          <g transform="translate(328,74)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#5AA9EC">15 · Service Providers</text></g>
+          <g transform="translate(488,74)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#3AD0B0">16 · App Security</text></g>
+          <g transform="translate(648,74)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#E9BF35">17 · Incident Response</text></g>
+          <g transform="translate(808,74)"><rect width="152" height="26" rx="6" fill="#0c0c0c" stroke="#2b2b2b"/><text x="10" y="17" fill="#9B5DE5">18 · Pen Testing</text></g>
+        </g>
+        <!-- traveling dot along the priority rail -->
+        <line x1="14" y1="128" x2="954" y2="128" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="cisRail" d="M14,128 L954,128" fill="none" stroke="none"/>
+        <circle r="5.5" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cisRail"/></animateMotion></circle>
+        <circle r="3.2" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cisRail"/></animateMotion></circle>
+        <g font-size="10" font-weight="700">
+          <text x="14" y="152" fill="#FF5A4D">◄ higher priority — know what you have</text>
+          <text x="954" y="152" text-anchor="end" fill="#9B5DE5">deeper / more mature ►</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 04 IMPLEMENTATION GROUPS (SVG) -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">3 Implementation Groups</div></div>
+      <svg viewBox="0 0 300 168" width="100%" style="display:block" font-family="Century Gothic, sans-serif">
+        <!-- IG3 outer -->
+        <circle cx="150" cy="82" r="78" fill="#0f0b16" stroke="#9B5DE5" stroke-width="1.5"/>
+        <text x="150" y="22" text-anchor="middle" fill="#9B5DE5" font-size="11" font-weight="800">IG3</text>
+        <text x="150" y="35" text-anchor="middle" fill="#8c8c8c" font-size="8.5">mature · high-risk</text>
+        <!-- IG2 middle -->
+        <circle cx="150" cy="94" r="52" fill="#0c1414" stroke="#3AD0B0" stroke-width="1.5"/>
+        <text x="150" y="58" text-anchor="middle" fill="#3AD0B0" font-size="11" font-weight="800">IG2</text>
+        <text x="150" y="70" text-anchor="middle" fill="#8c8c8c" font-size="8.5">more data · risk</text>
+        <!-- IG1 inner — highlighted "start here" -->
+        <circle cx="150" cy="104" r="30" fill="#1a1305" stroke="#E9BF35" stroke-width="2.2">
+          <animate attributeName="stroke-opacity" values="1;.45;1" dur="2.4s" repeatCount="indefinite"/>
+        </circle>
+        <text x="150" y="100" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">IG1</text>
+        <text x="150" y="113" text-anchor="middle" fill="#E9BF35" font-size="8" font-weight="700">START HERE</text>
+      </svg>
+      <p style="margin-top:5px"><span class="em">IG1 ⊂ IG2 ⊂ IG3</span> — each group adds safeguards. Pick by resources &amp; data sensitivity; <b>everyone starts at IG1</b>.</p>
+    </div>
+
+    <!-- 05 IG1 ESSENTIAL HYGIENE -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">05</div><div class="ctitle">IG1 · essential cyber hygiene</div></div>
+      <p style="margin-bottom:6px"><b>56 safeguards</b> — the baseline <b>every</b> organization should meet. Basic, high-value defenses within reach of a small IT team.</p>
+      <div class="chips">
+        <span class="chip">know your assets</span><span class="chip">patch</span><span class="chip">MFA</span><span class="chip">least privilege</span><span class="chip">backups</span><span class="chip">logging</span>
+      </div>
+      <p style="margin-top:8px"><span class="em">If you do nothing else, do IG1 — it blocks the common attacks.</span></p>
+    </div>
+
+    <!-- 06 CONTROLS vs BENCHMARKS -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Controls ≠ Benchmarks <span class="t2">— two different CIS resources · <b style="color:#FF5A4D">don't conflate them</b></span></div></div>
+      <div class="gotchas" style="grid-template-columns:1fr 1fr; display:grid; gap:5px 18px">
+        <div class="gx"><span class="ic">🧭</span><div><b>CIS Controls</b> <span>— <b>WHAT to do</b>, prioritized. The program-level defensive checklist (this poster).</span></div></div>
+        <div class="gx"><span class="ic">🔧</span><div><b>CIS Benchmarks</b> <span>— <b>HOW to harden</b> a specific system. Config baselines for OSes, cloud, apps.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">Controls tell you to "securely configure assets" (Control 4); Benchmarks give you the exact settings to do it.</span></p>
+    </div>
+
+    <!-- 07 MAPS TO FRAMEWORKS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">07</div><div class="ctitle">A bridge to the big frameworks <span class="t2">— CIS is the on-ramp that maps outward</span></div></div>
+      <svg viewBox="0 0 1000 96" width="100%" style="display:block" font-family="Century Gothic, sans-serif">
+        <rect x="380" y="34" width="240" height="30" rx="8" fill="#0d1729" stroke="#5AA9EC" stroke-width="1.5"/>
+        <text x="500" y="53" text-anchor="middle" fill="#5AA9EC" font-size="13" font-weight="800">CIS Controls v8.1</text>
+        <g font-size="10.5" font-weight="700">
+          <rect x="20" y="10" width="180" height="24" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="110" y="26" text-anchor="middle" fill="#E9BF35">NIST CSF 2.0</text>
+          <rect x="20" y="62" width="180" height="24" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="110" y="78" text-anchor="middle" fill="#3AD0B0">NIST 800-53</text>
+          <rect x="800" y="10" width="180" height="24" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="890" y="26" text-anchor="middle" fill="#81BB42">ISO 27001</text>
+          <rect x="800" y="62" width="180" height="24" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="890" y="78" text-anchor="middle" fill="#FE9A3A">PCI DSS</text>
+        </g>
+        <!-- connectors + traveling dots -->
+        <path id="m1" d="M380,46 L200,22" fill="none" stroke="#2b2b2b" stroke-width="1.3"/>
+        <path id="m2" d="M380,52 L200,74" fill="none" stroke="#2b2b2b" stroke-width="1.3"/>
+        <path id="m3" d="M620,46 L800,22" fill="none" stroke="#2b2b2b" stroke-width="1.3"/>
+        <path id="m4" d="M620,52 L800,74" fill="none" stroke="#2b2b2b" stroke-width="1.3"/>
+        <circle r="3" fill="#E9BF35"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#m1"/></animateMotion></circle>
+        <circle r="3" fill="#3AD0B0"><animateMotion dur="2.2s" begin="-.6s" repeatCount="indefinite"><mpath href="#m2"/></animateMotion></circle>
+        <circle r="3" fill="#81BB42"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite"><mpath href="#m3"/></animateMotion></circle>
+        <circle r="3" fill="#FE9A3A"><animateMotion dur="2.2s" begin="-1.6s" repeatCount="indefinite"><mpath href="#m4"/></animateMotion></circle>
+      </svg>
+      <p style="margin-top:5px"><span class="em">Implement CIS and you're already most of the way to CSF, ISO 27001 &amp; PCI DSS</span> — official crosswalk mappings exist.</p>
+    </div>
+
+    <!-- 08 HOW TO ADOPT -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">08</div><div class="ctitle">How to adopt <span class="t2">— inventory first, then IG1, then climb</span></div></div>
+      <svg viewBox="0 0 1000 92" width="100%" style="display:block">
+        <line x1="90" y1="50" x2="910" y2="50" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="cisAdopt" d="M90,50 L910,50" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cisAdopt"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#cisAdopt"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="140" cy="50" r="6" fill="#FF5A4D" style="animation-delay:0s"/>
+            <text x="140" y="32" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">1 · Inventory</text>
+            <text x="140" y="74" text-anchor="middle" fill="#8c8c8c" font-size="9.5">Controls 1–2 first</text></g>
+          <g><circle class="tlDot" cx="397" cy="50" r="6" fill="#E9BF35" style="animation-delay:.6s"/>
+            <text x="397" y="32" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">2 · Meet IG1</text>
+            <text x="397" y="74" text-anchor="middle" fill="#8c8c8c" font-size="9.5">essential hygiene</text></g>
+          <g><circle class="tlDot" cx="653" cy="50" r="6" fill="#3AD0B0" style="animation-delay:1.2s"/>
+            <text x="653" y="32" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">3 · Assess gaps</text>
+            <text x="653" y="74" text-anchor="middle" fill="#8c8c8c" font-size="9.5">measure safeguards</text></g>
+          <g><circle class="tlDot" cx="910" cy="50" r="6" fill="#9B5DE5" style="animation-delay:1.8s"/>
+            <text x="910" y="32" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">4 · IG2 → IG3</text>
+            <text x="910" y="74" text-anchor="middle" fill="#8c8c8c" font-size="9.5">as risk grows</text></g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 09 WHAT v8.1 CHANGED -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">09</div><div class="ctitle">What v8.1 refined <span class="t2">(2024)</span></div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧩</span><div><b>Closer NIST CSF 2.0 mapping</b> <span>— including CSF's new <b>GOVERN</b> function.</span></div></div>
+        <div class="gx"><span class="ic">🗂️</span><div><b>Added asset classes</b> <span>— broader coverage of what you inventory.</span></div></div>
+        <div class="gx"><span class="ic">📖</span><div><b>Updated definitions &amp; glossary</b> <span>— clearer, more consistent language.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📦</span><div><b>Skipping Controls 1–2</b> <span>— you can't defend assets you don't know you have.</span></div></div>
+        <div class="gx"><span class="ic">🛒</span><div><b>Tools before hygiene</b> <span>— a shiny product won't fix missing IG1 basics.</span></div></div>
+        <div class="gx"><span class="ic">🔀</span><div><b>Confusing Controls &amp; Benchmarks</b> <span>— one is "what," the other "how."</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">The CIS Controls are a <span class="em">prioritized starting line</span> — 18 controls, 153 safeguards, scaled by Implementation Group. <span class="em">Start at IG1</span> and climb as your risk grows.</div>
+      <div class="flow2">
+        <span class="step">Inventory assets</span><span class="arrow">→</span>
+        <span class="step">Meet IG1</span><span class="arrow">→</span>
+        <span class="step">Close gaps</span><span class="arrow">→</span>
+        <span class="step">IG2 · IG3</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

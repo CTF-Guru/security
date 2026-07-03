@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIEM — Cloud Infrastructure Entitlement Management</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="ciem-poster.gif" download>GIF</a> · <a href="ciem-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>CLOUD <span class="b">ENTITLEMENTS</span></h1>
+  <div class="sub">CIEM — least privilege for cloud IAM: <b>who can do what</b> in your cloud, and who actually <b>needs</b> to <span class="dim">(Cloud Infrastructure Entitlement Management)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What CIEM is <span class="t2">— least privilege for cloud identities</span></div></div>
+      <p class="lead" style="margin-bottom:5px"><b>Cloud Infrastructure Entitlement Management</b> discovers every identity in your cloud, computes what each can <i>actually</i> do, and drives it toward the <span class="em">minimum permission it truly needs</span>.</p>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">Discover</h4><p>Every identity — human <b>and</b> machine — across AWS · Azure · GCP.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">Compute</h4><p>The <b>effective</b> permission each one resolves to through layered policy.</p></div>
+        <div class="mini"><h4 style="color:#81BB42">Right-size</h4><p>Trim the excess &amp; unused; enforce least privilege <b>continuously</b>.</p></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">In the cloud, identity is the perimeter — CIEM is how you govern it.</span></p>
+    </div>
+
+    <!-- 02 THE EFFECTIVE-PERMISSIONS PROBLEM -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The effective-permissions problem <span class="t2">— why cloud IAM is genuinely hard</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <text x="20" y="16" fill="#8c8c8c" font-size="10.5">what a single identity can do is the resolved sum of many layers</text>
+          <!-- identity -->
+          <rect x="20" y="40" width="120" height="34" rx="8" fill="#0c0c0c" stroke="#FE9A3A"/>
+          <text x="80" y="61" text-anchor="middle" fill="#FE9A3A" font-size="12">identity</text>
+          <!-- four policy layers stacked -->
+          <rect x="250" y="26" width="200" height="24" rx="6" fill="#0c0c0c" stroke="#5AA9EC"/><text x="350" y="42" text-anchor="middle" fill="#5AA9EC" font-size="10.5">identity / IAM policy</text>
+          <rect x="250" y="54" width="200" height="24" rx="6" fill="#0c0c0c" stroke="#3AD0B0"/><text x="350" y="70" text-anchor="middle" fill="#3AD0B0" font-size="10.5">group / role inherited</text>
+          <rect x="250" y="82" width="200" height="24" rx="6" fill="#0c0c0c" stroke="#9B5DE5"/><text x="350" y="98" text-anchor="middle" fill="#9B5DE5" font-size="10.5">resource-based policy</text>
+          <rect x="250" y="110" width="200" height="24" rx="6" fill="#0c0c0c" stroke="#FF5A4D"/><text x="350" y="126" text-anchor="middle" fill="#FF5A4D" font-size="10.5">SCP / boundary (deny)</text>
+          <!-- feed lines identity -> layers -->
+          <line x1="140" y1="57" x2="250" y2="38" stroke="#2b2b2b" stroke-width="1.2"/>
+          <line x1="140" y1="57" x2="250" y2="66" stroke="#2b2b2b" stroke-width="1.2"/>
+          <line x1="140" y1="57" x2="250" y2="94" stroke="#2b2b2b" stroke-width="1.2"/>
+          <line x1="140" y1="57" x2="250" y2="122" stroke="#2b2b2b" stroke-width="1.2"/>
+          <!-- resolve arrow -->
+          <path id="ciemResolve" d="M450,80 L640,80" fill="none" stroke="none"/>
+          <line x1="450" y1="80" x2="640" y2="80" stroke="#2b2b2b" stroke-width="1.6"/>
+          <circle r="4" fill="#E9BF35"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#ciemResolve"/></animateMotion></circle>
+          <text x="545" y="70" text-anchor="middle" fill="#E9BF35" font-size="11" font-weight="800">resolve</text>
+          <!-- effective -->
+          <rect x="640" y="56" width="180" height="48" rx="9" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="730" y="77" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">EFFECTIVE</text>
+          <text x="730" y="93" text-anchor="middle" fill="#fff" font-size="10">permission set</text>
+          <text x="905" y="74" text-anchor="middle" fill="#bdbdbd" font-size="10.5">10,000s of</text>
+          <text x="905" y="89" text-anchor="middle" fill="#bdbdbd" font-size="10.5">possible actions</text>
+        </g>
+      </svg>
+      <p style="margin-top:5px"><span class="em">No human reads this correctly.</span> Allows, inherited roles, resource grants and SCP denies interact — CIEM computes the <b>real</b> answer.</p>
+    </div>
+
+    <!-- 03 WHY IT EXISTS -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Why it exists</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🌊</span><div><b>IAM is enormous</b> <span>— tens of thousands of possible permissions across each cloud.</span></div></div>
+        <div class="gx"><span class="ic">📈</span><div><b>Over-permissioning is the norm</b> <span>— grants pile up; almost nobody trims them back.</span></div></div>
+        <div class="gx"><span class="ic">🤖</span><div><b>Machines outnumber humans</b> <span>— service &amp; workload identities now dominate the count.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="em">Excess privilege is the blast-radius multiplier in every cloud breach.</span></p>
+    </div>
+
+    <!-- 04 WHAT IT FINDS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">04</div><div class="ctitle">What CIEM finds</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">👑</span><div><b>Excessive &amp; unused</b> <span>— granted permissions never actually exercised.</span></div></div>
+        <div class="gx"><span class="ic">🪜</span><div><b>Escalation paths</b> <span>— a low grant that can quietly bootstrap to admin.</span></div></div>
+        <div class="gx"><span class="ic">🌉</span><div><b>Risky cross-account</b> <span>— identities that reach into accounts they shouldn't.</span></div></div>
+        <div class="gx"><span class="ic">☣️</span><div><b>Toxic combinations</b> <span>— permission pairs that together enable harm.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 05 RIGHT-SIZING FLOW (SVG a) -->
+    <div class="card span2 c-green">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Right-sizing to least privilege <span class="t2">— from tangled grants to just-enough</span></div></div>
+      <svg viewBox="0 0 1000 152" width="100%" style="display:block">
+        <line x1="70" y1="88" x2="930" y2="88" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="ciemFlow" d="M70,88 L930,88" fill="none" stroke="none"/>
+        <circle r="6" fill="#81BB42" opacity=".28"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#ciemFlow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#ciemFlow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="110" cy="88" r="6" fill="#FE9A3A" style="animation-delay:0s"/>
+            <text x="110" y="44" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">1 · identity</text>
+            <text x="110" y="114" text-anchor="middle" fill="#bdbdbd" font-size="10">human or machine</text>
+            <text x="110" y="128" text-anchor="middle" fill="#8c8c8c" font-size="9.5">has granted policies</text></g>
+          <g><circle class="tlDot" cx="315" cy="88" r="6" fill="#5AA9EC" style="animation-delay:.4s"/>
+            <text x="315" y="44" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">2 · tangled IAM</text>
+            <text x="315" y="114" text-anchor="middle" fill="#bdbdbd" font-size="10">layered policies</text>
+            <text x="315" y="128" text-anchor="middle" fill="#8c8c8c" font-size="9.5">allows · roles · SCP</text></g>
+          <g><circle class="tlDot" cx="520" cy="88" r="6" fill="#E9BF35" style="animation-delay:.8s"/>
+            <text x="520" y="44" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">3 · effective</text>
+            <text x="520" y="114" text-anchor="middle" fill="#bdbdbd" font-size="10">computed permissions</text>
+            <text x="520" y="128" text-anchor="middle" fill="#8c8c8c" font-size="9.5">what it can really do</text></g>
+          <g><circle class="tlDot" cx="725" cy="88" r="6" fill="#9B5DE5" style="animation-delay:1.2s"/>
+            <text x="725" y="44" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">4 · vs used</text>
+            <text x="725" y="114" text-anchor="middle" fill="#bdbdbd" font-size="10">compare to activity</text>
+            <text x="725" y="128" text-anchor="middle" fill="#8c8c8c" font-size="9.5">unused = candidate</text></g>
+          <g><circle class="tlDot" cx="915" cy="88" r="6" fill="#81BB42" style="animation-delay:1.6s"/>
+            <text x="915" y="44" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">5 · least priv</text>
+            <text x="915" y="114" text-anchor="middle" fill="#bdbdbd" font-size="10">right-sized role</text>
+            <text x="915" y="128" text-anchor="middle" fill="#8c8c8c" font-size="9.5">enforced continuously ✓</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:5px"><span class="em">Granted − used = the excess to cut.</span> The trimmed role is enforced and re-checked as usage drifts.</p>
+    </div>
+
+    <!-- 06 HUMAN vs MACHINE (mini) -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Human vs machine <span class="t2">— identities</span></div></div>
+      <div class="trio" style="grid-template-columns:1fr 1fr">
+        <div class="mini"><h4 style="color:#5AA9EC">👤 Human</h4><p>Users &amp; admins. Fewer, but interactive — MFA, sessions, login anomalies apply.</p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">🤖 Machine</h4><p>Service accounts, roles, workloads, keys. <b>Vastly more numerous</b> — and easy to over-grant &amp; forget.</p></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Non-human identities now dominate the cloud — and are where entitlement sprawl hides.</span></p>
+    </div>
+
+    <!-- 07 ESCALATION-PATH GRAPH (SVG b) -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">07</div><div class="ctitle">A privilege-escalation path <span class="t2">— the risky hop</span></div></div>
+      <svg viewBox="0 0 460 134" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-weight="700" font-size="10.5">
+          <!-- nodes -->
+          <rect x="14" y="52" width="86" height="36" rx="8" fill="#0c0c0c" stroke="#5AA9EC"/>
+          <text x="57" y="68" text-anchor="middle" fill="#5AA9EC">identity</text>
+          <text x="57" y="81" text-anchor="middle" fill="#8c8c8c" font-size="9">low grant</text>
+
+          <rect x="150" y="52" width="86" height="36" rx="8" fill="#0c0c0c" stroke="#3AD0B0"/>
+          <text x="193" y="68" text-anchor="middle" fill="#3AD0B0">role</text>
+          <text x="193" y="81" text-anchor="middle" fill="#8c8c8c" font-size="9">iam:PassRole</text>
+
+          <rect x="286" y="52" width="86" height="36" rx="8" fill="#0c0c0c" stroke="#FE9A3A"/>
+          <text x="329" y="68" text-anchor="middle" fill="#FE9A3A">resource</text>
+          <text x="329" y="81" text-anchor="middle" fill="#8c8c8c" font-size="9">compute / fn</text>
+
+          <rect x="360" y="8" width="86" height="36" rx="8" fill="#1a0606" stroke="#FF5A4D"/>
+          <text x="403" y="24" text-anchor="middle" fill="#FF5A4D">admin</text>
+          <text x="403" y="37" text-anchor="middle" fill="#8c8c8c" font-size="9">full power 🔥</text>
+
+          <!-- normal hops -->
+          <line x1="100" y1="70" x2="150" y2="70" stroke="#2b2b2b" stroke-width="1.4"/>
+          <line x1="236" y1="70" x2="286" y2="70" stroke="#2b2b2b" stroke-width="1.4"/>
+          <!-- risky escalation hop resource -> admin -->
+          <path id="ciemEsc" d="M335,52 L378,44" fill="none" stroke="none"/>
+          <line x1="335" y1="52" x2="378" y2="44" stroke="#FF5A4D" stroke-width="2" stroke-dasharray="4 3"/>
+          <circle r="3.4" fill="#FF5A4D"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#ciemEsc"/></animateMotion></circle>
+          <text x="300" y="114" fill="#FF5A4D" font-size="10.5" font-weight="800">risky hop → escalates to admin</text>
+          <text x="14" y="130" fill="#8c8c8c" font-size="9.5" font-weight="600">each edge looks benign; the chain does not.</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 08 CIEM vs SIBLINGS (clarifier table) -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">08</div><div class="ctitle">CIEM vs its siblings <span class="t2">— four cloud lenses, one CNAPP</span></div></div>
+      <table>
+        <tr><th></th><th style="color:#FE9A3A">CIEM</th><th style="color:#5AA9EC">CSPM</th><th style="color:#3AD0B0">CWPP</th><th style="color:#E9BF35">CDR</th></tr>
+        <tr><td class="k">Governs</td><td class="win">Entitlements / permissions</td><td>Configuration</td><td>Workloads</td><td>Active threats</td></tr>
+        <tr><td class="k">Asks</td><td class="win">Who can do what?</td><td>Set up right?</td><td>Code safe?</td><td>Attacking now?</td></tr>
+        <tr><td class="k">Layer</td><td class="win">Identity</td><td>Config</td><td>Runtime workload</td><td>Detection</td></tr>
+      </table>
+      <p style="margin-top:6px"><span class="em">CIEM owns identity &amp; entitlements</span> — distinct from config (CSPM), workload (CWPP) and live threats (CDR). All four fold into a <b>CNAPP</b>.</p>
+    </div>
+
+    <!-- 09 TIES TO ZT / PAM / JIT -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">09</div><div class="ctitle">How it ties in</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🛡️</span><div><b>Zero Trust</b> <span>— least privilege is a core tenet; CIEM measures &amp; enforces it in cloud.</span></div></div>
+        <div class="gx"><span class="ic">🗝️</span><div><b>PAM</b> <span>— governs privileged access; CIEM finds <i>which</i> entitlements are privileged.</span></div></div>
+        <div class="gx"><span class="ic">⏱️</span><div><b>JIT</b> <span>— replaces standing grants with on-demand ones; CIEM tells you what to move.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">CIEM maps the entitlement landscape; PAM/JIT change how power is granted over it.</span></p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧮</span><div><b>Effective ≠ granted</b> <span>— resolving policy + SCP + resource + identity is hard; trust the computed set.</span></div></div>
+        <div class="gx"><span class="ic">🤖</span><div><b>Machine sprawl</b> <span>— non-human identities dominate &amp; are the easiest to over-grant.</span></div></div>
+        <div class="gx"><span class="ic">🧱</span><div><b>Remediate carefully</b> <span>— cut a live permission and you can break the app. Stage it.</span></div></div>
+        <div class="gx"><span class="ic">⏳</span><div><b>Standing vs JIT</b> <span>— trimming helps; moving to just-in-time helps more.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">CIEM answers <span class="em">"who can do what in my cloud — and who actually needs to?"</span> — it computes <span class="em">effective</span> permissions and drives every identity to <span class="em">least privilege</span>.</div>
+      <div class="flow2">
+        <span class="step">Discover identities</span><span class="arrow">→</span>
+        <span class="step">Compute effective</span><span class="arrow">→</span>
+        <span class="step">Find the excess</span><span class="arrow">→</span>
+        <span class="step">Right-size &amp; enforce</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

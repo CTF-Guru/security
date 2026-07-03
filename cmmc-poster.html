@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMMC 2.0 — Cybersecurity Maturity Model Certification</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="cmmc-poster.gif" download>GIF</a> · <a href="cmmc-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>CMMC <span class="b">2.0</span></h1>
+  <div class="sub">The US DoD's <b>verified</b> security bar for defense contractors — turning self-attested protection of <b>FCI</b> &amp; <b>CUI</b> into <b>proven</b> protection across the supply chain <span class="dim">(rolling out in phases 2025–2028; verify dates against the current 32/48 CFR text)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p><b>Cybersecurity Maturity Model Certification</b> — a US Department of Defense program that <b>verifies</b> that companies in the Defense Industrial Base (the <b>DIB</b>) adequately protect the government data they touch.</p>
+      <p style="margin-top:7px"><span class="em">It turns "trust me, we're secure" into checked, certified, contract-enforced security.</span></p>
+    </div>
+
+    <!-- 02 WHAT IT PROTECTS — FCI vs CUI -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">What it protects</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📄</span><div><b>FCI</b> <span>— Federal Contract Information: not-public info provided or generated under a contract. Baseline safeguarding.</span></div></div>
+        <div class="gx"><span class="ic">🔐</span><div><b>CUI</b> <span>— Controlled Unclassified Info: sensitive gov data (tech specs, drawings) needing far stronger controls.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Which data you handle sets your level — FCI alone vs CUI is the dividing line.</span></p>
+    </div>
+
+    <!-- 03 THE THREE LEVELS — LADDER SVG -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The three levels <span class="t2">— higher data sensitivity → more controls · stricter assessment</span></div></div>
+      <svg viewBox="0 0 1000 214" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif">
+          <!-- rising ladder bars: L1 short, L2 taller, L3 tallest -->
+          <!-- L1 -->
+          <rect x="40" y="140" width="290" height="60" rx="9" fill="#0d1305" stroke="#81BB42" stroke-width="1.4"/>
+          <text x="60" y="163" fill="#81BB42" font-size="14" font-weight="800">LEVEL 1 · FOUNDATIONAL</text>
+          <text x="60" y="182" fill="#bdbdbd" font-size="10.5">protect FCI · FAR 52.204-21</text>
+          <text x="310" y="170" text-anchor="end" fill="#81BB42" font-size="22" font-weight="800">15</text>
+          <text x="310" y="186" text-anchor="end" fill="#8c8c8c" font-size="9">reqs</text>
+          <!-- L2 -->
+          <rect x="355" y="86" width="290" height="114" rx="9" fill="#1a1305" stroke="#E9BF35" stroke-width="1.4"/>
+          <text x="375" y="109" fill="#E9BF35" font-size="14" font-weight="800">LEVEL 2 · ADVANCED</text>
+          <text x="375" y="128" fill="#bdbdbd" font-size="10.5">protect CUI · NIST SP 800-171</text>
+          <text x="375" y="188" fill="#8c8c8c" font-size="10">self- OR C3PAO assessment</text>
+          <text x="625" y="116" text-anchor="end" fill="#E9BF35" font-size="22" font-weight="800">110</text>
+          <text x="625" y="132" text-anchor="end" fill="#8c8c8c" font-size="9">reqs</text>
+          <!-- L3 -->
+          <rect x="670" y="32" width="290" height="168" rx="9" fill="#1a0a0a" stroke="#FF5A4D" stroke-width="1.4"/>
+          <text x="690" y="55" fill="#FF5A4D" font-size="14" font-weight="800">LEVEL 3 · EXPERT</text>
+          <text x="690" y="74" fill="#bdbdbd" font-size="10.5">highest-priority programs</text>
+          <text x="690" y="90" fill="#bdbdbd" font-size="10.5">800-171 + subset of 800-172</text>
+          <text x="690" y="188" fill="#8c8c8c" font-size="10">government-led (DIBCAC)</text>
+          <text x="940" y="62" text-anchor="end" fill="#FF5A4D" font-size="20" font-weight="800">110+</text>
+          <text x="940" y="78" text-anchor="end" fill="#8c8c8c" font-size="9">reqs</text>
+          <!-- climbing dot on the ascending step edge -->
+          <path id="cmmcLadder" d="M40,140 L355,140 L355,86 L670,86 L670,32 L960,32" fill="none" stroke="#2b2b2b" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle r="4" fill="#fff"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#cmmcLadder"/></animateMotion></circle>
+          <text x="500" y="24" text-anchor="middle" fill="#8c8c8c" font-size="10">more sensitive data · stronger assessment  →</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">The level is set by the data and the program — <b>FCI only → L1</b>, <b>CUI → L2</b>, and the most critical CUI programs → <b>L3</b>.</p>
+    </div>
+
+    <!-- 04 ASSESSMENT TYPE — HERO TABLE -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Who assesses each level <span class="t2">— self vs third-party vs government</span></div></div>
+      <table>
+        <tr><th>Level</th><th>Protects</th><th>Standard</th><th>Assessed by</th><th>Cadence</th></tr>
+        <tr><td class="k">L1 · Foundational</td><td>FCI</td><td>FAR 52.204-21 · 15 reqs</td><td class="win">Self-assessment</td><td>Annual + affirmation</td></tr>
+        <tr><td class="k">L2 · Advanced</td><td>CUI</td><td>NIST SP 800-171 · 110 reqs</td><td>Self <b>or</b> C3PAO*</td><td>Every 3 years</td></tr>
+        <tr><td class="k">L3 · Expert</td><td>CUI (top priority)</td><td>800-171 + 800-172 subset</td><td class="no">Government (DIBCAC)</td><td>Every 3 years</td></tr>
+      </table>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">*<b>C3PAO</b> = Certified Third-Party Assessment Organization. Whether L2 is self-assessed or C3PAO-certified <b>depends on the contract</b>.</span></p>
+    </div>
+
+    <!-- 05 BUILT ON NIST 800-171 -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Built on NIST</div></div>
+      <p style="margin-bottom:7px">Level 2 <b>is</b> NIST SP 800-171 — CMMC verifies it, it doesn't reinvent it. The lineage:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#243b18;color:#81BB42">NIST RMF · 800-53</span><span class="arrow" style="color:#8c8c8c">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">SP 800-171</span><span class="arrow" style="color:#8c8c8c">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">CMMC L2</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">If you already meet 800-171, you're most of the way to L2.</span></p>
+    </div>
+
+    <!-- 06 FLOW-DOWN + AFFIRMATION -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">06</div><div class="ctitle">It flows downhill</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">⬇️</span><div><b>Flow-down</b> <span>— prime contractors push CMMC requirements down to their subcontractors.</span></div></div>
+        <div class="gx"><span class="ic">✍️</span><div><b>Annual affirmation</b> <span>— a senior company official must formally affirm continued compliance each year.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">One weak sub can block the whole award — the bar reaches your suppliers too.</span></p>
+    </div>
+
+    <!-- 07 PHASED ROLLOUT — TIMELINE SVG -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">07</div><div class="ctitle">The phased rollout <span class="t2">— 32 CFR program rule + 48 CFR contract clause · <b>mid-2026 = you are here</b></span></div></div>
+      <svg viewBox="0 0 1000 186" width="100%" style="display:block">
+        <line x1="70" y1="98" x2="930" y2="98" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="cmmcTl" d="M70,98 L930,98" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cmmcTl"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#cmmcTl"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="120" cy="98" r="6" fill="#3AD0B0" style="animation-delay:0s"/>
+            <text x="120" y="46" text-anchor="middle" fill="#3AD0B0" font-size="11.5" font-weight="800">Dec 2024</text>
+            <text x="120" y="124" text-anchor="middle" fill="#bdbdbd" font-size="10">32 CFR program</text>
+            <text x="120" y="138" text-anchor="middle" fill="#8c8c8c" font-size="9.5">rule takes effect</text></g>
+          <g><circle class="tlDot" cx="330" cy="98" r="6" fill="#5AA9EC" style="animation-delay:.5s"/>
+            <text x="330" y="46" text-anchor="middle" fill="#5AA9EC" font-size="11.5" font-weight="800">10 Nov 2025 · Phase 1</text>
+            <text x="330" y="124" text-anchor="middle" fill="#bdbdbd" font-size="10">48 CFR clause live</text>
+            <text x="330" y="138" text-anchor="middle" fill="#8c8c8c" font-size="9.5">L1 / L2 SELF start</text></g>
+          <!-- mid-2026 "you are here" marker between Phase 1 and Phase 2 -->
+          <g>
+            <line x1="470" y1="70" x2="470" y2="98" stroke="#E9BF35" stroke-width="1.6" stroke-dasharray="3 3"/>
+            <path d="M470,64 L476,74 L464,74 Z" fill="#E9BF35"/>
+            <circle cx="470" cy="98" r="7" fill="none" stroke="#E9BF35" stroke-width="2"><animate attributeName="r" values="7;11;7" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
+            <text x="470" y="60" text-anchor="middle" fill="#E9BF35" font-size="11" font-weight="800">MID-2026 · you are here</text>
+          </g>
+          <g><circle class="tlDot" cx="610" cy="98" r="6" fill="#E9BF35" style="animation-delay:1s"/>
+            <text x="610" y="46" text-anchor="middle" fill="#E9BF35" font-size="11.5" font-weight="800">Nov 2026 · Phase 2</text>
+            <text x="610" y="124" text-anchor="middle" fill="#bdbdbd" font-size="10">L2 C3PAO cert</text>
+            <text x="610" y="138" text-anchor="middle" fill="#8c8c8c" font-size="9.5">third-party required</text></g>
+          <g><circle class="tlDot" cx="780" cy="98" r="6" fill="#9B5DE5" style="animation-delay:1.5s"/>
+            <text x="780" y="46" text-anchor="middle" fill="#9B5DE5" font-size="11.5" font-weight="800">2027 · Phase 3</text>
+            <text x="780" y="124" text-anchor="middle" fill="#bdbdbd" font-size="10">L3 + more L2</text>
+            <text x="780" y="138" text-anchor="middle" fill="#8c8c8c" font-size="9.5">certification adds</text></g>
+          <g><circle class="tlDot" cx="905" cy="98" r="6" fill="#FF5A4D" style="animation-delay:2s"/>
+            <text x="905" y="46" text-anchor="middle" fill="#FF5A4D" font-size="11.5" font-weight="800">Nov 2028 · Phase 4</text>
+            <text x="905" y="124" text-anchor="middle" fill="#bdbdbd" font-size="10">Full rollout</text>
+            <text x="905" y="138" text-anchor="middle" fill="#8c8c8c" font-size="9.5">all applicable</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">Self-assessments appear first (Phase 1), then L2 third-party certification becomes mandatory (Phase 2) — plan ahead of your contract's phase.</span></p>
+    </div>
+
+    <!-- 08 POA&M LIMITS -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">08</div><div class="ctitle">POA&amp;Ms are limited</div></div>
+      <p style="margin-bottom:7px">You can't defer everything with a "we'll fix it later" plan (a <b>POA&amp;M</b>):</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎯</span><div><b>Many controls must be fully met</b> <span>at assessment — no POA&amp;M allowed.</span></div></div>
+        <div class="gx"><span class="ic">⏳</span><div><b>Time-boxed</b> <span>— allowed gaps must be closed within a fixed window (≈180 days).</span></div></div>
+      </div>
+    </div>
+
+    <!-- 09 WATCH OUT -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔍</span><div><b>Scoping CUI</b> <span>— mis-drawing the boundary of where CUI lives is the #1 pitfall.</span></div></div>
+        <div class="gx"><span class="ic">📅</span><div><b>Assessment lead times</b> <span>— C3PAO capacity is finite; book early or miss the bid.</span></div></div>
+        <div class="gx"><span class="ic">🧾</span><div><b>Self ≠ done</b> <span>— a self-assessment still needs real evidence and a senior affirmation.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 WHY IT EXISTS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Why it exists</div></div>
+      <p>Adversaries target the <b>weakest supplier</b>, not the prime. Self-attestation left gaps; CMMC makes the same 800-171 controls <b>auditable and enforceable</b> before award.</p>
+      <p style="margin-top:7px"><span class="em">No certification, no contract — security becomes a gate, not a promise.</span></p>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">CMMC 2.0 makes DIB security <span class="em">verified, not self-declared</span> — match your <span class="em">level to your data</span>, meet <span class="em">NIST 800-171</span>, and get assessed before your contract's phase lands.</div>
+      <div class="flow2">
+        <span class="step">Scope FCI / CUI</span><span class="arrow">→</span>
+        <span class="step">Pick the level</span><span class="arrow">→</span>
+        <span class="step">Meet 800-171</span><span class="arrow">→</span>
+        <span class="step">Self or C3PAO assess</span><span class="arrow">→</span>
+        <span class="step">Affirm annually</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
