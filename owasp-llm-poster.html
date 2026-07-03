@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OWASP Top 10 for LLM Applications 2025</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="owasp-llm-poster.gif" download>GIF</a> · <a href="owasp-llm-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>LLM <span class="b">TOP 10 : 2025</span></h1>
+  <div class="sub">Securing GenAI apps — the ten risks OWASP flags for anything that puts an <b>LLM</b> in the loop <span class="dim">(prompts, RAG, and tool-calling agents)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHY A DIFFERENT LIST -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">Why LLM apps need their own list <span class="t2">— the model reads attacker text as instructions</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <!-- classic app -->
+        <text x="20" y="16" fill="#5AA9EC" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">CLASSIC APP — code runs the rules</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="130" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="85" y="53" text-anchor="middle" fill="#fff">user input</text>
+          <line x1="150" y1="49" x2="270" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <rect x="270" y="34" width="150" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="345" y="53" text-anchor="middle" fill="#fff">fixed code path</text>
+          <text x="220" y="88" text-anchor="middle" fill="#bdbdbd" font-size="10.5">→ data stays data</text>
+          <text x="220" y="103" text-anchor="middle" fill="#8c8c8c" font-size="10">(escape / validate)</text>
+        </g>
+        <text x="500" y="50" text-anchor="middle" fill="#E9BF35" font-size="22" font-weight="800">vs</text>
+        <text x="500" y="68" text-anchor="middle" fill="#8c8c8c" font-size="10">no code / data line</text>
+        <!-- llm app -->
+        <text x="600" y="16" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">LLM APP — text IS the program</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="600" y="34" width="130" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="665" y="53" text-anchor="middle" fill="#fff">untrusted text</text>
+          <line x1="730" y1="49" x2="800" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <rect x="800" y="34" width="160" height="30" rx="7" fill="#2a0f0d" stroke="#FF5A4D"/><text x="880" y="53" text-anchor="middle" fill="#FF5A4D">model + tools</text>
+          <g fill="none" stroke="none"><path id="ol1" d="M730,49 L800,49"/></g>
+          <circle r="3.1" fill="#FF5A4D"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#ol1"/></animateMotion></circle>
+          <text x="820" y="88" text-anchor="middle" fill="#FF5A4D" font-size="10.5">→ words can become commands</text>
+          <text x="820" y="103" text-anchor="middle" fill="#8c8c8c" font-size="10">(no clean data/instruction split)</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">An LLM blends <b>your instructions and any text it reads</b> into one prompt — so a document, web page, or tool result can quietly steer it. That's why classic app-sec isn't enough.</p>
+    </div>
+
+    <!-- 02 THE TEN AT A GLANCE -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The ten at a glance <span class="t2">— OWASP Top 10 for LLM Applications, v2.0 (2025)</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 20px; margin-top:2px">
+        <div class="gx"><span class="ic" style="color:#FF5A4D;font-weight:800;font-size:12px;flex-basis:44px">LLM01</span><div><b>Prompt Injection</b> <span>— untrusted input becomes instructions</span></div></div>
+        <div class="gx"><span class="ic" style="color:#3AD0B0;font-weight:800;font-size:12px;flex-basis:44px">LLM06</span><div><b>Excessive Agency</b> <span>— too much autonomy or tool power</span></div></div>
+        <div class="gx"><span class="ic" style="color:#FE9A3A;font-weight:800;font-size:12px;flex-basis:44px">LLM02</span><div><b>Sensitive Info Disclosure</b> <span>— secrets or PII leak out</span></div></div>
+        <div class="gx"><span class="ic" style="color:#E9BF35;font-weight:800;font-size:12px;flex-basis:44px">LLM07</span><div><b>System Prompt Leakage</b> <span>— hidden instructions exposed <b style="color:#E9BF35">NEW</b></span></div></div>
+        <div class="gx"><span class="ic" style="color:#9B5DE5;font-weight:800;font-size:12px;flex-basis:44px">LLM03</span><div><b>Supply Chain</b> <span>— tainted models, data, plugins</span></div></div>
+        <div class="gx"><span class="ic" style="color:#5AA9EC;font-weight:800;font-size:12px;flex-basis:44px">LLM08</span><div><b>Vector &amp; Embedding Weaknesses</b> <span>— RAG store abuse <b style="color:#E9BF35">NEW</b></span></div></div>
+        <div class="gx"><span class="ic" style="color:#81BB42;font-weight:800;font-size:12px;flex-basis:44px">LLM04</span><div><b>Data &amp; Model Poisoning</b> <span>— corrupt training or fine-tune data</span></div></div>
+        <div class="gx"><span class="ic" style="color:#FE9A3A;font-weight:800;font-size:12px;flex-basis:44px">LLM09</span><div><b>Misinformation</b> <span>— hallucination &amp; overreliance</span></div></div>
+        <div class="gx"><span class="ic" style="color:#5AA9EC;font-weight:800;font-size:12px;flex-basis:44px">LLM05</span><div><b>Improper Output Handling</b> <span>— output trusted downstream</span></div></div>
+        <div class="gx"><span class="ic" style="color:#9B5DE5;font-weight:800;font-size:12px;flex-basis:44px">LLM10</span><div><b>Unbounded Consumption</b> <span>— cost / DoS blowout <b style="color:#E9BF35">NEW</b></span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">One reference, ten IDs — the sections below spotlight the ones that bite hardest.</span></p>
+    </div>
+
+    <!-- 03 LLM01 PROMPT INJECTION -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">03</div><div class="ctitle">LLM01 · Prompt Injection <span class="t2">— the #1 risk: untrusted input becomes instructions</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <line x1="60" y1="86" x2="940" y2="86" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="piflow" d="M60,86 L940,86" fill="none" stroke="none"/>
+        <circle r="6" fill="#FF5A4D" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#piflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#piflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="120" cy="86" r="6" fill="#FF5A4D" style="animation-delay:0s"/>
+            <text x="120" y="42" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">untrusted text</text>
+            <text x="120" y="112" text-anchor="middle" fill="#bdbdbd" font-size="10">web page · email · doc</text>
+            <text x="120" y="126" text-anchor="middle" fill="#8c8c8c" font-size="9.5">"ignore your rules…"</text></g>
+          <g><circle class="tlDot" cx="380" cy="86" r="6" fill="#E9BF35" style="animation-delay:.6s"/>
+            <text x="380" y="42" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">into the prompt</text>
+            <text x="380" y="112" text-anchor="middle" fill="#bdbdbd" font-size="10">mixed with your instructions</text>
+            <text x="380" y="126" text-anchor="middle" fill="#8c8c8c" font-size="9.5">model can't tell them apart</text></g>
+          <g><circle class="tlDot" cx="640" cy="86" r="6" fill="#9B5DE5" style="animation-delay:1.2s"/>
+            <text x="640" y="42" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">model obeys</text>
+            <text x="640" y="112" text-anchor="middle" fill="#bdbdbd" font-size="10">follows the injected order</text>
+            <text x="640" y="126" text-anchor="middle" fill="#8c8c8c" font-size="9.5">new goal, not yours</text></g>
+          <g><circle class="tlDot" cx="900" cy="86" r="6" fill="#FF5A4D" style="animation-delay:1.8s"/>
+            <text x="900" y="42" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">tool fires</text>
+            <text x="900" y="112" text-anchor="middle" fill="#bdbdbd" font-size="10">exfil · action · reply</text>
+            <text x="900" y="126" text-anchor="middle" fill="#8c8c8c" font-size="9.5">damage done 🔥</text></g>
+        </g>
+      </svg>
+      <div class="gotchas" style="grid-template-columns:1fr 1fr; gap:5px 20px; margin-top:4px">
+        <div class="gx"><span class="ic">💬</span><div><b>Direct</b> <span>— the user's own prompt jailbreaks the model.</span></div></div>
+        <div class="gx"><span class="ic">🪤</span><div><b>Indirect</b> <span>— hidden text in a fetched page or file hijacks it.</span></div></div>
+      </div>
+      <p style="margin-top:6px"><span class="em">Treat every retrieved token as untrusted — the model has no built-in “that's just data” instinct.</span></p>
+    </div>
+
+    <!-- 04 LLM06 EXCESSIVE AGENCY -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">04</div><div class="ctitle">LLM06 · Excessive Agency</div></div>
+      <p style="margin-bottom:6px">Injection is worst when the agent can <b>act</b>. Too much autonomy = too much blast radius:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧰</span><div><b>Too many tools</b> <span>— it can delete, pay, or email when it only needed to read.</span></div></div>
+        <div class="gx"><span class="ic">🔑</span><div><b>Too much permission</b> <span>— broad scopes, write access, prod credentials.</span></div></div>
+        <div class="gx"><span class="ic">🤖</span><div><b>Too much autonomy</b> <span>— high-impact actions with no human check.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="em">Least privilege for agents — narrow tools, tight scopes, human-in-the-loop.</span></p>
+    </div>
+
+    <!-- 05 NEW IN 2025 -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">05</div><div class="ctitle">New in 2025</div></div>
+      <div class="trio" style="grid-template-columns:1fr">
+        <div class="mini"><h4 style="color:#E9BF35">LLM07 · System Prompt Leakage</h4><p>Hidden instructions get coaxed out — never hide secrets there.</p></div>
+        <div class="mini"><h4 style="color:#5AA9EC">LLM08 · Vector &amp; Embedding</h4><p>RAG stores: poisoned docs, leaks &amp; cross-tenant bleed.</p></div>
+        <div class="mini"><h4 style="color:#9B5DE5">LLM10 · Unbounded Consumption</h4><p>Expanded from Model DoS — runaway cost &amp; token drain.</p></div>
+      </div>
+    </div>
+
+    <!-- 06 SYSTEM PROMPT LEAKAGE -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">06</div><div class="ctitle">LLM07 · System Prompt Leakage</div></div>
+      <p style="margin-bottom:6px">Assume the system prompt <b>will</b> be extracted. The bug isn't the leak — it's putting secrets in it:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#2a0f0d;color:#FF5A4D">API keys</span><span class="arrow" style="color:#8c8c8c">·</span>
+        <span class="step" style="border-color:#2a0f0d;color:#FF5A4D">credentials</span><span class="arrow" style="color:#8c8c8c">·</span>
+        <span class="step" style="border-color:#2a0f0d;color:#FF5A4D">hidden rules</span>
+      </div>
+      <p style="margin-top:8px"><span class="em">Enforce controls in code, not in the prompt.</span></p>
+    </div>
+
+    <!-- 07 VECTOR & EMBEDDING -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">07</div><div class="ctitle">LLM08 · Vector &amp; Embedding</div></div>
+      <p style="margin-bottom:6px">RAG adds a knowledge base — and a fresh attack surface:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">☣️</span><div><b>Poisoned docs</b> <span>— malicious text ingested, then retrieved as “fact”.</span></div></div>
+        <div class="gx"><span class="ic">🚪</span><div><b>Cross-tenant leak</b> <span>— weak filters return another user's chunks.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="em">Partition, sign, and access-control the vector store.</span></p>
+    </div>
+
+    <!-- 08 SUPPLY CHAIN + POISONING -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">08</div><div class="ctitle">LLM03 Supply Chain · LLM04 Poisoning</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📦</span><div><b>Supply chain</b> <span>— untrusted models, datasets, adapters &amp; plugins from the hub.</span></div></div>
+        <div class="gx"><span class="ic">🧪</span><div><b>Data / model poisoning</b> <span>— tampered training or fine-tune data plants backdoors.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">Vet provenance, pin versions, scan artifacts — an SBOM for models.</span></p>
+    </div>
+
+    <!-- 09 OUTPUT + MISINFO + DISCLOSURE -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">09</div><div class="ctitle">LLM05 Output · LLM09 Misinfo · LLM02 Disclosure</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧨</span><div><b>Improper output handling</b> <span>— piping raw output to a shell, SQL, or the DOM → RCE / XSS.</span></div></div>
+        <div class="gx"><span class="ic">🌀</span><div><b>Misinformation</b> <span>— confident hallucinations; users overrely on them.</span></div></div>
+        <div class="gx"><span class="ic">🔓</span><div><b>Sensitive disclosure</b> <span>— PII or secrets surface in a reply.</span></div></div>
+      </div>
+      <p style="margin-top:7px"><span class="em">The model's output is untrusted input to everything downstream — validate it.</span></p>
+    </div>
+
+    <!-- 10 DEFENSES -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Defenses that cut across the list <span class="t2">— a starter checklist</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 20px; margin-top:2px">
+        <div class="gx"><span class="ic">🚧</span><div><b>Least-privilege tools</b> <span>— narrow scopes, human approval for high-impact actions (LLM06).</span></div></div>
+        <div class="gx"><span class="ic">🧱</span><div><b>Treat all input as untrusted</b> <span>— retrieved text is data, not orders (LLM01/08).</span></div></div>
+        <div class="gx"><span class="ic">🧼</span><div><b>Validate output</b> <span>— encode / sandbox before shell, SQL, or HTML (LLM05).</span></div></div>
+        <div class="gx"><span class="ic">🔐</span><div><b>Secrets out of prompts</b> <span>— enforce in code; redact PII (LLM07/02).</span></div></div>
+        <div class="gx"><span class="ic">📋</span><div><b>Vet the supply chain</b> <span>— pin &amp; scan models, data, plugins (LLM03/04).</span></div></div>
+        <div class="gx"><span class="ic">⏱️</span><div><b>Rate &amp; cost limits</b> <span>— quotas, timeouts, budget caps (LLM10).</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">GenAI apps inherit <span class="em">every classic risk plus one new one</span> — the model treats <span class="em">any text it reads as instructions</span>, so untrusted input plus real tools is where it breaks.</div>
+      <div class="flow2">
+        <span class="step">Untrusted input</span><span class="arrow">→</span>
+        <span class="step">Least privilege</span><span class="arrow">→</span>
+        <span class="step">Validate output</span><span class="arrow">→</span>
+        <span class="step">Limit &amp; monitor</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

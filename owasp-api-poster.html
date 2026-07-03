@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OWASP API Security Top 10:2023</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="owasp-api-poster.gif" download>GIF</a> · <a href="owasp-api-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>OWASP API <span class="b">TOP 10</span></h1>
+  <div class="sub">The 2023 edition — the ten risks that break APIs, where <b>authorization failures</b> dominate <span class="dim">(APIs expose objects &amp; functions directly, so ids and permissions are the attack surface)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHY APIs -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">Why APIs are their own risk surface <span class="t2">— no UI to hide behind</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <!-- WEB APP -->
+        <text x="20" y="16" fill="#5AA9EC" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">WEB APP — the server renders the page</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="110" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="75" y="53" text-anchor="middle" fill="#fff">Browser</text>
+          <line x1="130" y1="49" x2="230" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <rect x="230" y="34" width="170" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="315" y="53" text-anchor="middle" fill="#fff">server + logic + view</text>
+          <text x="210" y="88" text-anchor="middle" fill="#bdbdbd" font-size="10.5">→ server controls what you see</text>
+          <text x="210" y="103" text-anchor="middle" fill="#8c8c8c" font-size="10">(flow &amp; state hidden on the backend)</text>
+        </g>
+        <text x="500" y="50" text-anchor="middle" fill="#E9BF35" font-size="22" font-weight="800">vs API</text>
+        <text x="500" y="68" text-anchor="middle" fill="#8c8c8c" font-size="10">the client drives</text>
+        <!-- API -->
+        <text x="600" y="16" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">API — the client calls endpoints directly</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="600" y="34" width="110" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="655" y="53" text-anchor="middle" fill="#fff">Any client</text>
+          <line x1="710" y1="49" x2="770" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <rect x="770" y="34" width="200" height="30" rx="7" fill="#2a0e0c" stroke="#FF5A4D"/><text x="870" y="53" text-anchor="middle" fill="#FF5A4D">GET /users/{id}/orders</text>
+          <g fill="none" stroke="none"><path id="apiwire" d="M710,49 L770,49"/></g>
+          <circle r="3.1" fill="#FF5A4D"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#apiwire"/></animateMotion></circle>
+          <text x="820" y="88" text-anchor="middle" fill="#FF5A4D" font-size="10.5">→ ids &amp; fields exposed on the wire</text>
+          <text x="820" y="103" text-anchor="middle" fill="#8c8c8c" font-size="10">(change the id · nothing to hide behind)</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">An API hands the caller <b>object- and function-level operations directly</b> — so the classic web bugs give way to <span class="em">broken authorization</span> as the number-one problem.</p>
+    </div>
+
+    <!-- 02 THE TEN — full reference -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The 2023 Top 10 <span class="t2">— one-line field reference</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 22px">
+        <table>
+          <tr><th>#</th><th>Risk</th><th>In one line</th></tr>
+          <tr><td class="k">API1</td><td class="k">BOLA</td><td>Access another user's object by id</td></tr>
+          <tr><td class="k">API2</td><td class="k">Broken Authentication</td><td>Weak login / token handling</td></tr>
+          <tr><td class="k">API3</td><td class="k">BOPLA</td><td>Mass-assignment / over-exposed fields</td></tr>
+          <tr><td class="k">API4</td><td class="k">Resource Consumption</td><td>No rate / size / cost limits</td></tr>
+          <tr><td class="k">API5</td><td class="k">BFLA</td><td>Call admin functions you shouldn't</td></tr>
+        </table>
+        <table>
+          <tr><th>#</th><th>Risk</th><th>In one line</th></tr>
+          <tr><td class="k">API6</td><td class="k">Sensitive Flows</td><td>Automating a business flow (bots)</td></tr>
+          <tr><td class="k">API7</td><td class="k">SSRF</td><td>Server fetches an attacker's URL</td></tr>
+          <tr><td class="k">API8</td><td class="k">Misconfiguration</td><td>Insecure defaults, headers, CORS</td></tr>
+          <tr><td class="k">API9</td><td class="k">Inventory Mgmt</td><td>Shadow &amp; zombie API versions</td></tr>
+          <tr><td class="k">API10</td><td class="k">Unsafe Consumption</td><td>Trusting third-party API data</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:7px"><span class="em">Notice API1, API3 &amp; API5 — three of the top five are authorization failures.</span></p>
+    </div>
+
+    <!-- 03 SPOTLIGHT: API1 BOLA -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Spotlight · API1 BOLA <span class="t2">— the #1 API problem: change the id, get someone else's data</span></div></div>
+      <svg viewBox="0 0 1000 128" width="100%" style="display:block">
+        <text x="20" y="13" fill="#8c8c8c" font-size="10.5" font-weight="700" font-family="Century Gothic, sans-serif">Alice is logged in — but the server never checks the object belongs to her</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <!-- attacker -->
+          <rect x="20" y="38" width="120" height="34" rx="8" fill="#0c0c0c" stroke="#2b2b2b"/><text x="80" y="59" text-anchor="middle" fill="#fff">Alice (id 1042)</text>
+          <!-- the two requests -->
+          <path id="bolaOK" d="M140,50 L470,50" fill="none" stroke="none"/>
+          <line x1="140" y1="50" x2="470" y2="50" stroke="#243b18" stroke-width="1.5"/>
+          <circle r="3.4" fill="#81BB42"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#bolaOK"/></animateMotion></circle>
+          <text x="305" y="42" text-anchor="middle" fill="#81BB42" font-size="10.5">GET /orders/1042 → her own ✓</text>
+          <path id="bolaBAD" d="M140,92 L470,92" fill="none" stroke="none"/>
+          <line x1="140" y1="92" x2="470" y2="92" stroke="#2a0e0c" stroke-width="1.5"/>
+          <circle r="3.4" fill="#FF5A4D"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite"><mpath href="#bolaBAD"/></animateMotion></circle>
+          <text x="305" y="84" text-anchor="middle" fill="#FF5A4D" font-size="10.5">GET /orders/1043 → Bob's data 🔥</text>
+          <!-- server -->
+          <rect x="470" y="54" width="150" height="34" rx="8" fill="#1a1305" stroke="#E9BF35"/><text x="545" y="75" text-anchor="middle" fill="#E9BF35">API server</text>
+          <text x="545" y="108" text-anchor="middle" fill="#FF5A4D" font-size="10.5">returns by id · no owner check</text>
+          <!-- fix -->
+          <line x1="650" y1="71" x2="700" y2="71" stroke="#2b2b2b" stroke-width="1.3"/>
+          <rect x="700" y="38" width="280" height="66" rx="9" fill="#0c0c0c" stroke="#243b18"/>
+          <text x="840" y="62" text-anchor="middle" fill="#81BB42" font-size="11.5">THE FIX</text>
+          <text x="840" y="82" text-anchor="middle" fill="#bdbdbd" font-size="10">on every object access, check</text>
+          <text x="840" y="96" text-anchor="middle" fill="#fff" font-size="10.5">object.owner == caller</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">The token proves who you are — it does <b>not</b> prove the object is yours. Authorize the object, per request.</span></p>
+    </div>
+
+    <!-- 04 AUTHORIZATION TRIO -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Authorization is the theme <span class="t2">— three of the ten, one root cause</span></div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#FF5A4D">API1 · BOLA (object)</h4><p>Can I read <b>this</b> object? Change the id, reach another user's record.<span class="ex">/orders/1043</span></p></div>
+        <div class="mini"><h4 style="color:#5AA9EC">API3 · BOPLA (property)</h4><p>Can I read/write <b>this field</b>? Mass-assign <b>role</b>; leak hidden fields.<span class="ex">{"role":"admin"}</span></p></div>
+        <div class="mini"><h4 style="color:#E9BF35">API5 · BFLA (function)</h4><p>Can I call <b>this action</b>? Hit an admin route as a normal user.<span class="ex">DELETE /admin/users</span></p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Object · property · function — authorize all three, on every request, server-side.</span></p>
+    </div>
+
+    <!-- 05 WEB vs API -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Web bug ≠ API bug</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🖥️</span><div><b>Classic web</b> <span>— XSS, CSRF, injection through a rendered UI the server controls.</span></div></div>
+        <div class="gx"><span class="ic">🔑</span><div><b>APIs</b> <span>— the client sends ids &amp; fields directly, so <b>authorization</b> is the top risk.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Same OWASP mindset, different weak spot — the OWASP <b>API</b> Top 10 is its own list.</span></p>
+    </div>
+
+    <!-- 06 SHADOW / ZOMBIE -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">06</div><div class="ctitle">API9 · what you forgot</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">👻</span><div><b>Shadow API</b> <span>— live but undocumented; never security-reviewed.</span></div></div>
+        <div class="gx"><span class="ic">🧟</span><div><b>Zombie API</b> <span>— an old <b>/v1</b> still running, unpatched, forgotten.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">You can't defend what you don't know you're running — inventory every host, version &amp; endpoint.</span></p>
+    </div>
+
+    <!-- 07 HOW TO DEFEND -->
+    <div class="card span2 c-green">
+      <div class="chead"><div class="num">07</div><div class="ctitle">How to defend <span class="t2">— the moves that shut down most of the list</span></div></div>
+      <div class="steps">
+        <span class="step">Authorize every object &amp; function</span><span class="arrow">→</span>
+        <span class="step">Allow-list input fields</span><span class="arrow">→</span>
+        <span class="step">Rate &amp; size limits</span>
+      </div>
+      <div class="steps" style="margin-top:6px">
+        <span class="step" style="border-color:#243b18;color:#81BB42">Inventory every API + version</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">Validate outbound URLs (SSRF)</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">Distrust third-party data</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Object-level checks alone would neutralize the #1 risk (API1 BOLA).</span></p>
+    </div>
+
+    <!-- 08 ON THE WIRE -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">08</div><div class="ctitle">On the wire <span class="t2">— one changed id is the whole exploit</span></div></div>
+      <div class="wire">
+<span class="cm">// authenticated as Alice (user 1042) — the token is valid…</span><br>
+<b>GET</b> /api/orders/<span class="num2">1042</span> &nbsp; <span class="key">Authorization</span>: <span class="str">Bearer eyJhbGciOi…</span> &nbsp;<span class="cm">// her own order ✓</span><br>
+<span class="cm">// …but nothing stops her asking for the next id — BOLA</span><br>
+<b>GET</b> /api/orders/<span class="num2">1043</span> &nbsp; <span class="key">Authorization</span>: <span class="str">Bearer eyJhbGciOi…</span> &nbsp;<span class="cm">// Bob's order 🔥 200 OK</span><br>
+<span class="cm">// the fix: on every access, the server checks ownership</span><br>
+<b>if</b> (order.<span class="key">owner_id</span> != <span class="key">token</span>.sub) <b>return</b> <span class="num2">403</span>;
+      </div>
+    </div>
+
+    <!-- 09 RESOURCE / SSRF -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">09</div><div class="ctitle">API4 &amp; API7</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">💸</span><div><b>Unrestricted consumption</b> <span>— no rate/size caps means a big bill or a downed service.</span></div></div>
+        <div class="gx"><span class="ic">🌐</span><div><b>SSRF</b> <span>— pass a URL, the server fetches it — into cloud metadata &amp; internal hosts.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Cap requests, payloads &amp; cost; validate and allow-list any URL your server will fetch.</span></p>
+    </div>
+
+    <!-- 10 GOTCHAS -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎭</span><div><b>Auth ≠ authz</b> <span>— a valid token doesn't mean this object or action is theirs.</span></div></div>
+        <div class="gx"><span class="ic">🕵️</span><div><b>Client-side gates</b> <span>— hiding a button isn't security. Enforce on the server.</span></div></div>
+        <div class="gx"><span class="ic">📮</span><div><b>Mass assignment</b> <span>— bind requests to a field allow-list, never the whole object.</span></div></div>
+        <div class="gx"><span class="ic">🗺️</span><div><b>Untracked endpoints</b> <span>— old versions &amp; test hosts are the softest way in.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">The OWASP API Top 10:2023 has one loud theme — <span class="em">broken authorization</span>. APIs expose objects &amp; functions directly, so <span class="em">check ownership and permission on every request</span>.</div>
+      <div class="flow2">
+        <span class="step">Who are you?</span><span class="arrow">→</span>
+        <span class="step">Is this object yours?</span><span class="arrow">→</span>
+        <span class="step">May you call this?</span><span class="arrow">→</span>
+        <span class="step">Only then serve</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

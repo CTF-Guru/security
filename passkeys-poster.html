@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passkeys — Passwordless, Phishing-Resistant Login</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="passkeys-poster.gif" download>GIF</a> · <a href="passkeys-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>PASS<span class="b">KEYS</span></h1>
+  <div class="sub">A cryptographic key bound to the real site, unlocked by you — <b>no password to phish, reuse, or breach</b> <span class="dim">(FIDO2 · WebAuthn, up close)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT A PASSKEY IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What a passkey <b>is</b> <span class="t2">— a FIDO2 / WebAuthn public-key credential that replaces the password</span></div></div>
+      <svg viewBox="0 0 1000 122" width="100%" style="display:block">
+        <!-- device side -->
+        <text x="20" y="16" fill="#5AA9EC" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">YOUR DEVICE — holds the PRIVATE key</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="230" height="52" rx="9" fill="#0c0c0c" stroke="#5AA9EC"/>
+          <text x="135" y="55" text-anchor="middle" fill="#5AA9EC" font-size="12">🔒 Authenticator (enclave / TPM)</text>
+          <text x="135" y="74" text-anchor="middle" fill="#fff" font-size="11">PRIVATE key — never leaves</text>
+          <text x="135" y="108" text-anchor="middle" fill="#8c8c8c" font-size="10">unlocked locally by biometric / PIN</text>
+        </g>
+        <!-- pairing -->
+        <text x="500" y="52" text-anchor="middle" fill="#E9BF35" font-size="22" font-weight="800">key pair</text>
+        <text x="500" y="70" text-anchor="middle" fill="#8c8c8c" font-size="10">one per site · no shared secret</text>
+        <line x1="250" y1="60" x2="750" y2="60" stroke="#2b2b2b" stroke-width="1.3" stroke-dasharray="4 4"/>
+        <!-- server side -->
+        <text x="750" y="16" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif" text-anchor="start">THE SERVER — stores only the PUBLIC key</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="750" y="34" width="230" height="52" rx="9" fill="#0f1503" stroke="#81BB42"/>
+          <text x="865" y="55" text-anchor="middle" fill="#81BB42" font-size="12">🗄️ Registered credential</text>
+          <text x="865" y="74" text-anchor="middle" fill="#fff" font-size="11">PUBLIC key — safe to store</text>
+          <text x="865" y="108" text-anchor="middle" fill="#8c8c8c" font-size="10">a breach leaks nothing usable</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">A passkey is a <b>public/private key pair</b> — not a secret you type. The private key lives in your device's authenticator; the server keeps only the matching <span class="em">public key</span>.</p>
+    </div>
+
+    <!-- 02 REGISTRATION -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">Registration <span class="t2">— create a passkey</span></div></div>
+      <div class="steps">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">device makes a key pair</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">public key → server</span>
+      </div>
+      <p style="margin-top:9px">The pair is <b>bound to the site's origin</b> (the <b>RP ID</b>). The public key registers with the server; the <span class="em">private key never leaves the device</span>.</p>
+    </div>
+
+    <!-- 03 USER VERIFICATION -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">03</div><div class="ctitle">User verification <span class="t2">— stays local</span></div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">👆</span><div><b>Biometric or PIN unlocks the key</b> <span>— on the device, in the authenticator. This is <b>user verification</b>.</span></div></div>
+        <div class="gx"><span class="ic">🚫</span><div><b>Nothing biometric is sent</b> <span>— your fingerprint or face never leaves the device or reaches the server.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">The gesture proves it's you to your own device — the server only ever sees a signature.</span></p>
+    </div>
+
+    <!-- 04 SIGN-IN FLOW -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Sign-in <span class="t2">— challenge → unlock → sign → verify</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <line x1="90" y1="80" x2="770" y2="80" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="pkflow" d="M90,80 L770,80" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pkflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pkflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="90" cy="80" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="90" y="36" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · CHALLENGE</text>
+            <text x="90" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">server → device</text>
+            <text x="90" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">a fresh random nonce</text></g>
+          <g><circle class="tlDot" cx="316" cy="80" r="6" fill="#E9BF35" style="animation-delay:.6s"/>
+            <text x="316" y="36" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">2 · UNLOCK</text>
+            <text x="316" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">you ↔ device</text>
+            <text x="316" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">biometric / PIN (local)</text></g>
+          <g><circle class="tlDot" cx="544" cy="80" r="6" fill="#9B5DE5" style="animation-delay:1.2s"/>
+            <text x="544" y="36" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">3 · SIGN</text>
+            <text x="544" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">private key signs</text>
+            <text x="544" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">challenge + origin</text></g>
+          <g><circle class="tlDot" cx="770" cy="80" r="6" fill="#81BB42" style="animation-delay:1.8s"/>
+            <text x="770" y="36" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">4 · VERIFY</text>
+            <text x="770" y="106" text-anchor="middle" fill="#bdbdbd" font-size="10">server checks sig</text>
+            <text x="770" y="120" text-anchor="middle" fill="#8c8c8c" font-size="9.5">with your public key</text></g>
+        </g>
+        <text x="925" y="76" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800" font-family="Century Gothic, sans-serif">✓ in</text>
+        <text x="925" y="94" text-anchor="middle" fill="#8c8c8c" font-size="9.5" font-family="Century Gothic, sans-serif">no secret sent</text>
+      </svg>
+      <p style="margin-top:7px"><span class="em">Only a signature over a one-time challenge crosses the wire — the server verifies it with the public key it already holds.</span></p>
+    </div>
+
+    <!-- 05 SYNCED vs DEVICE-BOUND -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Synced vs device-bound</div></div>
+      <div class="trio" style="grid-template-columns:1fr 1fr">
+        <div class="mini"><h4 style="color:#3AD0B0">☁️ Synced</h4><p>Roams across your devices via a provider keychain.<span class="ex">Apple · Google · 1Password</span></p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">🔐 Device-bound</h4><p>A hardware key — the private key never leaves it.<span class="ex">YubiKey · security key</span></p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Synced = easy roaming &amp; recovery · device-bound = highest assurance.</span></p>
+    </div>
+
+    <!-- 06 CROSS-DEVICE SIGN-IN -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Cross-device sign-in <span class="t2">— hybrid</span></div></div>
+      <p style="margin-bottom:6px">Sign in on a laptop using the passkey on your <b>phone</b>:</p>
+      <div class="steps">
+        <span class="step">scan the QR</span><span class="arrow">→</span>
+        <span class="step">Bluetooth proximity</span><span class="arrow">→</span>
+        <span class="step">phone signs</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">The proximity check blocks a remote relay — the phone must be nearby.</span></p>
+    </div>
+
+    <!-- 07 WHY PASSKEYS BEAT PASSWORDS -->
+    <div class="card span2 c-green">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Why passkeys beat passwords <span class="t2">— nothing to steal</span></div></div>
+      <div class="gotchas" style="grid-template-columns:1fr 1fr; gap:5px 18px">
+        <div class="gx"><span class="ic">🎣</span><div><b>Nothing to phish</b> <span>— the key is origin-bound; a look-alike site can't get a valid signature.</span></div></div>
+        <div class="gx"><span class="ic">♻️</span><div><b>Nothing to reuse</b> <span>— a unique key pair per site, so one leak never unlocks another.</span></div></div>
+        <div class="gx"><span class="ic">🗄️</span><div><b>Nothing to breach</b> <span>— the server holds only public keys, useless to an attacker who dumps them.</span></div></div>
+        <div class="gx"><span class="ic">⌨️</span><div><b>Nothing to type</b> <span>— just a tap and a biometric; no secret to enter, mistype, or forget.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 08 THE MOVING PARTS -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">08</div><div class="ctitle">The moving parts <span class="t2">— who does what</span></div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">🔑 Authenticator</h4><p>Holds the private key &amp; does the signing — <b>platform</b> (phone / laptop) or <b>roaming</b> (a hardware key).</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">🌐 WebAuthn API</h4><p>The browser API the site calls to create &amp; use credentials.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">🏛️ Relying Party</h4><p>The site — issues the challenge &amp; verifies the signature.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">FIDO2 = WebAuthn (site ↔ browser) + CTAP (browser ↔ authenticator).</span></p>
+    </div>
+
+    <!-- 09 PASSWORDLESS -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Passwordless</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🚀</span><div><b>Replace the password</b> <span>— a passkey is phishing-resistant on its own, so it can log you in with no password at all (true passwordless).</span></div></div>
+        <div class="gx"><span class="ic">🧩</span><div><b>Or add it as a factor</b> <span>— a passkey can also serve as a strong second factor alongside an existing login.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">User verification (biometric / PIN) makes one passkey both possession and inherence in a single gesture.</span></p>
+    </div>
+
+    <!-- 10 ON THE WIRE -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">10</div><div class="ctitle">On the wire <span class="t2">— the WebAuthn assertion the browser returns</span></div></div>
+      <div class="wire">
+<span class="cm">// navigator.credentials.get() — the server sent a random challenge; the device signs it</span><br>
+{ <span class="key">"id"</span>: <span class="str">"&lt;credential-id&gt;"</span>, <span class="key">"type"</span>: <span class="str">"public-key"</span>, <span class="key">"response"</span>: {<br>
+&nbsp;&nbsp;<span class="key">"clientDataJSON"</span>: <span class="str">"{ challenge, origin: \"https://example.com\", type }"</span>,<br>
+&nbsp;&nbsp;<span class="key">"authenticatorData"</span>: <span class="str">"&lt;rpIdHash · flags(UP,UV) · signCount&gt;"</span>, <span class="key">"signature"</span>: <span class="str">"&lt;over the two&gt;"</span> } }<br>
+<span class="cm">// server verifies the signature with the stored public key — no secret ever transmitted</span>
+      </div>
+    </div>
+
+    <!-- 11 WATCH OUT -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">11</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas" style="grid-template-columns:1fr 1fr; gap:5px 18px">
+        <div class="gx"><span class="ic">🚪</span><div><b>Recovery is the hard problem</b> <span>— account reset is where attackers push. Design &amp; harden it up front.</span></div></div>
+        <div class="gx"><span class="ic">🧳</span><div><b>Portability &amp; migration</b> <span>— moving passkeys across ecosystems is still uneven; plan for it.</span></div></div>
+        <div class="gx"><span class="ic">🪜</span><div><b>Keep a fallback</b> <span>— a lost device shouldn't lock you out; register a backup passkey or key.</span></div></div>
+        <div class="gx"><span class="ic">🏢</span><div><b>Attestation &amp; policy</b> <span>— enterprises may require device-bound keys and attestation to trust a credential.</span></div></div>
+        <div class="gx"><span class="ic">☁️</span><div><b>Synced trust rests on the provider</b> <span>— a synced passkey is only as safe as the keychain account it roams through.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 12 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">12</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">A passkey is a <span class="em">cryptographic key bound to the real site</span> and <span class="em">unlocked by you</span> — no password to phish, reuse, or breach.</div>
+      <div class="flow2">
+        <span class="step">Key pair per site</span><span class="arrow">→</span>
+        <span class="step">Unlock locally</span><span class="arrow">→</span>
+        <span class="step">Sign the challenge</span><span class="arrow">→</span>
+        <span class="step">Verify with public key</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

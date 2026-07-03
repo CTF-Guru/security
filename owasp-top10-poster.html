@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OWASP Top 10:2025 — Web Application Security Risks</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="owasp-top10-poster.gif" download>GIF</a> · <a href="owasp-top10-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>OWASP TOP <span class="b">10:2025</span></h1>
+  <div class="sub">The data-driven awareness list of the most critical <b>web-application</b> risks <span class="dim">(for builders — a map of what breaks, not a compliance checklist)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p>A community project by the <b>Open Worldwide Application Security Project</b> — a ranked list of the ten most critical web-app risk <b>categories</b>, refreshed from real-world data + a practitioner survey.</p>
+      <p style="margin-top:7px"><span class="em">Awareness first — it names the classes of failure every builder should design against.</span></p>
+    </div>
+
+    <!-- 02 HOW IT'S BUILT -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">How it's ranked</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📊</span><div><b>Data-driven</b> <span>— eight categories from measured incidence across hundreds of thousands of apps.</span></div></div>
+        <div class="gx"><span class="ic">🗳️</span><div><b>Survey-driven</b> <span>— two from a practitioner survey, to catch what tooling can't yet measure.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Categories, not single bugs — each groups many related weaknesses (CWEs).</span></p>
+    </div>
+
+    <!-- 03 THE TEN — COMPACT REFERENCE -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The Top 10:2025 <span class="t2">— one line each · <b>#1 unchanged</b> · <b style="color:#81BB42">NEW</b> = new for 2025</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; margin-top:2px">
+
+        <div class="gx"><span class="ic" style="color:#FF5A4D;font-weight:800;font-size:13px;flex:0 0 34px">A01</span><div><b>Broken Access Control</b> <span>— users doing what they shouldn't.</span></div></div>
+        <div class="gx"><span class="ic" style="color:#3AD0B0;font-weight:800;font-size:13px;flex:0 0 34px">A06</span><div><b>Insecure Design</b> <span>— the flaw is in the plan, not the code.</span></div></div>
+
+        <div class="gx"><span class="ic" style="color:#E9BF35;font-weight:800;font-size:13px;flex:0 0 34px">A02</span><div><b>Security Misconfiguration</b> <span>— insecure defaults left switched on.</span></div></div>
+        <div class="gx"><span class="ic" style="color:#5AA9EC;font-weight:800;font-size:13px;flex:0 0 34px">A07</span><div><b>Authentication Failures</b> <span>— weak proof of who you are.</span></div></div>
+
+        <div class="gx"><span class="ic" style="color:#81BB42;font-weight:800;font-size:13px;flex:0 0 34px">A03</span><div><b>Software Supply Chain Failures</b> <span style="color:#81BB42;font-weight:700;font-size:9px">NEW</span> <span>— trusting compromised deps &amp; builds.</span></div></div>
+        <div class="gx"><span class="ic" style="color:#FE9A3A;font-weight:800;font-size:13px;flex:0 0 34px">A08</span><div><b>Software or Data Integrity Failures</b> <span>— unverified code / updates.</span></div></div>
+
+        <div class="gx"><span class="ic" style="color:#9B5DE5;font-weight:800;font-size:13px;flex:0 0 34px">A04</span><div><b>Cryptographic Failures</b> <span>— secrets weakly protected or exposed.</span></div></div>
+        <div class="gx"><span class="ic" style="color:#FF5A4D;font-weight:800;font-size:13px;flex:0 0 34px">A09</span><div><b>Security Logging &amp; Alerting Failures</b> <span>— blind to the attack.</span></div></div>
+
+        <div class="gx"><span class="ic" style="color:#E9BF35;font-weight:800;font-size:13px;flex:0 0 34px">A05</span><div><b>Injection</b> <span>— untrusted input runs as code or query.</span></div></div>
+        <div class="gx"><span class="ic" style="color:#3AD0B0;font-weight:800;font-size:13px;flex:0 0 34px">A10</span><div><b>Mishandling of Exceptional Conditions</b> <span style="color:#3AD0B0;font-weight:700;font-size:9px">NEW</span> <span>— errors handled unsafely.</span></div></div>
+
+      </div>
+    </div>
+
+    <!-- 04 WHAT CHANGED -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">What changed since 2021 <span class="t2">— two new categories, one consolidated in</span></div></div>
+      <svg viewBox="0 0 1000 128" width="100%" style="display:block">
+        <text x="20" y="15" fill="#8c8c8c" font-size="11" font-weight="700" font-family="Century Gothic, sans-serif">2021</text>
+        <text x="960" y="15" text-anchor="end" fill="#E9BF35" font-size="11" font-weight="700" font-family="Century Gothic, sans-serif">2025</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <!-- SSRF consolidated into A01 -->
+          <rect x="20" y="26" width="250" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="145" y="45" text-anchor="middle" fill="#bdbdbd">2021 A10 · SSRF</text>
+          <rect x="700" y="26" width="280" height="30" rx="7" fill="#1a0a0a" stroke="#FF5A4D"/><text x="840" y="45" text-anchor="middle" fill="#FF5A4D">A01 · Broken Access Control</text>
+          <line x1="270" y1="41" x2="700" y2="41" stroke="#2b2b2b" stroke-width="1.3"/>
+          <path id="owChg" d="M270,41 L700,41" fill="none" stroke="none"/>
+          <circle r="3.4" fill="#FF5A4D"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#owChg"/></animateMotion></circle>
+          <text x="485" y="34" text-anchor="middle" fill="#8c8c8c" font-size="9.5">consolidated in →</text>
+          <!-- two brand-new -->
+          <rect x="20" y="74" width="250" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="145" y="93" text-anchor="middle" fill="#8c8c8c">— did not exist —</text>
+          <text x="485" y="82" text-anchor="middle" fill="#81BB42" font-size="9.5">brand new →</text>
+          <line x1="270" y1="89" x2="700" y2="89" stroke="#2b2b2b" stroke-width="1.3" stroke-dasharray="3 4"/>
+          <path id="owNew" d="M270,89 L700,89" fill="none" stroke="none"/>
+          <circle r="3.4" fill="#81BB42"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#owNew"/></animateMotion></circle>
+          <rect x="700" y="68" width="280" height="20" rx="6" fill="#0d1305" stroke="#81BB42"/><text x="840" y="82" text-anchor="middle" fill="#81BB42" font-size="10">A03 · Software Supply Chain Failures</text>
+          <rect x="700" y="92" width="280" height="20" rx="6" fill="#0f0b16" stroke="#3AD0B0"/><text x="840" y="106" text-anchor="middle" fill="#3AD0B0" font-size="10">A10 · Mishandling of Exceptional Conditions</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">Two brand-new categories — <b>A03 Software Supply Chain Failures</b> (expanding 2021's "Vulnerable &amp; Outdated Components") and <b>A10 Mishandling of Exceptional Conditions</b>. 2021's <b>SSRF</b> folded into <span class="em">A01</span>.</p>
+    </div>
+
+    <!-- 05 STILL #1 -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Spotlight · A01 stays #1</div></div>
+      <p style="margin-bottom:7px"><b>Broken Access Control</b> is the most common serious risk — an authenticated user reaching data or actions that aren't theirs.</p>
+      <div class="steps">
+        <span class="step" style="border-color:#3a1414;color:#FF5A4D">force a URL / ID</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a1414;color:#FF5A4D">no check</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a1414;color:#FF5A4D">someone else's data</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Deny by default; enforce authz server-side on every request.</span></p>
+    </div>
+
+    <!-- 06 SPOTLIGHT A03 -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Spotlight · A03 supply chain</div></div>
+      <p style="margin-bottom:7px">Your app is only as trustworthy as its <b>dependencies, build &amp; pipeline</b>. A poisoned package or CI step ships straight to prod.</p>
+      <div class="chips">
+        <span class="chip">pin versions</span><span class="chip">verify signatures</span><span class="chip">SBOM</span><span class="chip">lock the pipeline</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Know — and vet — everything you didn't write.</span></p>
+    </div>
+
+    <!-- 07 SPOTLIGHT A10 -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Spotlight · A10 exceptions</div></div>
+      <p style="margin-bottom:7px">When something goes wrong, code can <b>fail open</b>, leak internals, or crash into an insecure state.</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔓</span><div><b>Fail open</b> <span>— an error skips the auth check instead of denying.</span></div></div>
+        <div class="gx"><span class="ic">🗒️</span><div><b>Leaky errors</b> <span>— stack traces &amp; secrets shown to the user.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">Fail closed; return a clean, generic error.</span></p>
+    </div>
+
+    <!-- 08 HOW TO USE IT -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">How to use the list <span class="t2">— awareness &amp; threat modeling, not a tick-box audit</span></div></div>
+      <svg viewBox="0 0 1000 96" width="100%" style="display:block">
+        <line x1="70" y1="52" x2="930" y2="52" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="owUse" d="M70,52 L930,52" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#owUse"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#owUse"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="120" cy="52" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="120" y="34" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · Awareness</text>
+            <text x="120" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">learn the ten classes</text></g>
+          <g><circle class="tlDot" cx="390" cy="52" r="6" fill="#9B5DE5" style="animation-delay:.6s"/>
+            <text x="390" y="34" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">2 · Threat model</text>
+            <text x="390" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">which hit your design?</text></g>
+          <g><circle class="tlDot" cx="660" cy="52" r="6" fill="#3AD0B0" style="animation-delay:1.2s"/>
+            <text x="660" y="34" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">3 · Controls</text>
+            <text x="660" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">build &amp; test defenses in</text></g>
+          <g><circle class="tlDot" cx="900" cy="52" r="6" fill="#81BB42" style="animation-delay:1.8s"/>
+            <text x="900" y="34" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">4 · Verify</text>
+            <text x="900" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">re-check every release</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">It's a starting map, not a finish line — "no Top 10 findings" ≠ secure. Pair it with the OWASP ASVS.</span></p>
+    </div>
+
+    <!-- 09 CONTROLS AT A GLANCE -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Controls that pay off</div></div>
+      <table>
+        <tr><th>Risk</th><th>First move</th></tr>
+        <tr><td class="k">A01 Access</td><td class="win">Deny by default, check server-side</td></tr>
+        <tr><td class="k">A05 Injection</td><td class="win">Parameterize · validate input</td></tr>
+        <tr><td class="k">A04 Crypto</td><td class="win">TLS · vetted libs · no secrets in code</td></tr>
+        <tr><td class="k">A02 Config</td><td class="win">Harden · patch · least privilege</td></tr>
+      </table>
+    </div>
+
+    <!-- 10 COMMON TRAPS -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Misreading the list</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">✅</span><div><b>Treating it as a checklist</b> <span>— it's awareness, not the full requirement set.</span></div></div>
+        <div class="gx"><span class="ic">🔢</span><div><b>Chasing rank order</b> <span>— #7 can be your #1. Prioritize by your risk.</span></div></div>
+        <div class="gx"><span class="ic">🕰️</span><div><b>Citing an old edition</b> <span>— categories move. Say the year: 2025.</span></div></div>
+        <div class="gx"><span class="ic">🌐</span><div><b>Web-app scope</b> <span>— mobile, API, LLM risks have their own OWASP lists.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">The OWASP Top 10:2025 is a <span class="em">shared map of what breaks</span> — the ten risk classes every web-app builder should <span class="em">design against, not just scan for</span>.</div>
+      <div class="flow2">
+        <span class="step">Know the ten</span><span class="arrow">→</span>
+        <span class="step">Threat model</span><span class="arrow">→</span>
+        <span class="step">Build controls</span><span class="arrow">→</span>
+        <span class="step">Verify each release</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

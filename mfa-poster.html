@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MFA — Multi-Factor Authentication</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="mfa-poster.gif" download>GIF</a> · <a href="mfa-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>MULTI-FACTOR <span class="b">AUTH</span></h1>
+  <div class="sub">Prove it's really you with <b>two or more factors of different types</b> — so a stolen password alone can't get in <span class="dim">(and the strongest factors resist phishing entirely)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT MFA IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What MFA is <span class="t2">— 2+ factors of <b>different</b> types</span></div></div>
+      <svg viewBox="0 0 1000 86" width="100%" style="display:block">
+        <text x="20" y="14" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">NOT MFA — two of the same type</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="28" width="130" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="85" y="47" text-anchor="middle" fill="#fff">password</text>
+          <text x="175" y="47" text-anchor="middle" fill="#FF5A4D" font-size="16" font-weight="800">+</text>
+          <rect x="200" y="28" width="130" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="265" y="47" text-anchor="middle" fill="#fff">security question</text>
+          <text x="175" y="78" text-anchor="middle" fill="#FF5A4D" font-size="10.5">both are “KNOW” — one phish steals both 🔥</text>
+        </g>
+        <text x="500" y="49" text-anchor="middle" fill="#E9BF35" font-size="26" font-weight="800">→</text>
+        <text x="600" y="14" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">MFA — two DIFFERENT types</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="600" y="28" width="120" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="660" y="47" text-anchor="middle" fill="#fff">password</text>
+          <text x="742" y="47" text-anchor="middle" fill="#81BB42" font-size="16" font-weight="800">+</text>
+          <rect x="765" y="28" width="195" height="30" rx="7" fill="#0d1a05" stroke="#81BB42"/><text x="862" y="47" text-anchor="middle" fill="#81BB42">security key you HAVE</text>
+          <path id="mf1" d="M720,43 L765,43" fill="none" stroke="none"/>
+          <circle r="3.1" fill="#81BB42"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#mf1"/></animateMotion></circle>
+          <text x="780" y="78" text-anchor="middle" fill="#81BB42" font-size="10.5">KNOW + HAVE — attacker needs both ✓</text>
+        </g>
+      </svg>
+      <p style="margin-top:5px" class="lead">A second factor only helps if it's a <b>different kind of proof</b> — two passwords is still single-factor.</p>
+    </div>
+
+    <!-- 02 THE THREE FACTOR TYPES -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">The three factor types <span class="t2">— know · have · are</span></div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">🧠 Something you KNOW</h4><p>Password, PIN, passphrase. Cheap — but phishable, guessable, reusable.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">📱 Something you HAVE</h4><p>Phone, authenticator app, security key. A device only you hold.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">🫆 Something you ARE</h4><p>Fingerprint, face, iris. A biometric — usually unlocks the device.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">MFA = combine at least two of these three categories.</span></p>
+    </div>
+
+    <!-- 03 STRENGTH LADDER -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The methods, weakest → strongest <span class="t2">— climb the ladder</span></div></div>
+      <svg viewBox="0 0 1000 124" width="100%" style="display:block">
+        <line x1="60" y1="106" x2="960" y2="28" stroke="#2b2b2b" stroke-width="2" stroke-dasharray="4 5"/>
+        <g font-family="Century Gothic, sans-serif" font-weight="700">
+          <g><rect x="40" y="88" width="180" height="34" rx="8" fill="#2a0f0d" stroke="#FF5A4D"/>
+            <text x="130" y="103" text-anchor="middle" fill="#FF5A4D" font-size="12">SMS OTP</text>
+            <text x="130" y="117" text-anchor="middle" fill="#bdbdbd" font-size="9">SIM-swap · interceptable</text></g>
+          <g><rect x="270" y="66" width="180" height="34" rx="8" fill="#2a2205" stroke="#E9BF35"/>
+            <text x="360" y="81" text-anchor="middle" fill="#E9BF35" font-size="12">TOTP codes</text>
+            <text x="360" y="95" text-anchor="middle" fill="#bdbdbd" font-size="9">authenticator app · phishable</text></g>
+          <g><rect x="500" y="44" width="180" height="34" rx="8" fill="#2a1805" stroke="#FE9A3A"/>
+            <text x="590" y="59" text-anchor="middle" fill="#FE9A3A" font-size="12">Push approval</text>
+            <text x="590" y="73" text-anchor="middle" fill="#bdbdbd" font-size="9">tap to approve · fatigue risk</text></g>
+          <g><rect x="740" y="22" width="220" height="34" rx="8" fill="#0d1a05" stroke="#81BB42"/>
+            <text x="850" y="37" text-anchor="middle" fill="#81BB42" font-size="12">Security key / passkey</text>
+            <text x="850" y="51" text-anchor="middle" fill="#bdbdbd" font-size="9">FIDO2 · phishing-resistant ✓</text></g>
+          <circle r="4" fill="#fff"><animateMotion dur="3s" repeatCount="indefinite" path="M130,88 L360,66 L590,44 L850,22"/></circle>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">Any MFA beats a lone password — but move users up toward phishing-resistant factors.</span></p>
+    </div>
+
+    <!-- 04 ADAPTIVE / STEP-UP -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Adaptive / step-up MFA</div></div>
+      <p style="margin-bottom:6px">Risk-based — challenge only when the <b>context</b> is risky, not on every click:</p>
+      <div class="chips">
+        <span class="chip">new device</span><span class="chip">new location</span><span class="chip">impossible travel</span><span class="chip">sensitive action</span>
+      </div>
+      <p style="margin-top:8px"><span class="em">Low friction when safe · strong challenge when it counts.</span></p>
+    </div>
+
+    <!-- 05 WHERE TO REQUIRE MFA -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Where to require MFA</div></div>
+      <p style="margin-bottom:6px">Ideally <b>everywhere</b> — but never skip these high-value entry points:</p>
+      <div class="chips">
+        <span class="chip">admin / privileged</span><span class="chip">remote / VPN</span><span class="chip">email</span><span class="chip">sensitive transactions</span>
+      </div>
+      <p style="margin-top:8px"><span class="em">Admins &amp; remote access are the crown jewels — key them first.</span></p>
+    </div>
+
+    <!-- 06 HOW ATTACKERS BYPASS MFA -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">06</div><div class="ctitle">How attackers bypass MFA <span class="t2">— codes &amp; push can be defeated</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:1px">
+        <div class="mini"><h4 style="color:#FF5A4D">📶 SIM-swap</h4><p>Hijack your phone number, then receive your <b>SMS OTP</b>. Kills SMS as a factor.</p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">🪝 Real-time phishing (AiTM)</h4><p>A relay proxy sits between you &amp; the real site, forwarding your <b>OTP live</b>.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">🔔 Push fatigue / MFA bombing</h4><p>Spam approval prompts until a tired user finally <b>taps approve</b>.</p></div>
+        <div class="mini"><h4 style="color:#9B5DE5">🎣 OTP phishing</h4><p>Trick the user into typing a code straight into the attacker's page.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Anything the user can read or tap, an attacker can trick them into relaying.</span></p>
+    </div>
+
+    <!-- 07 AiTM FLOW -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Adversary-in-the-middle <span class="t2">— how a code / push gets relayed</span></div></div>
+      <svg viewBox="0 0 1000 124" width="100%" style="display:block">
+        <line x1="50" y1="70" x2="950" y2="70" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="aitmflow" d="M50,70 L950,70" fill="none" stroke="none"/>
+        <circle r="6" fill="#FF5A4D" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#aitmflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#aitmflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="110" cy="70" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="110" y="28" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · lure</text>
+            <text x="110" y="96" text-anchor="middle" fill="#bdbdbd" font-size="10">user → fake site</text>
+            <text x="110" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9.5">phishing link</text></g>
+          <g><circle class="tlDot" cx="320" cy="70" r="6" fill="#FF5A4D" style="animation-delay:.5s"/>
+            <text x="320" y="28" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">2 · relay</text>
+            <text x="320" y="96" text-anchor="middle" fill="#bdbdbd" font-size="10">proxy → real site</text>
+            <text x="320" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9.5">forwards password</text></g>
+          <g><circle class="tlDot" cx="530" cy="70" r="6" fill="#FE9A3A" style="animation-delay:1s"/>
+            <text x="530" y="28" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">3 · MFA prompt</text>
+            <text x="530" y="96" text-anchor="middle" fill="#bdbdbd" font-size="10">real site → user</text>
+            <text x="530" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9.5">OTP / push challenge</text></g>
+          <g><circle class="tlDot" cx="740" cy="70" r="6" fill="#9B5DE5" style="animation-delay:1.5s"/>
+            <text x="740" y="28" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">4 · user approves</text>
+            <text x="740" y="96" text-anchor="middle" fill="#bdbdbd" font-size="10">code relayed live</text>
+            <text x="740" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9.5">proxy captures it</text></g>
+          <g><circle class="tlDot" cx="920" cy="70" r="6" fill="#DF2E28" style="animation-delay:2s"/>
+            <text x="920" y="28" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">5 · session stolen</text>
+            <text x="920" y="96" text-anchor="middle" fill="#bdbdbd" font-size="10">attacker in 🔥</text>
+            <text x="920" y="110" text-anchor="middle" fill="#8c8c8c" font-size="9.5">steals the cookie</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:7px"><span class="em">A passkey / security key breaks this at step 4 — the credential is bound to the <b>real</b> origin.</span></p>
+    </div>
+
+    <!-- 08 PHISHING-RESISTANT IS THE GOAL -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Phishing-resistant is the goal</div></div>
+      <p style="margin-bottom:7px"><b>FIDO2 / passkeys</b> and <b>security keys</b> are <span class="em">origin-bound</span> — they won't sign for a fake site:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#243b18;color:#81BB42">key checks the URL</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">wrong origin ⇒ no signature</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Nothing to type, phish, or relay — CISA's recommended MFA.</span></p>
+    </div>
+
+    <!-- 09 THE PHISHING-RESISTANT FACTORS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">09</div><div class="ctitle">The phishing-resistant factors</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔑</span><div><b>Security key (FIDO2)</b> <span>— a physical key you tap. Origin-bound, un-phishable.</span></div></div>
+        <div class="gx"><span class="ic">📲</span><div><b>Passkey</b> <span>— a device-stored FIDO credential, unlocked by biometric or PIN.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Both bind the login to the real site — see the passkeys explainer for the full story.</span></p>
+    </div>
+
+    <!-- 10 COMPARISON TABLE -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Method comparison <span class="t2">— pick the strongest you can deploy</span></div></div>
+      <table>
+        <tr><th>&nbsp;</th><th>SMS OTP</th><th>TOTP app</th><th>Push</th><th>Security key / passkey</th></tr>
+        <tr><td class="k">Phishing-resistant?</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="win">Yes</td></tr>
+        <tr><td class="k">SIM-swap risk</td><td class="no">High</td><td class="win">None</td><td class="win">None</td><td class="win">None</td></tr>
+        <tr><td class="k">Push-fatigue risk</td><td>n/a</td><td>n/a</td><td class="no">Yes</td><td class="win">None</td></tr>
+        <tr><td class="k">Strength</td><td class="no">Weakest</td><td>Better</td><td>Good</td><td class="win">Strongest</td></tr>
+      </table>
+      <p style="margin-top:7px"><span class="dim" style="color:#8c8c8c">Number-matching push (show a code the user types back) blunts blind-approve fatigue.</span></p>
+    </div>
+
+    <!-- 11 GOTCHAS -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">11</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas" style="grid-template-columns:1fr 1fr; gap:5px 18px">
+        <div class="gx"><span class="ic">📶</span><div><b>SMS is the weakest factor</b> <span>— SIM-swap &amp; interception. Use it only as a last resort.</span></div></div>
+        <div class="gx"><span class="ic">🔢</span><div><b>Number matching beats blind push</b> <span>— context on the prompt stops fatigue-taps.</span></div></div>
+        <div class="gx"><span class="ic">🍪</span><div><b>MFA isn't a cure-all</b> <span>— a stolen session token after login sails right past it.</span></div></div>
+        <div class="gx"><span class="ic">🚪</span><div><b>Enrollment &amp; recovery</b> <span>— reset flows &amp; backup codes are prime attack paths.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 12 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">12</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">MFA = <span class="em">two different factor types</span> — and <span class="em">phishing-resistant factors</span> (passkeys · security keys) beat codes and push.</div>
+      <div class="flow2">
+        <span class="step">Add a 2nd factor</span><span class="arrow">→</span>
+        <span class="step">Make it a different type</span><span class="arrow">→</span>
+        <span class="step">Go phishing-resistant</span><span class="arrow">→</span>
+        <span class="step">Require it everywhere</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

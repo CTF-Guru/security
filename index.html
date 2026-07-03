@@ -87,6 +87,7 @@ const GROUPS = [
     { title:'OAuth 2.0 — Delegated Authorization', slug:'oauth2', live:true },
     { title:'OIDC — Login on top of OAuth', slug:'oidc', live:true },
     { title:'ID vs Access vs Refresh Token', slug:'tokens', live:true },
+    { title:'MFA — Multi-Factor Authentication', slug:'mfa', live:true },
     { title:'MFA vs Passkeys', slug:'mfa-passkeys', live:true },
     { title:'PAM + JIT + Zero Standing Privileges', slug:'pam-jit', live:true },
     { title:'Zero Trust — Never trust, always verify', slug:'zero-trust', live:true },
@@ -101,11 +102,11 @@ const GROUPS = [
     { title:'CTEM — Continuous Threat Exposure' },
   ]},
   { id:'owasp', name:'OWASP — Web to AI', ac:'var(--purple)', desc:'What goes wrong in apps, APIs, LLMs, and agents.', items:[
-    { title:'OWASP Top 10:2025' },
-    { title:'OWASP API Top 10' },
-    { title:'OWASP LLM Top 10:2025' },
-    { title:'Prompt Injection', also:'AI Security' },
-    { title:'Agentic AI Security' },
+    { title:'OWASP Top 10:2025', slug:'owasp-top10', live:true },
+    { title:'OWASP API Top 10', slug:'owasp-api', live:true },
+    { title:'OWASP LLM Top 10:2025', slug:'owasp-llm', live:true },
+    { title:'Prompt Injection', slug:'prompt-injection', live:true, also:'AI Security' },
+    { title:'Agentic AI Security', slug:'agentic-ai', live:true },
   ]},
   { id:'mitre', name:'MITRE — ATT&CK to ATLAS', ac:'var(--red)', desc:'How attackers behave, and how defenders map coverage.', items:[
     { title:'MITRE ATT&CK Overview' },
@@ -119,7 +120,7 @@ const GROUPS = [
     { title:'ISO/IEC 42001' },
     { title:'AI Red Teaming' },
     { title:'AI-SPM — AI Posture', also:'Posture' },
-    { title:'Prompt Injection', also:'OWASP' },
+    { title:'Prompt Injection', slug:'prompt-injection', live:true, also:'OWASP' },
   ]},
   { id:'secops', name:'SecOps &amp; Resilience', ac:'var(--orange)', desc:'Detect, respond, recover — because controls fail.', items:[
     { title:'SIEM vs SOAR vs XDR' },
