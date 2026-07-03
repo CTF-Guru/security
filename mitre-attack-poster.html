@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE ATT&amp;CK — How Attackers Behave</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="mitre-attack-poster.gif" download>GIF</a> · <a href="mitre-attack-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>MITRE <span class="b">ATT&amp;CK</span></h1>
+  <div class="sub">The defender's shared map of how real attackers behave — a curated knowledge base of adversary <b>Tactics, Techniques &amp; Procedures</b> <span class="dim">(observed in the wild, not theory)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p>A globally-accessible, curated knowledge base of adversary <b>Tactics, Techniques &amp; Procedures (TTPs)</b> — distilled from <b>real-world observations</b> of how attacks actually unfold.</p>
+      <p style="margin-top:7px"><span class="em">The defender's shared map of how attackers behave — a common language across teams and tools.</span></p>
+    </div>
+
+    <!-- 02 THE TTP BREAKDOWN -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">TTPs, decoded</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎯</span><div><b>Tactic</b> <span>— the <b>WHY</b>: the adversary's goal (e.g. Persistence).</span></div></div>
+        <div class="gx"><span class="ic">🛠️</span><div><b>Technique</b> <span>— the <b>HOW</b>: a way to reach it. <b>Sub-technique</b> = a specific variant.</span></div></div>
+        <div class="gx"><span class="ic">🔩</span><div><b>Procedure</b> <span>— a real-world implementation seen in an incident.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Every technique has an ID — e.g. <b style="color:#bdbdbd">T1566</b> Phishing.</span></p>
+    </div>
+
+    <!-- 03 THE ATTACK LIFECYCLE — HERO FLOW -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The attack lifecycle <span class="t2">— the 14 Enterprise tactics, in order (columns of the matrix)</span></div></div>
+      <svg viewBox="0 0 1000 196" width="100%" style="display:block">
+        <line x1="24" y1="78" x2="976" y2="78" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="atkLife" d="M24,78 L976,78" fill="none" stroke="none"/>
+        <circle r="6" fill="#FF5A4D" opacity=".26"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#atkLife"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#atkLife"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif" font-size="8.6" font-weight="700" text-anchor="middle">
+          <g><circle class="tlDot" cx="58" cy="78" r="5" fill="#5AA9EC" style="animation-delay:0s"/><text x="58" y="60" fill="#5AA9EC" font-weight="800">1</text><text x="58" y="98" fill="#bdbdbd">Recon</text></g>
+          <g><circle class="tlDot" cx="126" cy="78" r="5" fill="#3AD0B0" style="animation-delay:.2s"/><text x="126" y="60" fill="#3AD0B0" font-weight="800">2</text><text x="126" y="98" fill="#bdbdbd">Resource Dev</text></g>
+          <g><circle class="tlDot" cx="196" cy="78" r="5" fill="#E9BF35" style="animation-delay:.4s"/><text x="196" y="60" fill="#E9BF35" font-weight="800">3</text><text x="196" y="98" fill="#bdbdbd">Initial Access</text></g>
+          <g><circle class="tlDot" cx="266" cy="78" r="5" fill="#FE9A3A" style="animation-delay:.6s"/><text x="266" y="60" fill="#FE9A3A" font-weight="800">4</text><text x="266" y="98" fill="#bdbdbd">Execution</text></g>
+          <g><circle class="tlDot" cx="336" cy="78" r="5" fill="#9B5DE5" style="animation-delay:.8s"/><text x="336" y="60" fill="#9B5DE5" font-weight="800">5</text><text x="336" y="98" fill="#bdbdbd">Persistence</text></g>
+          <g><circle class="tlDot" cx="406" cy="78" r="5" fill="#81BB42" style="animation-delay:1s"/><text x="406" y="60" fill="#81BB42" font-weight="800">6</text><text x="406" y="98" fill="#bdbdbd">Priv Escalation</text></g>
+          <g><circle class="tlDot" cx="476" cy="78" r="5" fill="#FF5A4D" style="animation-delay:1.2s"/><text x="476" y="60" fill="#FF5A4D" font-weight="800">7</text><text x="476" y="98" fill="#bdbdbd">Defense Evasion</text></g>
+          <g><circle class="tlDot" cx="546" cy="78" r="5" fill="#5AA9EC" style="animation-delay:1.4s"/><text x="546" y="60" fill="#5AA9EC" font-weight="800">8</text><text x="546" y="98" fill="#bdbdbd">Cred Access</text></g>
+          <g><circle class="tlDot" cx="616" cy="78" r="5" fill="#3AD0B0" style="animation-delay:1.6s"/><text x="616" y="60" fill="#3AD0B0" font-weight="800">9</text><text x="616" y="98" fill="#bdbdbd">Discovery</text></g>
+          <g><circle class="tlDot" cx="686" cy="78" r="5" fill="#E9BF35" style="animation-delay:1.8s"/><text x="686" y="60" fill="#E9BF35" font-weight="800">10</text><text x="686" y="98" fill="#bdbdbd">Lateral Move</text></g>
+          <g><circle class="tlDot" cx="756" cy="78" r="5" fill="#FE9A3A" style="animation-delay:2s"/><text x="756" y="60" fill="#FE9A3A" font-weight="800">11</text><text x="756" y="98" fill="#bdbdbd">Collection</text></g>
+          <g><circle class="tlDot" cx="826" cy="78" r="5" fill="#9B5DE5" style="animation-delay:2.2s"/><text x="826" y="60" fill="#9B5DE5" font-weight="800">12</text><text x="826" y="98" fill="#bdbdbd">C2</text></g>
+          <g><circle class="tlDot" cx="896" cy="78" r="5" fill="#81BB42" style="animation-delay:2.4s"/><text x="896" y="60" fill="#81BB42" font-weight="800">13</text><text x="896" y="98" fill="#bdbdbd">Exfiltration</text></g>
+          <g><circle class="tlDot" cx="954" cy="78" r="5" fill="#FF5A4D" style="animation-delay:2.6s"/><text x="954" y="60" fill="#FF5A4D" font-weight="800">14</text><text x="954" y="98" fill="#bdbdbd">Impact</text></g>
+        </g>
+        <text x="24" y="132" fill="#8c8c8c" font-size="10" font-family="Century Gothic, sans-serif">get in →</text>
+        <text x="500" y="132" text-anchor="middle" fill="#8c8c8c" font-size="10" font-family="Century Gothic, sans-serif">stay, spread &amp; hide →</text>
+        <text x="976" y="132" text-anchor="end" fill="#FF5A4D" font-size="10" font-weight="700" font-family="Century Gothic, sans-serif">→ get the goods / do harm</text>
+      </svg>
+      <p style="margin-top:4px"><span class="em">Not a strict script — attackers loop back and revisit tactics as they go.</span> The columns give a full picture of an intrusion, end to end.</p>
+    </div>
+
+    <!-- 04 THE MATRICES -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">04</div><div class="ctitle">The matrices</div></div>
+      <div class="chips">
+        <span class="chip">Enterprise</span><span class="chip">Mobile</span><span class="chip">ICS</span>
+      </div>
+      <p style="margin-top:9px">One knowledge base, three technology domains — Enterprise (IT / cloud), Mobile, and <b>ICS</b> (industrial control systems).</p>
+      <p style="margin-top:6px"><span class="em">Adversary behavior against AI systems lives in a separate MITRE knowledge base — <b>ATLAS</b>.</span></p>
+    </div>
+
+    <!-- 05 ATT&CK vs KILL CHAIN -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">05</div><div class="ctitle">ATT&amp;CK vs the Kill Chain</div></div>
+      <table>
+        <tr><th>Cyber Kill Chain</th><th>MITRE ATT&amp;CK</th></tr>
+        <tr><td>7 broad phases</td><td class="win">14 tactics, 200+ techniques</td></tr>
+        <tr><td>strictly linear</td><td class="win">non-linear — loops back</td></tr>
+        <tr><td>high-level story</td><td class="win">granular, behavior-level</td></tr>
+      </table>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Far more granular — and attackers don't march straight down it.</span></p>
+    </div>
+
+    <!-- 06 HOW DEFENDERS USE IT -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">06</div><div class="ctitle">How defenders use it <span class="t2">— map coverage in the ATT&amp;CK Navigator, a heatmap over the matrix</span></div></div>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap">
+        <svg viewBox="0 0 300 150" width="300" style="display:block; flex:0 0 300px">
+          <text x="6" y="12" fill="#8c8c8c" font-size="9.5" font-weight="700" font-family="Century Gothic, sans-serif">techniques per tactic → detection coverage</text>
+          <g font-family="Century Gothic, sans-serif">
+            <!-- row 1 -->
+            <rect x="6"   y="22" width="30" height="22" rx="3" fill="#81BB42"/>
+            <rect x="40"  y="22" width="30" height="22" rx="3" fill="#3AD0B0" opacity=".85"/>
+            <rect x="74"  y="22" width="30" height="22" rx="3" fill="#E9BF35" opacity=".7"/>
+            <rect x="108" y="22" width="30" height="22" rx="3" fill="#0c0c0c" stroke="#2b2b2b"/>
+            <rect x="142" y="22" width="30" height="22" rx="3" fill="#FE9A3A" opacity=".7"/>
+            <rect x="176" y="22" width="30" height="22" rx="3" fill="#81BB42"/>
+            <rect x="210" y="22" width="30" height="22" rx="3" fill="#FF5A4D" opacity=".8" class="mess"/>
+            <rect x="244" y="22" width="30" height="22" rx="3" fill="#3AD0B0" opacity=".85"/>
+            <!-- row 2 -->
+            <rect x="6"   y="48" width="30" height="22" rx="3" fill="#E9BF35" opacity=".7"/>
+            <rect x="40"  y="48" width="30" height="22" rx="3" fill="#FF5A4D" opacity=".8" class="mess"/>
+            <rect x="74"  y="48" width="30" height="22" rx="3" fill="#81BB42"/>
+            <rect x="108" y="48" width="30" height="22" rx="3" fill="#3AD0B0" opacity=".85"/>
+            <rect x="142" y="48" width="30" height="22" rx="3" fill="#0c0c0c" stroke="#2b2b2b"/>
+            <rect x="176" y="48" width="30" height="22" rx="3" fill="#FE9A3A" opacity=".7"/>
+            <rect x="210" y="48" width="30" height="22" rx="3" fill="#81BB42"/>
+            <rect x="244" y="48" width="30" height="22" rx="3" fill="#E9BF35" opacity=".7"/>
+            <!-- row 3 -->
+            <rect x="6"   y="74" width="30" height="22" rx="3" fill="#3AD0B0" opacity=".85"/>
+            <rect x="40"  y="74" width="30" height="22" rx="3" fill="#81BB42"/>
+            <rect x="74"  y="74" width="30" height="22" rx="3" fill="#0c0c0c" stroke="#2b2b2b"/>
+            <rect x="108" y="74" width="30" height="22" rx="3" fill="#FF5A4D" opacity=".8" class="mess"/>
+            <rect x="142" y="74" width="30" height="22" rx="3" fill="#E9BF35" opacity=".7"/>
+            <rect x="176" y="74" width="30" height="22" rx="3" fill="#3AD0B0" opacity=".85"/>
+            <rect x="210" y="74" width="30" height="22" rx="3" fill="#FE9A3A" opacity=".7"/>
+            <rect x="244" y="74" width="30" height="22" rx="3" fill="#81BB42"/>
+          </g>
+          <g font-family="Century Gothic, sans-serif" font-size="9" font-weight="700">
+            <rect x="6"   y="108" width="12" height="12" rx="2" fill="#81BB42"/><text x="22" y="118" fill="#bdbdbd">covered</text>
+            <rect x="86"  y="108" width="12" height="12" rx="2" fill="#E9BF35" opacity=".7"/><text x="102" y="118" fill="#bdbdbd">partial</text>
+            <rect x="158" y="108" width="12" height="12" rx="2" fill="#FF5A4D" opacity=".8"/><text x="174" y="118" fill="#bdbdbd">gap</text>
+            <rect x="210" y="108" width="12" height="12" rx="2" fill="#0c0c0c" stroke="#2b2b2b"/><text x="226" y="118" fill="#bdbdbd">n/a</text>
+          </g>
+        </svg>
+        <div style="flex:1 1 300px; min-width:280px">
+          <div class="gotchas">
+            <div class="gx"><span class="ic">🗺️</span><div><b>Map coverage</b> <span>— color the matrix by what you can detect; the red cells are your gaps.</span></div></div>
+            <div class="gx"><span class="ic">🏷️</span><div><b>Attribute</b> <span>— tie observed TTPs to known threat groups &amp; campaigns.</span></div></div>
+            <div class="gx"><span class="ic">🟣</span><div><b>Purple-team</b> <span>— red emulates a technique, blue confirms they'd see it.</span></div></div>
+          </div>
+          <p style="margin-top:7px"><span class="em">Prioritize the gaps by real-world prevalence — defend what attackers actually use.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 DETECTIONS + MITIGATIONS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Behavior → defense</div></div>
+      <p style="margin-bottom:6px">Every technique ships with linked <b>Detections</b> and <b>Mitigations</b>:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#3a1414;color:#FF5A4D">technique</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">detect it</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">mitigate it</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Turns "how attackers behave" into concrete, testable defenses.</span></p>
+    </div>
+
+    <!-- 08 VERSIONING -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">08</div><div class="ctitle">It's versioned</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📈</span><div><b>200+ techniques · 400+ sub-techniques</b> <span>— and growing every release.</span></div></div>
+        <div class="gx"><span class="ic">🔀</span><div><b>v19 (Apr 2026)</b> <span>— split "Defense Evasion" into <b>Stealth</b> + <b>Defense Impairment</b>.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Verify technique IDs &amp; tactics against the current matrix — it evolves.</span></p>
+    </div>
+
+    <!-- 09 WATCH OUT -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">✅</span><div><b>It's not a checklist</b> <span>— it's a knowledge base, not a compliance to-do list.</span></div></div>
+        <div class="gx"><span class="ic">📄</span><div><b>Paper ≠ real</b> <span>— coverage on the map ≠ a working detection in prod.</span></div></div>
+        <div class="gx"><span class="ic">🎚️</span><div><b>Map it to YOU</b> <span>— tailor to your threat model, tech stack &amp; likely adversaries.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">10</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">ATT&amp;CK is the <span class="em">shared language for attacker behavior</span> — map your detections onto the matrix and <span class="em">close the gaps</span>.</div>
+      <div class="flow2">
+        <span class="step">Learn the tactics</span><span class="arrow">→</span>
+        <span class="step">Map detections</span><span class="arrow">→</span>
+        <span class="step">Find the gaps</span><span class="arrow">→</span>
+        <span class="step">Close them</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

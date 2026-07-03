@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE D3FEND — Defensive Countermeasures</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="d3fend-poster.gif" download>GIF</a> · <a href="d3fend-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>MITRE <span class="b">D3FEND</span></h1>
+  <div class="sub">A knowledge <b>graph of defensive countermeasures</b> — the defender's counterpart to ATT&amp;CK <span class="dim">(built by MITRE, funded by the NSA — a shared vocabulary for defense)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 WHAT IT IS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">What it is</div></div>
+      <p>A knowledge <b>graph of defensive cybersecurity countermeasures</b> — the defensive counterpart to <b>ATT&amp;CK</b>. Developed by <b>MITRE</b>, funded by the <b>NSA</b>.</p>
+      <p style="margin-top:7px"><span class="em">Not a product to buy — a precise, shared vocabulary for the defenses that counter attacker behavior.</span></p>
+    </div>
+
+    <!-- 02 WHY IT EXISTS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">Why it exists</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">⚔️</span><div><b>ATT&amp;CK names the offense</b> <span>— a catalog of how attackers behave, step by step.</span></div></div>
+        <div class="gx"><span class="ic">🛡️</span><div><b>D3FEND names the defense</b> <span>— a precise vocabulary for the countermeasures that answer it.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Two teams, one language — so defenders can talk about controls as rigorously as attackers talk about techniques.</span></p>
+    </div>
+
+    <!-- 03 THE DEFENSIVE TACTICS -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">The defensive tactics <span class="t2">— the seven categories techniques are organized under</span></div></div>
+      <svg viewBox="0 0 1000 116" width="100%" style="display:block">
+        <line x1="70" y1="58" x2="930" y2="58" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="d3tac" d="M70,58 L930,58" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#d3tac"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#d3tac"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif" font-size="12" font-weight="800">
+          <g><circle class="tlDot" cx="80" cy="58" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="80" y="40" text-anchor="middle" fill="#5AA9EC">Model</text>
+            <text x="80" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">map assets</text></g>
+          <g><circle class="tlDot" cx="222" cy="58" r="6" fill="#3AD0B0" style="animation-delay:.4s"/>
+            <text x="222" y="40" text-anchor="middle" fill="#3AD0B0">Harden</text>
+            <text x="222" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">shrink attack surface</text></g>
+          <g><circle class="tlDot" cx="364" cy="58" r="6" fill="#E9BF35" style="animation-delay:.8s"/>
+            <text x="364" y="40" text-anchor="middle" fill="#E9BF35">Detect</text>
+            <text x="364" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">spot the activity</text></g>
+          <g><circle class="tlDot" cx="506" cy="58" r="6" fill="#FE9A3A" style="animation-delay:1.2s"/>
+            <text x="506" y="40" text-anchor="middle" fill="#FE9A3A">Isolate</text>
+            <text x="506" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">contain the blast</text></g>
+          <g><circle class="tlDot" cx="648" cy="58" r="6" fill="#9B5DE5" style="animation-delay:1.6s"/>
+            <text x="648" y="40" text-anchor="middle" fill="#9B5DE5">Deceive</text>
+            <text x="648" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">decoys &amp; traps</text></g>
+          <g><circle class="tlDot" cx="790" cy="58" r="6" fill="#FF5A4D" style="animation-delay:2s"/>
+            <text x="790" y="40" text-anchor="middle" fill="#FF5A4D">Evict</text>
+            <text x="790" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">remove the attacker</text></g>
+          <g><circle class="tlDot" cx="920" cy="58" r="6" fill="#81BB42" style="animation-delay:2.4s"/>
+            <text x="920" y="40" text-anchor="middle" fill="#81BB42">Restore</text>
+            <text x="920" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9" font-weight="600">recover to good</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">Model · Harden · Detect · Isolate · Deceive · Evict · Restore — every defensive technique lives under one of these.</span></p>
+    </div>
+
+    <!-- 04 DIGITAL ARTIFACT ONTOLOGY -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">The Digital Artifact Ontology <span class="t2">— the glue that links offense to defense</span></div></div>
+      <svg viewBox="0 0 1000 132" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="46" width="220" height="40" rx="8" fill="#1a0a0a" stroke="#FF5A4D"/>
+          <text x="130" y="63" text-anchor="middle" fill="#FF5A4D" font-size="12">ATT&amp;CK technique</text>
+          <text x="130" y="78" text-anchor="middle" fill="#8c8c8c" font-size="9.5" font-weight="600">what the attacker does</text>
+          <rect x="390" y="42" width="220" height="48" rx="10" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="500" y="60" text-anchor="middle" fill="#E9BF35" font-size="12">digital ARTIFACT</text>
+          <text x="500" y="76" text-anchor="middle" fill="#bdbdbd" font-size="9" font-weight="600">files · processes · traffic · credentials</text>
+          <rect x="760" y="46" width="220" height="40" rx="8" fill="#0d1305" stroke="#81BB42"/>
+          <text x="870" y="63" text-anchor="middle" fill="#81BB42" font-size="12">D3FEND countermeasure</text>
+          <text x="870" y="78" text-anchor="middle" fill="#8c8c8c" font-size="9.5" font-weight="600">what the defender does</text>
+          <!-- attacker → artifact -->
+          <line x1="240" y1="66" x2="390" y2="66" stroke="#2b2b2b" stroke-width="1.4"/>
+          <path id="d3a1" d="M240,66 L390,66" fill="none" stroke="none"/>
+          <circle r="3.4" fill="#FF5A4D"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#d3a1"/></animateMotion></circle>
+          <text x="315" y="40" text-anchor="middle" fill="#8c8c8c" font-size="9.5">produces / touches →</text>
+          <!-- artifact → defense -->
+          <line x1="610" y1="66" x2="760" y2="66" stroke="#2b2b2b" stroke-width="1.4"/>
+          <path id="d3a2" d="M610,66 L760,66" fill="none" stroke="none"/>
+          <circle r="3.4" fill="#81BB42"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#d3a2"/></animateMotion></circle>
+          <text x="685" y="40" text-anchor="middle" fill="#8c8c8c" font-size="9.5">← is observed / hardened by</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">The <span class="em">artifact</span> is the join key. Both an attack and a defense reference the same digital objects — so D3FEND can link a technique to the countermeasures that touch the <b>same</b> artifact.</p>
+    </div>
+
+    <!-- 05 ATT&CK ↔ D3FEND MAPPING (HERO) -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">05</div><div class="ctitle">ATT&amp;CK ↔ D3FEND mapping <span class="t2">— pick a technique · surface the countermeasures</span></div></div>
+      <svg viewBox="0 0 1000 176" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif">
+          <!-- attacker technique -->
+          <rect x="20" y="66" width="230" height="46" rx="9" fill="#1a0a0a" stroke="#FF5A4D"/>
+          <text x="135" y="86" text-anchor="middle" fill="#FF5A4D" font-size="12.5" font-weight="800">Phishing attachment</text>
+          <text x="135" y="102" text-anchor="middle" fill="#8c8c8c" font-size="9.5" font-weight="600">ATT&amp;CK · Initial Access</text>
+          <!-- fan-out lines -->
+          <line x1="250" y1="89" x2="470" y2="34" stroke="#2b2b2b" stroke-width="1.3"/>
+          <line x1="250" y1="89" x2="470" y2="89" stroke="#2b2b2b" stroke-width="1.3"/>
+          <line x1="250" y1="89" x2="470" y2="144" stroke="#2b2b2b" stroke-width="1.3"/>
+          <path id="d3m1" d="M250,89 L470,34" fill="none" stroke="none"/>
+          <path id="d3m2" d="M250,89 L470,89" fill="none" stroke="none"/>
+          <path id="d3m3" d="M250,89 L470,144" fill="none" stroke="none"/>
+          <circle r="3.2" fill="#3AD0B0"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#d3m1"/></animateMotion></circle>
+          <circle r="3.2" fill="#E9BF35"><animateMotion dur="2.2s" begin="-.7s" repeatCount="indefinite"><mpath href="#d3m2"/></animateMotion></circle>
+          <circle r="3.2" fill="#FF5A4D"><animateMotion dur="2.2s" begin="-1.4s" repeatCount="indefinite"><mpath href="#d3m3"/></animateMotion></circle>
+          <!-- countermeasures -->
+          <rect x="470" y="18" width="330" height="32" rx="8" fill="#0f1512" stroke="#3AD0B0"/>
+          <text x="486" y="38" fill="#3AD0B0" font-size="11.5" font-weight="800">HARDEN</text>
+          <text x="800" y="38" text-anchor="end" fill="#bdbdbd" font-size="10.5" font-weight="600">Message / file analysis · MFA</text>
+          <rect x="470" y="73" width="330" height="32" rx="8" fill="#1a1305" stroke="#E9BF35"/>
+          <text x="486" y="93" fill="#E9BF35" font-size="11.5" font-weight="800">DETECT</text>
+          <text x="800" y="93" text-anchor="end" fill="#bdbdbd" font-size="10.5" font-weight="600">File &amp; process analysis</text>
+          <rect x="470" y="128" width="330" height="32" rx="8" fill="#1a0a0a" stroke="#FF5A4D"/>
+          <text x="486" y="148" fill="#FF5A4D" font-size="11.5" font-weight="800">EVICT</text>
+          <text x="800" y="148" text-anchor="end" fill="#bdbdbd" font-size="10.5" font-weight="600">Process termination · lock account</text>
+          <!-- via artifact tag -->
+          <text x="335" y="130" text-anchor="middle" fill="#8c8c8c" font-size="9.5" font-family="Century Gothic, sans-serif">via shared artifact:</text>
+          <text x="335" y="144" text-anchor="middle" fill="#E9BF35" font-size="9.5" font-weight="700" font-family="Century Gothic, sans-serif">file · email · process</text>
+          <text x="960" y="93" text-anchor="middle" fill="#8c8c8c" font-size="10" font-weight="700" font-family="Century Gothic, sans-serif" transform="rotate(90 960 89)">D3FEND</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">One attacker move fans out to many defenses</span> — D3FEND shows which countermeasures <b>harden against</b>, <b>detect</b>, or <b>evict</b> it.</p>
+    </div>
+
+    <!-- 06 HOW TO USE -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">06</div><div class="ctitle">How to use it <span class="t2">— coverage analysis: map your controls, expose your gaps</span></div></div>
+      <svg viewBox="0 0 1000 96" width="100%" style="display:block">
+        <line x1="80" y1="52" x2="920" y2="52" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="d3use" d="M80,52 L920,52" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#d3use"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#d3use"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="130" cy="52" r="6" fill="#FF5A4D" style="animation-delay:0s"/>
+            <text x="130" y="34" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">1 · Pick the attacks</text>
+            <text x="130" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">the ATT&amp;CK techniques you fear</text></g>
+          <g><circle class="tlDot" cx="410" cy="52" r="6" fill="#5AA9EC" style="animation-delay:.6s"/>
+            <text x="410" y="34" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">2 · Map your controls</text>
+            <text x="410" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">what can you Detect / Stop / Contain?</text></g>
+          <g><circle class="tlDot" cx="690" cy="52" r="6" fill="#FE9A3A" style="animation-delay:1.2s"/>
+            <text x="690" y="34" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">3 · Find the gaps</text>
+            <text x="690" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">techniques with no countermeasure</text></g>
+          <g><circle class="tlDot" cx="900" cy="52" r="6" fill="#81BB42" style="animation-delay:1.8s"/>
+            <text x="900" y="34" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">4 · Close them</text>
+            <text x="900" y="76" text-anchor="middle" fill="#8c8c8c" font-size="9.5">deploy · then re-check</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">"What can we DETECT? what can we STOP? what can we CONTAIN?"</span> — the map turns a wall of techniques into a punch list.</p>
+    </div>
+
+    <!-- 07 EXAMPLES PER CATEGORY -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Examples per category</div></div>
+      <table>
+        <tr><th>Tactic</th><th>Countermeasure</th></tr>
+        <tr><td class="k" style="color:#3AD0B0">Harden</td><td class="win">Multi-factor auth · app hardening</td></tr>
+        <tr><td class="k" style="color:#E9BF35">Detect</td><td class="win">File / process / network analysis</td></tr>
+        <tr><td class="k" style="color:#FE9A3A">Isolate</td><td class="win">Network segmentation</td></tr>
+        <tr><td class="k" style="color:#9B5DE5">Deceive</td><td class="win">Decoy files &amp; hosts</td></tr>
+        <tr><td class="k" style="color:#FF5A4D">Evict</td><td class="win">Account locking · process kill</td></tr>
+      </table>
+    </div>
+
+    <!-- 08 IT COMPLEMENTS -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">08</div><div class="ctitle">It complements</div></div>
+      <div class="steps">
+        <span class="step" style="border-color:#3a1414;color:#FF5A4D">ATT&amp;CK · offense</span><span class="arrow">+</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">D3FEND · defense</span>
+      </div>
+      <p style="margin-top:9px">The two halves of one picture. D3FEND doesn't replace your tools — it gives them a <b>frame</b>.</p>
+      <p style="margin-top:6px"><span class="em">Pair it with detection engineering + your SIEM.</span></p>
+    </div>
+
+    <!-- 09 WATCH OUT -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Watch out</div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 16px">
+        <div class="gx"><span class="ic">🛒</span><div><b>It's not a product</b> <span>— a vocabulary + knowledge graph, not a control you buy or deploy.</span></div></div>
+        <div class="gx"><span class="ic">🧭</span><div><b>A mapping ≠ a control</b> <span>— knowing the countermeasure isn't the same as running it.</span></div></div>
+        <div class="gx"><span class="ic">🏷️</span><div><b>It's versioned</b> <span>— still maturing; cite the version and check the current spec.</span></div></div>
+        <div class="gx"><span class="ic">📐</span><div><b>Coverage ≠ security</b> <span>— it exposes gaps, but you still have to close them.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">10</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">D3FEND is the <span class="em">defender's map</span> — for every attacker move in ATT&amp;CK, the countermeasures that <span class="em">harden, detect, isolate, and evict</span>.</div>
+      <div class="flow2">
+        <span class="step">Pick a technique</span><span class="arrow">→</span>
+        <span class="step">Surface countermeasures</span><span class="arrow">→</span>
+        <span class="step">Map coverage</span><span class="arrow">→</span>
+        <span class="step">Close the gaps</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
