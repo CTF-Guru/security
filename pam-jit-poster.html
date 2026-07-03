@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privileged Access — PAM, JIT & Zero Standing Privileges</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="pam-jit-poster.gif" download>GIF</a> · <a href="pam-jit-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>PRIVILEGED <span class="b">ACCESS</span></h1>
+  <div class="sub">Kill the always-on admin keys — grant power <b>just-in-time</b>, for a reason, then take it back automatically <span class="dim">(PAM · JIT · Zero Standing Privileges)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 THE PROBLEM -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">01</div><div class="ctitle">The problem <span class="t2">— standing admin is an always-on attack surface</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <!-- BEFORE: standing admin -->
+        <text x="20" y="16" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">STANDING ADMIN — the key never comes off the ring</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="140" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="90" y="53" text-anchor="middle" fill="#fff">Admin account</text>
+          <g class="mess" stroke="#FF5A4D" stroke-width="1.4"><line x1="160" y1="49" x2="300" y2="49"/></g>
+          <rect x="300" y="34" width="150" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="375" y="53" text-anchor="middle" fill="#FF5A4D">Full power 24/7</text>
+          <text x="235" y="88" text-anchor="middle" fill="#FF5A4D" font-size="10.5">always on · idle 99% of the time</text>
+          <text x="235" y="103" text-anchor="middle" fill="#FF5A4D" font-size="10.5">a permanent, high-value target 🔥</text>
+        </g>
+        <!-- divider arrow -->
+        <text x="500" y="70" text-anchor="middle" fill="#E9BF35" font-size="30" font-weight="800">→</text>
+        <!-- AFTER: just-in-time -->
+        <text x="560" y="16" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">JUST-IN-TIME — no key until you need one</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="560" y="34" width="120" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="620" y="53" text-anchor="middle" fill="#fff">User (no admin)</text>
+          <rect x="712" y="34" width="112" height="30" rx="7" fill="#1a1305" stroke="#E9BF35"/><text x="768" y="53" text-anchor="middle" fill="#E9BF35">Broker</text>
+          <rect x="856" y="34" width="120" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="916" y="53" text-anchor="middle" fill="#81BB42">Temp power</text>
+          <line x1="680" y1="49" x2="712" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <line x1="824" y1="49" x2="856" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <path id="pjBefore" d="M680,49 L856,49" fill="none" stroke="none"/>
+          <circle r="3.2" fill="#81BB42"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#pjBefore"/></animateMotion></circle>
+          <text x="768" y="88" text-anchor="middle" fill="#8c8c8c" font-size="10">granted on request</text>
+          <text x="916" y="88" text-anchor="middle" fill="#81BB42" font-size="10.5">expires · auto-revoked ✓</text>
+        </g>
+      </svg>
+      <p style="margin-top:8px" class="lead">Standing privileges are <b>always-on keys</b> — a permanent surface attackers hunt for. Take the key off the ring until it's actually needed.</p>
+    </div>
+
+    <!-- 02 PAM -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">02</div><div class="ctitle">PAM <span class="t2">— privileged access management</span></div></div>
+      <p style="margin-bottom:6px">Put every privileged account behind a controlled front door:</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🗄️</span><div><b>Vault + broker</b> <span>— credentials live in a vault; the broker checks them out, nobody sees the raw secret.</span></div></div>
+        <div class="gx"><span class="ic">🔄</span><div><b>Rotate secrets</b> <span>— passwords &amp; keys are changed automatically, often after each use.</span></div></div>
+        <div class="gx"><span class="ic">🔐</span><div><b>MFA to elevate</b> <span>— strong auth required before any privileged session starts.</span></div></div>
+        <div class="gx"><span class="ic">🎥</span><div><b>Record the session</b> <span>— privileged sessions are proxied, logged &amp; replayable.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 03 JIT -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">03</div><div class="ctitle">JIT <span class="t2">— just-in-time access</span></div></div>
+      <p style="margin-bottom:7px">Grant admin only <b>when</b> needed, for a stated <b>reason</b>, for a <b>limited</b> time.</p>
+      <div class="steps">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">request</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">approve</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#243b18;color:#81BB42">elevate</span><span class="arrow">→</span>
+        <span class="step" style="border-color:#4a1f1c;color:#FF5A4D">auto-expire</span>
+      </div>
+      <p style="margin-top:9px">The grant carries a <b>who</b>, a <b>why</b>, and a <b>when-until</b> — a short TTL, not an open-ended role.</p>
+      <p style="margin-top:6px"><span class="em">Access has a start, a reason, and an end — not a permanent grant.</span></p>
+    </div>
+
+    <!-- 04 ZSP -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Zero Standing Privileges <span class="t2">— the goal</span></div></div>
+      <p style="margin-bottom:6px"><b>No permanent admin at all.</b> At rest, every account sits at <b>zero</b> privilege.</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">0️⃣</span><div><b>Baseline = nothing</b> <span>— no standing role, no idle key to steal.</span></div></div>
+        <div class="gx"><span class="ic">⏱️</span><div><b>Ephemeral privilege</b> <span>— created on demand, revoked the moment the task is done.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="em">ZSP is the destination; JIT + PAM are how you get there.</span></p>
+    </div>
+
+    <!-- 05 THE MODEL (animated cycle) -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">05</div><div class="ctitle">The model <span class="t2">— a request → elevate → auto-revoke cycle, back to zero</span></div></div>
+      <svg viewBox="0 0 1000 232" width="100%" style="display:block">
+        <!-- the cycle ring -->
+        <path id="pjRing" d="M500,50 A180,80 0 1,1 499.9,50 Z" fill="none" stroke="#2b2b2b" stroke-width="2"/>
+        <circle r="6" fill="#9B5DE5" opacity=".3"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#pjRing"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#pjRing"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif" font-weight="800" font-size="12" text-anchor="middle">
+          <!-- centre state -->
+          <text x="500" y="120" fill="#8c8c8c" font-size="11" font-weight="700">at rest =</text>
+          <text x="500" y="140" fill="#FF5A4D" font-size="20" font-weight="800">ZERO privilege</text>
+          <!-- node 1 · request (top) -->
+          <circle class="tlDot" cx="500" cy="50" r="7" fill="#5AA9EC" style="animation-delay:0s"/>
+          <text x="500" y="34" fill="#5AA9EC">1 · request</text>
+          <!-- node 2 · approve (right) -->
+          <circle class="tlDot" cx="680" cy="105" r="7" fill="#E9BF35" style="animation-delay:1s"/>
+          <text x="760" y="100" fill="#E9BF35">2 · approve</text>
+          <text x="760" y="115" fill="#8c8c8c" font-size="9.5" font-weight="600">+ reason / ticket</text>
+          <!-- node 3 · elevate (bottom right) -->
+          <circle class="tlDot" cx="640" cy="185" r="7" fill="#81BB42" style="animation-delay:2s"/>
+          <text x="700" y="205" fill="#81BB42">3 · elevate</text>
+          <text x="700" y="220" fill="#8c8c8c" font-size="9.5" font-weight="600">time-boxed</text>
+          <!-- node 4 · do the task (bottom left) -->
+          <circle class="tlDot" cx="360" cy="185" r="7" fill="#FE9A3A" style="animation-delay:3s"/>
+          <text x="300" y="205" fill="#FE9A3A">4 · do the task</text>
+          <text x="300" y="220" fill="#8c8c8c" font-size="9.5" font-weight="600">logged session</text>
+          <!-- node 5 · auto-revoke (left) -->
+          <circle class="tlDot" cx="320" cy="105" r="7" fill="#FF5A4D" style="animation-delay:4s"/>
+          <text x="240" y="100" fill="#FF5A4D">5 · auto-revoke</text>
+          <text x="240" y="115" fill="#8c8c8c" font-size="9.5" font-weight="600">back to zero</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px"><span class="em">The privilege exists only inside the loop — outside it, there is nothing to attack.</span></p>
+    </div>
+
+    <!-- 06 WHY IT WORKS -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Why it works</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">💥</span><div><b>Smaller blast radius</b> <span>— a compromised account is powerless until (and unless) it elevates.</span></div></div>
+        <div class="gx"><span class="ic">🔑</span><div><b>Fewer standing credentials</b> <span>— far less to steal, phish, or leave lying around.</span></div></div>
+        <div class="gx"><span class="ic">📋</span><div><b>Every elevation is logged</b> <span>— who, when, why, for how long — auditable by default.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 07 THE PIECES -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">07</div><div class="ctitle">The pieces <span class="t2">— what you assemble</span></div></div>
+      <div class="chips">
+        <span class="chip">vault</span><span class="chip">session broker / proxy</span><span class="chip">approval workflow</span><span class="chip">secrets rotation</span><span class="chip">audit &amp; session recording</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">Vault holds it · broker brokers it · workflow gates it · rotation refreshes it · audit remembers it.</span></p>
+    </div>
+
+    <!-- 08 STANDING vs JIT (table) -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Standing admin vs Just-in-Time <span class="t2">— what actually changes</span></div></div>
+      <table>
+        <tr><th>&nbsp;</th><th>Standing admin</th><th>JIT + ZSP</th></tr>
+        <tr><td class="k">Attack surface</td><td class="no">always on, always exposed</td><td class="win">only during a granted window</td></tr>
+        <tr><td class="k">Blast radius</td><td class="no">full power on compromise</td><td class="win">near-zero until elevation</td></tr>
+        <tr><td class="k">Audit trail</td><td class="no">who did what, when? unclear</td><td class="win">every elevation reasoned &amp; logged</td></tr>
+        <tr><td class="k">Credential to steal</td><td class="no">a permanent admin secret</td><td class="win">nothing sitting at rest</td></tr>
+      </table>
+    </div>
+
+    <!-- 09 WATCH OUT -->
+    <div class="card c-red">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🧯</span><div><b>Break-glass accounts</b> <span>— emergency admins are standing privilege by design. Vault, alert on use, review after.</span></div></div>
+        <div class="gx"><span class="ic">🗝️</span><div><b>Over-broad roles</b> <span>— JIT to a role that's still god-mode barely helps. Scope the grant, not just the timing.</span></div></div>
+        <div class="gx"><span class="ic">🥱</span><div><b>Approval fatigue</b> <span>— floods of requests get rubber-stamped. Tune thresholds; auto-approve low-risk.</span></div></div>
+        <div class="gx"><span class="ic">🤖</span><div><b>Non-human identities</b> <span>— service accounts &amp; machine creds are the ones most often left standing.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 ON THE WIRE -->
+    <div class="card c-teal">
+      <div class="chead"><div class="num">10</div><div class="ctitle">A grant <span class="t2">— what one request looks like</span></div></div>
+      <div class="wire">
+<span class="cm">// user asks the broker for a time-boxed elevation</span><br>
+<b>POST</b> /elevate &nbsp; <span class="key">role</span>=<span class="str">"db-admin"</span> &amp; <span class="key">reason</span>=<span class="str">"INC-4821 hotfix"</span> &amp; <span class="key">ttl</span>=<span class="num2">30m</span><br>
+<span class="cm">// ← approved → an ephemeral, expiring grant</span><br>
+{ <span class="key">"granted"</span>: <span class="str">"db-admin"</span>, <span class="key">"expires_at"</span>: <span class="str">"14:30Z"</span>, <span class="key">"revoke"</span>: <span class="str">"auto"</span> }
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">No reason, no grant. No TTL, no grant. The clock starts the moment it's issued.</span></p>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">No standing privilege — grant admin <span class="em">just-in-time, just-enough</span>, and <span class="em">take it back automatically</span>.</div>
+      <div class="flow2">
+        <span class="step">Zero at rest</span><span class="arrow">→</span>
+        <span class="step">Request + reason</span><span class="arrow">→</span>
+        <span class="step">Time-boxed elevate</span><span class="arrow">→</span>
+        <span class="step">Auto-revoke</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

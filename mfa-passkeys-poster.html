@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MFA vs Passkeys — Phishing-Resistant Login</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="mfa-passkeys-poster.gif" download>GIF</a> · <a href="mfa-passkeys-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>MFA vs <span class="b">PASSKEYS</span></h1>
+  <div class="sub">Not all logins are equal — from phishable codes to a <b>cryptographic signature</b> bound to the real site <span class="dim">(the FIDO2 / WebAuthn upgrade)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 THE PROBLEM -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">01</div><div class="ctitle">The problem <span class="t2">— a typed shared secret is the weak link</span></div></div>
+      <svg viewBox="0 0 1000 122" width="100%" style="display:block">
+        <!-- BEFORE -->
+        <text x="20" y="16" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">PASSWORD — a secret you type</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="120" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="80" y="53" text-anchor="middle" fill="#fff">You</text>
+          <rect x="270" y="34" width="150" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="345" y="53" text-anchor="middle" fill="#fff">Server</text>
+          <g class="mess" stroke="#FF5A4D" stroke-width="1.4"><line x1="140" y1="49" x2="270" y2="49"/></g>
+          <text x="205" y="43" text-anchor="middle" fill="#FF5A4D" font-size="10">the same secret</text>
+          <text x="345" y="86" text-anchor="middle" fill="#FF5A4D" font-size="11">→ phished · reused · breached</text>
+          <text x="345" y="102" text-anchor="middle" fill="#FF5A4D" font-size="11">stored on the server · leaks in a dump 🔥</text>
+        </g>
+        <!-- divider arrow -->
+        <text x="500" y="70" text-anchor="middle" fill="#E9BF35" font-size="30" font-weight="800">→</text>
+        <!-- AFTER -->
+        <text x="560" y="16" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">PASSKEY — a signature, nothing secret sent</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="560" y="34" width="150" height="30" rx="7" fill="#0c0c0c" stroke="#2b2b2b"/><text x="635" y="53" text-anchor="middle" fill="#fff">Your device 🔑</text>
+          <rect x="830" y="34" width="140" height="30" rx="7" fill="#1a1305" stroke="#E9BF35"/><text x="900" y="53" text-anchor="middle" fill="#E9BF35">Server</text>
+          <line x1="710" y1="49" x2="830" y2="49" stroke="#2b2b2b" stroke-width="1.3"/>
+          <path id="pkAll" d="M710,49 L830,49" fill="none" stroke="none"/>
+          <circle r="3.2" fill="#81BB42"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#pkAll"/></animateMotion></circle>
+          <circle r="3.2" fill="#81BB42"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#pkAll"/></animateMotion></circle>
+          <text x="635" y="80" text-anchor="middle" fill="#8c8c8c" font-size="9.5">private key never leaves</text>
+          <text x="900" y="86" text-anchor="middle" fill="#81BB42" font-size="11">→ only a signature crosses</text>
+          <text x="900" y="102" text-anchor="middle" fill="#81BB42" font-size="11">nothing to phish, reuse, or breach ✓</text>
+        </g>
+      </svg>
+      <p style="margin-top:8px" class="lead">A password is a <b>shared secret you type</b> — so it can be phished, reused across sites, and dumped in a breach.</p>
+    </div>
+
+    <!-- 02 THE THREE FACTORS -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">MFA = two or more <b>different</b> factors</div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">🧠 Something you KNOW</h4><p>A password or PIN — a secret in your head.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">📱 Something you HAVE</h4><p>A phone, an authenticator app, or a security key.</p></div>
+        <div class="mini"><h4 style="color:#E9BF35">👆 Something you ARE</h4><p>A biometric — fingerprint or face.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Two passwords isn't MFA — the factors must be of different kinds.</span></p>
+    </div>
+
+    <!-- 03 NOT ALL MFA IS EQUAL -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Not all MFA is equal</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">📩</span><div><b>Phishable</b> <span>— SMS OTP, TOTP codes, push prompts. A code you can read out can be relayed to a fake site.</span></div></div>
+        <div class="gx"><span class="ic">🛡️</span><div><b>Phishing-resistant</b> <span>— FIDO2 / WebAuthn passkeys &amp; security keys. Nothing to read out or replay.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Adding a second factor helps — but a phishable one can still be intercepted or fatigue-approved.</span></p>
+    </div>
+
+    <!-- 04 THE PHISHABLE PACK -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">How phishable MFA breaks</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔁</span><div><b>OTP / TOTP relay</b> <span>— a proxy site captures the code and replays it in real time.</span></div></div>
+        <div class="gx"><span class="ic">📲</span><div><b>SMS intercept</b> <span>— SIM-swap or network flaws divert the text.</span></div></div>
+        <div class="gx"><span class="ic">😵</span><div><b>Push fatigue</b> <span>— spam the prompt until a tired user taps “approve”.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 05 WHAT A PASSKEY IS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">05</div><div class="ctitle">What a passkey <b>is</b> <span class="t2">— a public / private key pair (FIDO2 · WebAuthn)</span></div></div>
+      <svg viewBox="0 0 1000 120" width="100%" style="display:block">
+        <!-- device side -->
+        <text x="20" y="16" fill="#5AA9EC" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">YOUR DEVICE — keeps the private key</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="34" width="220" height="52" rx="9" fill="#0c0c0c" stroke="#5AA9EC"/>
+          <text x="130" y="55" text-anchor="middle" fill="#5AA9EC" font-size="12">🔒 Secure enclave</text>
+          <text x="130" y="74" text-anchor="middle" fill="#fff" font-size="11">PRIVATE key — never leaves</text>
+          <text x="130" y="108" text-anchor="middle" fill="#8c8c8c" font-size="10">unlocked by biometric / PIN</text>
+        </g>
+        <!-- pairing -->
+        <text x="500" y="52" text-anchor="middle" fill="#E9BF35" font-size="22" font-weight="800">key pair</text>
+        <text x="500" y="70" text-anchor="middle" fill="#8c8c8c" font-size="10">one per site · generated at signup</text>
+        <line x1="240" y1="60" x2="760" y2="60" stroke="#2b2b2b" stroke-width="1.3" stroke-dasharray="4 4"/>
+        <!-- server side -->
+        <text x="760" y="16" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif" text-anchor="start">THE SERVER — stores only the public key</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="760" y="34" width="220" height="52" rx="9" fill="#0f1503" stroke="#81BB42"/>
+          <text x="870" y="55" text-anchor="middle" fill="#81BB42" font-size="12">🗄️ Registered credential</text>
+          <text x="870" y="74" text-anchor="middle" fill="#fff" font-size="11">PUBLIC key — safe to store</text>
+          <text x="870" y="108" text-anchor="middle" fill="#8c8c8c" font-size="10">no shared secret to steal</text>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">No shared secret exists — the <b>private key</b> stays in your device's secure hardware; the server only ever holds the matching <span class="em">public key</span>.</p>
+    </div>
+
+    <!-- 06 HOW SIGN-IN WORKS -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">06</div><div class="ctitle">How passkey sign-in works <span class="t2">— challenge → sign → verify</span></div></div>
+      <svg viewBox="0 0 1000 148" width="100%" style="display:block">
+        <line x1="90" y1="78" x2="770" y2="78" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="pkflow" d="M90,78 L770,78" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pkflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pkflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="90" cy="78" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="90" y="34" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · CHALLENGE</text>
+            <text x="90" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">server → device</text>
+            <text x="90" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">a fresh random nonce</text></g>
+          <g><circle class="tlDot" cx="316" cy="78" r="6" fill="#E9BF35" style="animation-delay:.6s"/>
+            <text x="316" y="34" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">2 · UNLOCK</text>
+            <text x="316" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">you ↔ device</text>
+            <text x="316" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">biometric / PIN</text></g>
+          <g><circle class="tlDot" cx="544" cy="78" r="6" fill="#9B5DE5" style="animation-delay:1.2s"/>
+            <text x="544" y="34" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">3 · SIGN</text>
+            <text x="544" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">private key signs</text>
+            <text x="544" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">challenge + origin</text></g>
+          <g><circle class="tlDot" cx="770" cy="78" r="6" fill="#81BB42" style="animation-delay:1.8s"/>
+            <text x="770" y="34" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">4 · VERIFY</text>
+            <text x="770" y="104" text-anchor="middle" fill="#bdbdbd" font-size="10">device → server</text>
+            <text x="770" y="118" text-anchor="middle" fill="#8c8c8c" font-size="9.5">public key checks the sig</text></g>
+        </g>
+        <text x="930" y="74" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800" font-family="Century Gothic, sans-serif">✓ in</text>
+        <text x="930" y="92" text-anchor="middle" fill="#8c8c8c" font-size="9.5" font-family="Century Gothic, sans-serif">no secret sent</text>
+      </svg>
+      <p style="margin-top:7px"><span class="em">Nothing secret is transmitted — only a signature over a one-time challenge, which the server checks with your public key.</span></p>
+    </div>
+
+    <!-- 07 WHY PHISHING-RESISTANT -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Why passkeys resist phishing</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔗</span><div><b>Bound to the origin</b> <span>— the key is tied to the site's <b>RP ID</b>. A look-alike domain can't get a valid signature.</span></div></div>
+        <div class="gx"><span class="ic">🤫</span><div><b>No code to read out</b> <span>— there's no OTP to relay and no shared secret to hand over.</span></div></div>
+        <div class="gx"><span class="ic">🗄️</span><div><b>Breach-safe server</b> <span>— a stolen database leaks only public keys, which are useless to an attacker.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 08 SYNCED vs DEVICE-BOUND -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Synced vs device-bound</div></div>
+      <div class="trio" style="grid-template-columns:1fr 1fr">
+        <div class="mini"><h4 style="color:#3AD0B0">☁️ Synced</h4><p>Roams across your devices via a provider keychain.<span class="ex">Apple · Google · 1Password</span></p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">🔐 Device-bound</h4><p>A hardware security key — the private key never leaves it.<span class="ex">YubiKey · TPM</span></p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Synced = convenient recovery · device-bound = highest assurance.</span></p>
+    </div>
+
+    <!-- 09 COMPARISON TABLE -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Side by side <span class="t2">— password vs one-time code vs passkey</span></div></div>
+      <table>
+        <tr><th>Property</th><th>Password</th><th>OTP / TOTP</th><th>Passkey</th></tr>
+        <tr><td class="k">Phishing-resistant?</td><td class="no">No</td><td class="no">No</td><td class="win">Yes</td></tr>
+        <tr><td class="k">Shared secret?</td><td class="no">Yes</td><td class="no">Yes (seed)</td><td class="win">None</td></tr>
+        <tr><td class="k">Survives a server breach?</td><td class="no">No</td><td class="no">No</td><td class="win">Yes (public key only)</td></tr>
+        <tr><td class="k">User friction</td><td>Type it</td><td>Type code</td><td class="win">Tap / biometric</td></tr>
+      </table>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas" style="grid-template-columns:1fr 1fr; gap:5px 18px">
+        <div class="gx"><span class="ic">🚪</span><div><b>Recovery is the new soft spot</b> <span>— account reset flows are where attackers now push. Harden them.</span></div></div>
+        <div class="gx"><span class="ic">🪜</span><div><b>Keep a fallback</b> <span>— a lost device shouldn't lock you out; register a backup key or passkey.</span></div></div>
+        <div class="gx"><span class="ic">🎣</span><div><b>Legacy MFA lingers</b> <span>— OTP relay &amp; push-fatigue still work if a phishable factor is left enabled.</span></div></div>
+        <div class="gx"><span class="ic">🏢</span><div><b>Attestation &amp; policy</b> <span>— enterprises may require device-bound keys and attestation to trust a credential.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">Passkeys replace the <span class="em">shared secret</span> with a <span class="em">signature bound to the real site</span> — phishing-resistant by design, not by user vigilance.</div>
+      <div class="flow2">
+        <span class="step">Challenge</span><span class="arrow">→</span>
+        <span class="step">Unlock</span><span class="arrow">→</span>
+        <span class="step">Sign</span><span class="arrow">→</span>
+        <span class="step">Verify with public key</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

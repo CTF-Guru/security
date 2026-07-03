@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OAuth/OIDC Tokens — ID vs Access vs Refresh</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="tokens-poster.gif" download>GIF</a> · <a href="tokens-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>THREE <span class="b">TOKENS</span></h1>
+  <div class="sub">ID · Access · Refresh — three tokens, three jobs, three lanes <span class="dim">(mix them up and you build a security hole)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 THREE TOKENS, THREE JOBS -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">Three tokens, three jobs <span class="t2">— who you are · what you can do · keep going</span></div></div>
+      <svg viewBox="0 0 1000 150" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif">
+          <!-- ID -->
+          <rect x="30" y="30" width="290" height="86" rx="10" fill="#0c0c0c" stroke="#5AA9EC"/>
+          <text x="175" y="56" text-anchor="middle" fill="#5AA9EC" font-size="16" font-weight="800">🪪 ID token</text>
+          <text x="175" y="80" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">WHO you are</text>
+          <text x="175" y="100" text-anchor="middle" fill="#8c8c8c" font-size="11">identity → the app</text>
+          <!-- ACCESS -->
+          <rect x="355" y="30" width="290" height="86" rx="10" fill="#0c0c0c" stroke="#FE9A3A"/>
+          <text x="500" y="56" text-anchor="middle" fill="#FE9A3A" font-size="16" font-weight="800">🎟️ Access token</text>
+          <text x="500" y="80" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">WHAT you can do</text>
+          <text x="500" y="100" text-anchor="middle" fill="#8c8c8c" font-size="11">access → the API</text>
+          <!-- REFRESH -->
+          <rect x="680" y="30" width="290" height="86" rx="10" fill="#0c0c0c" stroke="#9B5DE5"/>
+          <text x="825" y="56" text-anchor="middle" fill="#9B5DE5" font-size="16" font-weight="800">🔄 Refresh token</text>
+          <text x="825" y="80" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">KEEP GOING</text>
+          <text x="825" y="100" text-anchor="middle" fill="#8c8c8c" font-size="11">continuity → the token endpoint</text>
+          <!-- travelling dot linking all three -->
+          <path id="tk3" d="M320,73 L355,73 M645,73 L680,73" fill="none" stroke="#2b2b2b" stroke-width="1.3"/>
+          <circle r="3.2" fill="#E9BF35"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#tk3"/></animateMotion></circle>
+        </g>
+      </svg>
+      <p style="margin-top:6px" class="lead">One sign-in can hand back all three — each proves a different thing and travels to a different place.</p>
+    </div>
+
+    <!-- 02 ID TOKEN -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">02</div><div class="ctitle">ID token <span class="t2">— proves identity</span></div></div>
+      <p style="margin-bottom:6px">A signed <b>JWT</b> that answers <b>“who signed in?”</b> — an <span class="em">OIDC</span> thing, minted for your app.</p>
+      <div class="steps">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC"><b>aud</b> = the client app</span><span class="arrow">·</span>
+        <span class="step">claims: <b>sub</b> · <b>email</b></span>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">NEVER used to call an API — it's proof of identity, not a key to a resource.</span></p>
+    </div>
+
+    <!-- 03 ACCESS TOKEN -->
+    <div class="card c-orange">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Access token <span class="t2">— grants API access</span></div></div>
+      <p style="margin-bottom:6px">Sent to the API as <b>Authorization: Bearer …</b> — <span class="em">short-lived</span> (minutes).</p>
+      <div class="steps">
+        <span class="step">opaque <b>OR</b> a JWT</span><span class="arrow">·</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35"><b>aud</b> = the API</span>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">Bearer = whoever holds it, uses it. Guard it; keep the lifetime tight.</span></p>
+    </div>
+
+    <!-- 04 REFRESH TOKEN -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">Refresh token <span class="t2">— keeps the session alive</span></div></div>
+      <p style="margin-bottom:6px"><b>Long-lived.</b> Presented at the <b>/token</b> endpoint to silently mint a <span class="em">new access token</span> — no re-login.</p>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🔒</span><div><b>Store securely</b> <span>— it's the master key to fresh access.</span></div></div>
+        <div class="gx"><span class="ic">🔁</span><div><b>Rotate</b> <span>— issue a new one each use; it can be <b>revoked</b>.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 05 COMPARISON TABLE -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">05</div><div class="ctitle">Side by side <span class="t2">— the same five questions, three answers</span></div></div>
+      <table>
+        <tr><th>&nbsp;</th><th style="color:#5AA9EC">ID token</th><th style="color:#FE9A3A">Access token</th><th style="color:#9B5DE5">Refresh token</th></tr>
+        <tr><td class="k">Answers</td><td>Who you are</td><td>What you can do</td><td>Keep going</td></tr>
+        <tr><td class="k">Audience (aud)</td><td>The client app</td><td>The resource server / API</td><td>The auth server</td></tr>
+        <tr><td class="k">Lifetime</td><td>Minutes–hour</td><td class="win">Short (minutes)</td><td class="no">Long (days–months)</td></tr>
+        <tr><td class="k">Sent to</td><td>Stays in the app</td><td>The API (as Bearer)</td><td>Only the /token endpoint</td></tr>
+        <tr><td class="k">Format</td><td>JWT (signed)</td><td>Opaque or JWT</td><td>Opaque, secret</td></tr>
+      </table>
+    </div>
+
+    <!-- 06 TOKEN LIFECYCLE -->
+    <div class="card span2 c-purple">
+      <div class="chead"><div class="num">06</div><div class="ctitle">The token lifecycle <span class="t2">— sign in once, refresh silently, revoke to end it</span></div></div>
+      <svg viewBox="0 0 1000 176" width="100%" style="display:block">
+        <line x1="50" y1="92" x2="950" y2="92" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="tkflow" d="M50,92 L950,92" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#tkflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#tkflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="90" cy="92" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="90" y="44" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · sign in</text>
+            <text x="90" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">user authenticates</text>
+            <text x="90" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">at the auth server</text></g>
+          <g><circle class="tlDot" cx="262" cy="92" r="6" fill="#3AD0B0" style="animation-delay:.4s"/>
+            <text x="262" y="44" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">2 · issued</text>
+            <text x="262" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">id + access + refresh</text>
+            <text x="262" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">from /token</text></g>
+          <g><circle class="tlDot" cx="434" cy="92" r="6" fill="#FE9A3A" style="animation-delay:.8s"/>
+            <text x="434" y="44" text-anchor="middle" fill="#FE9A3A" font-size="12" font-weight="800">3 · access expires</text>
+            <text x="434" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">API returns 401</text>
+            <text x="434" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">short-lived, by design</text></g>
+          <g><circle class="tlDot" cx="606" cy="92" r="6" fill="#9B5DE5" style="animation-delay:1.2s"/>
+            <text x="606" y="44" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">4 · present refresh</text>
+            <text x="606" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">client → /token</text>
+            <text x="606" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">grant_type=refresh_token</text></g>
+          <g><circle class="tlDot" cx="778" cy="92" r="6" fill="#81BB42" style="animation-delay:1.6s"/>
+            <text x="778" y="44" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">5 · new access</text>
+            <text x="778" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">+ rotated refresh</text>
+            <text x="778" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">silently — loop 3→5</text></g>
+          <g><circle class="tlDot" cx="928" cy="92" r="6" fill="#FF5A4D" style="animation-delay:2s"/>
+            <text x="928" y="44" text-anchor="middle" fill="#FF5A4D" font-size="12" font-weight="800">6 · revoke / logout</text>
+            <text x="928" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">refresh killed</text>
+            <text x="928" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">session ends</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:7px"><span class="em">The refresh token is the loop — steps 3→5 repeat until it's revoked or the user logs out.</span></p>
+    </div>
+
+    <!-- 07 ON THE WIRE -->
+    <div class="card span2 c-gold">
+      <div class="chead"><div class="num">07</div><div class="ctitle">On the wire <span class="t2">— one /token response, all three tokens</span></div></div>
+      <div class="wire">
+<span class="cm">// /token response — the auth server hands back all three at once</span><br>
+{ <span class="key">"token_type"</span>: <span class="str">"Bearer"</span>, <span class="key">"expires_in"</span>: <span class="num2">3600</span>,<br>
+&nbsp;&nbsp;<span class="key">"access_token"</span>: <span class="str">"eyJhbGc…"</span>, <span class="cm">// → send to the API as Bearer</span><br>
+&nbsp;&nbsp;<span class="key">"id_token"</span>: <span class="str">"eyJhbGc…&lt;JWT&gt;"</span>, <span class="cm">// → who signed in (stays in the app)</span><br>
+&nbsp;&nbsp;<span class="key">"refresh_token"</span>: <span class="str">"tGzv3JOk…"</span> <span class="cm">// → keep; only ever back to /token</span> }
+      </div>
+    </div>
+
+    <!-- 08 WHERE EACH GOES -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Where each one goes</div></div>
+      <svg viewBox="0 0 480 150" width="100%" style="display:block">
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="180" y="10" width="120" height="30" rx="7" fill="#0c0c0c" stroke="#3AD0B0"/><text x="240" y="29" text-anchor="middle" fill="#3AD0B0">the client app</text>
+          <rect x="20" y="110" width="120" height="30" rx="7" fill="#1a1305" stroke="#E9BF35"/><text x="80" y="129" text-anchor="middle" fill="#E9BF35">/token endpoint</text>
+          <rect x="340" y="110" width="120" height="30" rx="7" fill="#0c0c0c" stroke="#FE9A3A"/><text x="400" y="129" text-anchor="middle" fill="#FE9A3A">the API</text>
+          <!-- ID stays in app -->
+          <path d="M240,40 a26,26 0 1 1 -1,0" fill="none" stroke="#5AA9EC" stroke-width="1.4"/>
+          <text x="240" y="72" text-anchor="middle" fill="#5AA9EC" font-size="10">ID stays here</text>
+          <!-- refresh → token endpoint -->
+          <path id="tkR" d="M180,32 L80,110" fill="none" stroke="#9B5DE5" stroke-width="1.4"/>
+          <circle r="3" fill="#9B5DE5"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#tkR"/></animateMotion></circle>
+          <text x="96" y="80" text-anchor="middle" fill="#9B5DE5" font-size="10">refresh</text>
+          <!-- access → API -->
+          <path id="tkA" d="M300,32 L400,110" fill="none" stroke="#FE9A3A" stroke-width="1.4"/>
+          <circle r="3" fill="#FE9A3A"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#tkA"/></animateMotion></circle>
+          <text x="384" y="80" text-anchor="middle" fill="#FE9A3A" font-size="10">access · Bearer</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 09 IN A SENTENCE -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">09</div><div class="ctitle">In one sentence each</div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">🪪 ID</h4><p>Read it to know <b>who</b> logged in.<span class="ex">aud = your app</span></p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">🎟️ Access</h4><p>Attach it to <b>call the API</b>.<span class="ex">Authorization: Bearer</span></p></div>
+        <div class="mini"><h4 style="color:#9B5DE5">🔄 Refresh</h4><p>Trade it for a <b>fresh access</b> token.<span class="ex">POST /token</span></p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Keep each token in its own lane and the model stays simple.</span></p>
+    </div>
+
+    <!-- 10 WATCH OUT -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">10</div><div class="ctitle">Watch out <span class="t2">— the classic token mistakes</span></div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🚫</span><div><b>ID token to an API</b> <span>— its <b>aud</b> is your app, not the API; the API will (rightly) reject it.</span></div></div>
+        <div class="gx"><span class="ic">🎭</span><div><b>Access token as identity</b> <span>— it proves access, not who the user is. Use the ID token to log in.</span></div></div>
+        <div class="gx"><span class="ic">🥷</span><div><b>Refresh-token theft</b> <span>— <b>rotate</b> on every use and <b>detect reuse</b>: a replayed old token means it was stolen.</span></div></div>
+        <div class="gx"><span class="ic">⏳</span><div><b>Access tokens living too long</b> <span>— a leaked one is valid until it expires. Keep it minutes, not days.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">Three tokens, three jobs — <span class="em">identity</span> (ID) · <span class="em">access</span> (Access) · <span class="em">continuity</span> (Refresh). Keep them in their lanes.</div>
+      <div class="flow2">
+        <span class="step">ID → the app</span><span class="arrow">·</span>
+        <span class="step">Access → the API</span><span class="arrow">·</span>
+        <span class="step">Refresh → /token only</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>

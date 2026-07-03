@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Trust — Never Trust, Always Verify</title>
+<link rel="stylesheet" href="poster.css">
+</head>
+<body>
+<div class="back-bar"><a href="index.html">← Gallery</a></div>
+<div class="dl-bar">⬇ <a href="zero-trust-poster.gif" download>GIF</a> · <a href="zero-trust-poster.png" download>PNG</a></div>
+<div class="poster">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="kicker">Security · field guide</div>
+  <h1>ZERO <span class="b">TRUST</span></h1>
+  <div class="sub">Never trust, always verify — the network perimeter is gone, so <b>location grants no trust</b> <span class="dim">(NIST SP 800-207 · CISA Zero Trust Maturity Model)</span></div>
+  <div class="byline">
+    <div class="brandmark"><span class="logo">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="who">· security explainer series</div>
+    <div class="badge">v2026.06</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 THE SHIFT -->
+    <div class="card span2 c-blue">
+      <div class="chead"><div class="num">01</div><div class="ctitle">The perimeter is gone <span class="t2">— old castle-and-moat vs zero trust</span></div></div>
+      <svg viewBox="0 0 1000 152" width="100%" style="display:block">
+        <!-- BEFORE: castle-and-moat -->
+        <text x="20" y="16" fill="#FF5A4D" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">OLD MODEL — trust the internal network</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="20" y="30" width="430" height="90" rx="10" fill="#0c0c0c" stroke="#FF5A4D" stroke-dasharray="4 4"/>
+          <text x="235" y="47" text-anchor="middle" fill="#FF5A4D" font-size="10.5">the “trusted” LAN — one hard shell</text>
+          <rect x="48" y="60" width="86" height="26" rx="6" fill="#121212" stroke="#2b2b2b"/><text x="91" y="77" text-anchor="middle" fill="#fff" font-size="10">app</text>
+          <rect x="192" y="60" width="86" height="26" rx="6" fill="#121212" stroke="#2b2b2b"/><text x="235" y="77" text-anchor="middle" fill="#fff" font-size="10">db</text>
+          <rect x="336" y="60" width="86" height="26" rx="6" fill="#121212" stroke="#2b2b2b"/><text x="379" y="77" text-anchor="middle" fill="#fff" font-size="10">files</text>
+          <!-- lateral movement once inside -->
+          <g class="mess" stroke="#FF5A4D" stroke-width="1.4"><line x1="134" y1="73" x2="192" y2="73"/><line x1="278" y1="73" x2="336" y2="73"/></g>
+          <text x="235" y="104" text-anchor="middle" fill="#FF5A4D" font-size="10">once inside → roam freely 🔥</text>
+        </g>
+        <text x="500" y="78" text-anchor="middle" fill="#E9BF35" font-size="30" font-weight="800">→</text>
+        <!-- AFTER: zero trust -->
+        <text x="560" y="16" fill="#81BB42" font-size="13" font-weight="700" font-family="Century Gothic, sans-serif">ZERO TRUST — verify at every resource</text>
+        <g font-family="Century Gothic, sans-serif" font-size="11" font-weight="700">
+          <rect x="560" y="60" width="88" height="26" rx="6" fill="#0f1408" stroke="#81BB42"/><text x="604" y="77" text-anchor="middle" fill="#81BB42" font-size="10">app 🔒</text>
+          <rect x="700" y="60" width="88" height="26" rx="6" fill="#0f1408" stroke="#81BB42"/><text x="744" y="77" text-anchor="middle" fill="#81BB42" font-size="10">db 🔒</text>
+          <rect x="840" y="60" width="120" height="26" rx="6" fill="#0f1408" stroke="#81BB42"/><text x="900" y="77" text-anchor="middle" fill="#81BB42" font-size="10">files 🔒</text>
+          <text x="760" y="47" text-anchor="middle" fill="#8c8c8c" font-size="10">each request checked · no free roaming</text>
+          <text x="760" y="104" text-anchor="middle" fill="#81BB42" font-size="10">micro-segmented · least privilege ✓</text>
+        </g>
+      </svg>
+      <p style="margin-top:8px" class="lead">Cloud, remote work, and SaaS erased the network edge — being “on the LAN” or on the VPN grants <b>no</b> implicit trust.</p>
+    </div>
+
+    <!-- 02 THREE PRINCIPLES -->
+    <div class="card span2 c-teal">
+      <div class="chead"><div class="num">02</div><div class="ctitle">Three core principles <span class="t2">— NIST SP 800-207</span></div></div>
+      <div class="trio">
+        <div class="mini"><h4 style="color:#5AA9EC">🔎 Verify explicitly</h4><p>Authenticate &amp; authorize on <b>every</b> access using all signals — identity, device, context.</p></div>
+        <div class="mini"><h4 style="color:#3AD0B0">🎚️ Least-privilege access</h4><p>Grant the minimum needed, just-in-time. No standing, broad access.</p></div>
+        <div class="mini"><h4 style="color:#FE9A3A">💥 Assume breach</h4><p>Act as if attackers are already inside — segment, monitor, and limit blast radius.</p></div>
+      </div>
+      <p style="margin-top:9px"><span class="em">Trust is never granted by network location — it is earned, per request, and re-checked.</span></p>
+    </div>
+
+    <!-- 03 VERIFY EVERY REQUEST -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">03</div><div class="ctitle">Verify on every request</div></div>
+      <p style="margin-bottom:7px">Not a one-time login — each access recomputes trust from live signals:</p>
+      <div class="steps">
+        <span class="step" style="border-color:#1e3a52;color:#5AA9EC">identity</span><span class="arrow" style="color:#8c8c8c">+</span>
+        <span class="step" style="border-color:#143b33;color:#3AD0B0">device posture</span><span class="arrow" style="color:#8c8c8c">+</span>
+        <span class="step" style="border-color:#3a2d08;color:#E9BF35">context</span>
+      </div>
+      <p style="margin-top:9px">Context = <b>location · risk score · time · behaviour</b> → a fresh policy decision each time.</p>
+    </div>
+
+    <!-- 04 THE PILLARS -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">04</div><div class="ctitle">The pillars <span class="t2">— CISA ZTMM</span></div></div>
+      <div class="chips">
+        <span class="chip">Identity</span><span class="chip">Devices</span><span class="chip">Networks</span><span class="chip">Applications</span><span class="chip">Data</span>
+      </div>
+      <p style="margin-top:9px">Five pillars, cut across by three foundations:</p>
+      <div class="chips" style="margin-top:5px">
+        <span class="chip" style="border-color:#2a2410;color:#E9BF35">Visibility &amp; analytics</span><span class="chip" style="border-color:#2a2410;color:#E9BF35">Automation</span><span class="chip" style="border-color:#2a2410;color:#E9BF35">Governance</span>
+      </div>
+    </div>
+
+    <!-- 05 THE DECISION FLOW -->
+    <div class="card span2 c-orange">
+      <div class="chead"><div class="num">05</div><div class="ctitle">The decision flow <span class="t2">— PDP evaluates policy, PEP enforces it, per session</span></div></div>
+      <svg viewBox="0 0 1000 176" width="100%" style="display:block">
+        <line x1="50" y1="92" x2="950" y2="92" stroke="#2b2b2b" stroke-width="2"/>
+        <path id="ztflow" d="M50,92 L950,92" fill="none" stroke="none"/>
+        <circle r="6" fill="#E9BF35" opacity=".28"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#ztflow"/></animateMotion></circle>
+        <circle r="3.4" fill="#fff"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#ztflow"/></animateMotion></circle>
+        <g font-family="Century Gothic, sans-serif">
+          <g><circle class="tlDot" cx="90" cy="92" r="6" fill="#5AA9EC" style="animation-delay:0s"/>
+            <text x="90" y="44" text-anchor="middle" fill="#5AA9EC" font-size="12" font-weight="800">1 · request</text>
+            <text x="90" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">user + device</text>
+            <text x="90" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">wants a resource</text></g>
+          <g><circle class="tlDot" cx="305" cy="92" r="6" fill="#3AD0B0" style="animation-delay:.5s"/>
+            <text x="305" y="44" text-anchor="middle" fill="#3AD0B0" font-size="12" font-weight="800">2 · PDP</text>
+            <text x="305" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">Policy Decision Point</text>
+            <text x="305" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">identity · device · context</text></g>
+          <g><circle class="tlDot" cx="520" cy="92" r="6" fill="#E9BF35" style="animation-delay:1s"/>
+            <text x="520" y="44" text-anchor="middle" fill="#E9BF35" font-size="12" font-weight="800">3 · evaluate policy</text>
+            <text x="520" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">signals vs rules</text>
+            <text x="520" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">risk-based</text></g>
+          <g><circle class="tlDot" cx="735" cy="92" r="6" fill="#9B5DE5" style="animation-delay:1.5s"/>
+            <text x="735" y="44" text-anchor="middle" fill="#9B5DE5" font-size="12" font-weight="800">4 · PEP</text>
+            <text x="735" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">Policy Enforcement Point</text>
+            <text x="735" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">allow ✓ or deny ✕</text></g>
+          <g><circle class="tlDot" cx="928" cy="92" r="6" fill="#81BB42" style="animation-delay:2s"/>
+            <text x="928" y="44" text-anchor="middle" fill="#81BB42" font-size="12" font-weight="800">5 · resource</text>
+            <text x="928" y="118" text-anchor="middle" fill="#bdbdbd" font-size="10">app · data · service</text>
+            <text x="928" y="132" text-anchor="middle" fill="#8c8c8c" font-size="9.5">access is per-session</text></g>
+        </g>
+      </svg>
+      <p style="margin-top:7px"><span class="em">Continuous &amp; per-session — the same request later can be denied as risk changes.</span></p>
+    </div>
+
+    <!-- 06 MICROSEGMENTATION -->
+    <div class="card c-green">
+      <div class="chead"><div class="num">06</div><div class="ctitle">Microsegmentation</div></div>
+      <p style="margin-bottom:7px">No flat network. Each resource sits in its own tiny segment with its own policy:</p>
+      <div class="steps">
+        <span class="step">per-resource segments</span><span class="arrow">→</span>
+        <span class="step">no lateral movement</span>
+      </div>
+      <p style="margin-top:9px"><span class="em">A breach is boxed in — one compromised host can't roam. Blast radius shrinks.</span></p>
+    </div>
+
+    <!-- 07 LEAST PRIVILEGE + CONTINUOUS -->
+    <div class="card c-blue">
+      <div class="chead"><div class="num">07</div><div class="ctitle">Least privilege, continuously</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🎚️</span><div><b>Minimal &amp; per-session</b> <span>— just enough access, just-in-time. No standing admin rights.</span></div></div>
+        <div class="gx"><span class="ic">🔁</span><div><b>Re-evaluated</b> <span>— access is revisited as risk, device health, or context shifts.</span></div></div>
+      </div>
+      <p style="margin-top:8px"><span class="dim" style="color:#8c8c8c">A session trusted a minute ago can be dropped the moment signals turn risky.</span></p>
+    </div>
+
+    <!-- 08 PERIMETER vs ZERO TRUST -->
+    <div class="card span2 c-red">
+      <div class="chead"><div class="num">08</div><div class="ctitle">Castle-and-moat vs Zero Trust <span class="t2">— what changes</span></div></div>
+      <table>
+        <tr><th>Question</th><th>Castle-and-moat</th><th>Zero Trust</th></tr>
+        <tr><td class="k">Trust from network location</td><td class="no">Inside = trusted</td><td class="win">None — verify anyway</td></tr>
+        <tr><td class="k">Lateral movement</td><td class="no">Free once inside</td><td class="win">Blocked by segments</td></tr>
+        <tr><td class="k">Blast radius of a breach</td><td class="no">Whole network</td><td class="win">One segment</td></tr>
+        <tr><td class="k">Verification</td><td class="no">Once, at the edge</td><td class="win">Every request, per session</td></tr>
+      </table>
+    </div>
+
+    <!-- 09 WATCH OUT -->
+    <div class="card c-gold">
+      <div class="chead"><div class="num">09</div><div class="ctitle">Watch out</div></div>
+      <div class="gotchas">
+        <div class="gx"><span class="ic">🛒</span><div><b>Not a product</b> <span>— Zero Trust is an <b>architecture</b> and a journey, not a box you buy.</span></div></div>
+        <div class="gx"><span class="ic">🪪</span><div><b>Identity is the foundation</b> <span>— get strong auth &amp; MFA right first; everything builds on it.</span></div></div>
+        <div class="gx"><span class="ic">💻</span><div><b>Don't skip device &amp; data</b> <span>— posture and data-level controls matter as much as identity.</span></div></div>
+        <div class="gx"><span class="ic">🐢</span><div><b>Big-bang rollouts fail</b> <span>— go incrementally, pillar by pillar, highest-risk first.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 ON THE POLICY -->
+    <div class="card c-purple">
+      <div class="chead"><div class="num">10</div><div class="ctitle">A policy, in the abstract</div></div>
+      <div class="wire">
+<span class="cm">// PDP decision — every signal must pass, every time</span><br>
+<b>ALLOW</b> if <span class="key">identity</span> = <span class="str">verified + MFA</span> <span class="cm">&amp;&amp;</span> <span class="key">device</span> = <span class="str">managed + healthy</span><br>
+&nbsp;&nbsp;<span class="cm">&amp;&amp;</span> <span class="key">context.risk</span> &lt; <span class="num2">threshold</span> <span class="cm">&amp;&amp;</span> <span class="key">access</span> = <span class="str">least-privilege</span><br>
+<span class="cm">// otherwise → DENY  (re-evaluated continuously, per session)</span>
+      </div>
+    </div>
+
+    <!-- 11 TAKEAWAY -->
+    <div class="card span2 takeaway c-gold">
+      <div class="chead"><div class="num">11</div><div class="ctitle">The takeaway</div></div>
+      <div class="big">Trust <span class="em">nothing</span> by default — verify <span class="em">identity, device, and context</span> on every request, and <span class="em">assume breach</span>.</div>
+      <div class="flow2">
+        <span class="step">Never trust</span><span class="arrow">→</span>
+        <span class="step">Verify explicitly</span><span class="arrow">→</span>
+        <span class="step">Least privilege</span><span class="arrow">→</span>
+        <span class="step">Assume breach</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="brandmark" style="font-size:13px"><span class="logo" style="width:22px;height:22px;font-size:11px;border-radius:5px">CTF</span> Farooq&nbsp;Ali</div>
+    <div class="sig" style="margin-left:auto"><a href="https://ctf.guru" style="color:var(--gold);text-decoration:none;font-weight:700">ctf.guru</a> · security explainer series · 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
