@@ -147,3 +147,11 @@
 .back-bar a{ color:var(--gold); text-decoration:none; font-weight:700 }
 .back-bar a:hover{ text-decoration:underline }
 @media print{ .back-bar{ display:none } }
+
+/* ---- published-view only: fit-to-width scaling for phones/tablets (added by tools/publish.py) ---- */
+html,body{ overflow-x:hidden }
+.stage{ margin:0 auto }
+.stage > .poster{ transform-origin:top left }
+@media (max-width:1180px){ .stage{ margin-top:46px } }   /* clear the fixed corner pills */
+@media print{ .stage{ width:auto!important; height:auto!important; margin:0 auto!important }
+              .stage > .poster{ transform:none!important } }

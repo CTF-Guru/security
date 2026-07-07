@@ -13,7 +13,7 @@
   .wrap{ max-width:1200px; margin:0 auto }
   header{ border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:16px }
   .kick{ font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); font-weight:700 }
-  h1{ font-size:2rem; margin:.3rem 0 .25rem }
+  h1{ font-size:clamp(1.55rem,5.5vw,2rem); margin:.3rem 0 .25rem }
   .sub{ color:var(--muted); font-size:.95rem }
   .sub b{ color:var(--gold); font-weight:700 }
 
@@ -38,7 +38,7 @@
   .grp.on{ background:var(--panel) }
 
   .gbody{ padding:2px 18px 18px; display:flex; gap:12px; overflow-x:auto; scrollbar-width:thin }
-  .grp.on .gbody{ display:grid; grid-template-columns:repeat(auto-fill,minmax(212px,1fr)); overflow:visible }
+  .grp.on .gbody{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr)); overflow:visible }
 
   .card{ flex:0 0 212px; background:var(--panel); border:1px solid var(--line); border-radius:11px; overflow:hidden;
          display:flex; flex-direction:column }
@@ -72,6 +72,16 @@
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 52'><defs><linearGradient id='s' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%233b5168'/><stop offset='1' stop-color='%231a2530'/></linearGradient></defs><path d='M7 5 H41 Q43 5 43 7 V27 Q43 40 24 48 Q5 40 5 27 V7 Q5 5 7 5 Z' fill='url(%23s)' stroke='%235AA9EC' stroke-width='2'/><text x='24' y='32' text-anchor='middle' font-family='Century Gothic, Futura, sans-serif' font-size='16' font-weight='800' letter-spacing='0.5' fill='%23ffffff'>CTF</text></svg>") }
   footer .fbrand .tag{ color:var(--dim); font-weight:600; font-size:.75rem }
   footer .fmeta a{ color:var(--gold); text-decoration:none; font-weight:700 }
+
+  @media (max-width:600px){
+    body{ padding:28px 14px 64px }
+    .tabs{ gap:6px; margin:14px 0 18px }
+    .tab{ font-size:.76rem; padding:6px 11px }
+    .ghead{ padding:12px 14px; gap:10px; flex-wrap:wrap }
+    .ghead .gd{ flex-basis:100%; order:3 }
+    .gbody{ padding:2px 12px 14px }
+    footer{ flex-direction:column; align-items:flex-start; gap:6px }
+  }
 </style>
 </head>
 <body>

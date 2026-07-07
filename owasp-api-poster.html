@@ -9,6 +9,7 @@
 <body>
 <div class="back-bar"><a href="index.html">← Gallery</a></div>
 <div class="dl-bar">⬇ <a href="owasp-api-poster.gif" download>GIF</a> · <a href="owasp-api-poster.png" download>PNG</a></div>
+<div class="stage">
 <div class="poster">
 
   <!-- ================= MASTHEAD ================= -->
@@ -210,5 +211,9 @@
   </div>
 
 </div>
+</div>
+<script>
+(function(){var p=document.querySelector(".stage > .poster");if(!p)return;var s=p.parentNode;function fit(){var W=p.offsetWidth||1080,vw=document.documentElement.clientWidth,k=Math.min(1,(vw-16)/W);p.style.transform=k<1?"scale("+k+")":"";s.style.width=(W*k)+"px";s.style.height=(p.offsetHeight*k)+"px";}addEventListener("resize",fit);addEventListener("load",fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(p);fit();})();
+</script>
 </body>
 </html>
