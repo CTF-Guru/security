@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='3 3 42 47'><defs><linearGradient id='s' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%233b5168'/><stop offset='1' stop-color='%231a2530'/></linearGradient></defs><path d='M7 5 H41 Q43 5 43 7 V27 Q43 40 24 48 Q5 40 5 27 V7 Q5 5 7 5 Z' fill='url(%23s)' stroke='%235AA9EC' stroke-width='2'/><text x='24' y='33' text-anchor='middle' font-family='Century Gothic,Futura,sans-serif' font-size='18' font-weight='800' fill='%23ffffff'>CTF</text></svg>">
 <title>Security — Visual Explainer Library</title>
 <style>
   :root{ --bg:#0b0b0b; --panel:#141414; --panel2:#0e0e0e; --line:#2b2b2b; --ink:#fff; --muted:#bdbdbd; --dim:#8c8c8c;
@@ -221,6 +222,7 @@ groupsEl.innerHTML = GROUPS.map(groupHTML).join('');
 function setActive(id){
   const sec = document.getElementById('g-'+id);
   if(!sec) return;
+  try{ sessionStorage.setItem('ctf-group', id); }catch(e){}   // remember, so returning restores it
   groupsEl.querySelectorAll('.grp').forEach(s=>s.classList.remove('on'));
   tabsEl.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on', t.dataset.id===id));
   sec.classList.add('on');
@@ -230,7 +232,13 @@ function setActive(id){
 tabsEl.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setActive(t.dataset.id)));
 groupsEl.querySelectorAll('.ghead').forEach(h=>h.addEventListener('click',()=>setActive(h.dataset.id)));
 
-setActive((location.hash||'#identity').slice(1));
+// pick the group: URL hash (e.g. a shared #grc link) wins, else the last one viewed this
+// session (so returning from a poster restores it), else the default.
+(function(){
+  let saved=''; try{ saved=sessionStorage.getItem('ctf-group')||''; }catch(e){}
+  const id=(location.hash?location.hash.slice(1):'') || saved || 'identity';
+  setActive(document.getElementById('g-'+id) ? id : 'identity');
+})();
 </script>
 </body>
 </html>
