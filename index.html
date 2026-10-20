@@ -71,6 +71,8 @@
                 text-transform:uppercase; padding:3px 7px; border-radius:6px; background:rgba(0,0,0,.7); border:1px solid var(--line) }
   .flag.live{ color:var(--green); border-color:#2c3b1c }
   .flag.soon{ color:var(--dim) }
+  .flag.ref{ color:var(--gold); border-color:#4a3d12 }
+  .crow .kind{ color:var(--dim); font-size:.72rem; font-weight:700 }
   .cb{ padding:10px 12px 11px; display:flex; flex-direction:column; gap:5px; flex:1 }
   .ct{ font-weight:800; font-size:.9rem; line-height:1.28 }
   .cx{ color:var(--dim); font-size:.74rem; margin-top:auto }
@@ -145,6 +147,7 @@ const GROUPS = [
     { title:'CTEM — Continuous Threat Exposure', slug:'ctem', live:true },
   ]},
   { id:'owasp', name:'OWASP — Web to AI', ac:'var(--purple)', desc:'What goes wrong in apps, APIs, LLMs, and agents.', items:[
+    { title:'OWASP Top 10 Lists — Cheatsheet', slug:'owasp-top10-lists', live:true, kind:'ref' },
     { title:'OWASP Top 10:2025', slug:'owasp-top10', live:true },
     { title:'OWASP API Top 10', slug:'owasp-api', live:true },
     { title:'OWASP LLM Top 10:2025', slug:'owasp-llm', live:true },
@@ -189,6 +192,16 @@ const GROUPS = [
 ];
 
 function cardHTML(it){
+  // kind:'ref' = an interactive reference page (<slug>-reference.html): no GIF/PNG downloads
+  if(it.kind==='ref'){
+    return '<div class="card">'
+      + '<a class="cardlink" href="'+it.slug+'-reference.html">'
+      + '<div class="thumb"><img src="'+it.slug+'-reference.png" alt=""><span class="flag ref">Reference</span></div>'
+      + '<div class="cb"><div class="ct">'+it.title+'</div></div></a>'
+      + '<div class="crow"><a class="open" href="'+it.slug+'-reference.html">Open ↗</a>'
+      + '<span class="kind">interactive</span></div>'
+      + '</div>';
+  }
   if(it.live){
     return '<div class="card">'
       + '<a class="cardlink" href="'+it.slug+'-poster.html">'
